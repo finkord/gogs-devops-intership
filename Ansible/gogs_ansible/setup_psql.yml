@@ -1,0 +1,6 @@
+---
+- name: Setup PostgreSQL Servers
+  hosts: psql
+  become: yes
+  roles:
+    - psql

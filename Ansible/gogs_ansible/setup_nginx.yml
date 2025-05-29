@@ -1,0 +1,6 @@
+---
+- name: Setup Nginx Reverse Proxy Server
+  hosts: nginx
+  become: yes
+  roles:
+    - nginx

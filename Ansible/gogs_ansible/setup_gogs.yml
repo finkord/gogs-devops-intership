@@ -1,0 +1,6 @@
+---
+- name: Setup Gogs Server
+  hosts: gogs
+  become: yes
+  roles:
+    - gogs

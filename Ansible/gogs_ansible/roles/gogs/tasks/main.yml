@@ -1,0 +1,42 @@
+---
+# tasks file for roles/gogs
+- name: Create git user for gogs
+  ansible.builtin.user:
+    name: git
+    comment: Gogs
+    create_home: yes
+
+- name: Download Gogs Binary tarball
+  ansible.builtin.get_url:
+    url: "{{ gogs_tarball }}"
+    dest: /tmp/gogs.tar.gz
+
+- name: Extract Gogs Binary tarball
+  ansible.builtin.unarchive:
+    src: /tmp/gogs.tar.gz
+    dest: "{{ home_dir }}"
+    remote_src: yes
+    owner: git
+    group: git
+
+- name: Add systemd service
+  ansible.builtin.copy:
+    src: "{{gogs_dir}}scripts/systemd/gogs.service"
+    dest: /etc/systemd/system/
+    remote_src: yes
+
+- name: Ensure custom config directory exists
+  ansible.builtin.file:
+    path: /home/git/gogs/custom/conf
+    state: directory
+    owner: git
+    group: git
+    mode: "0755"
+
+- name: Deploy custom app.ini
+  ansible.builtin.template:
+    src: app.ini.j2
+    dest: "{{ gogs_dir }}custom/conf/app.ini"
+    owner: git
+    group: git
+  notify: Start Gogs service

@@ -1,0 +1,54 @@
+---
+# tasks file for roles/psql
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+  changed_when: false
+
+- name: Install Python PostgreSQL library (psycopg2)
+  ansible.builtin.apt:
+    name: python3-psycopg2
+    state: present
+
+- name: Install PostgreSQL server and client packages
+  ansible.builtin.apt:
+    name:
+      - postgresql
+      - postgresql-client
+    state: present
+  notify: "Start PostgreSQL"
+
+- name: Deploy custom postgresql.conf with Gogs IPs
+  ansible.builtin.template:
+    src: postgresql.conf.j2
+    dest: "{{ postgresql_conf_file }}"
+    owner: postgres
+    group: postgres
+    mode: "0640"
+
+- name: Collect gogs IPs from inventory
+  set_fact:
+    gogs_ips: "{{ groups['gogs'] }}"
+
+- name: Deploy custom pg_hba.conf with Gogs IPs
+  ansible.builtin.template:
+    src: pg_hba.conf.j2
+    dest: "{{ postgresql_hba_file }}"
+    owner: postgres
+    group: postgres
+    mode: "0640"
+  notify: Restart PostgreSQL
+
+- name: Ensure PostgreSQL user '{{ postgres_gogs_user_name }}' exists
+  become_user: postgres
+  community.postgresql.postgresql_user:
+    name: "{{ postgres_gogs_user_name }}"
+    password: "{{ postgres_gogs_user_password }}"
+    role_attr_flags: CREATEDB
+
+- name: Ensure PostgreSQL database '{{ postgres_gogs_db_name }}' exists
+  become_user: postgres
+  community.postgresql.postgresql_db:
+    name: "{{ postgres_gogs_db_name }}"
+    owner: "{{ postgres_gogs_user_name }}"
+    state: present

@@ -1,0 +1,5 @@
+---
+# vars file for group_vars/psql
+postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
+postgres_gogs_user_password: "{{ vault_postgres_gogs_user_password }}"
+postgres_gogs_db_name: "{{ vault_postgres_gogs_db_name }}"
