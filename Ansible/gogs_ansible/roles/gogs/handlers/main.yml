@@ -1,13 +1,8 @@
 ---
 # handlers file for roles/gogs
-- name: Restart Gogs service
-  ansible.builtin.systemd:
+- name: Reload systemd and restart Gogs service
+  ansible.builtin.systemd_service:
     name: gogs
     state: restarted
-
-- name: Start Gogs service
-  ansible.builtin.systemd:
-    daemon-reload: true
-    name: gogs
-    state: started
+    daemon_reload: true
     enabled: true

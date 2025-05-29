@@ -1,7 +1,7 @@
 upstream gogs {
     hash $remote_addr consistent;
     {% for ip in gogs_ips %}
-    server {{ ip }}
+    server {{ ip }}:3000;
     {% endfor %}
 }
 

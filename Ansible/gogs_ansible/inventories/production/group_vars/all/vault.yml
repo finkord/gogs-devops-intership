@@ -1,5 +1,6 @@
 ---
-# Vault file for group_vars/psql
+# Vault file
 vault_postgres_gogs_user_name: "gogs"
-vault_postgres_gogs_user_password: "gogspassword"
 vault_postgres_gogs_db_name: "gogs"
+vault_postgres_gogs_user_password: "g32321oGs#sdfsq!"
+vault_postgres_postgres_user_password: "Gfsd!r323Esd#212"

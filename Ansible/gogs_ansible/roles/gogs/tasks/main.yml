@@ -39,4 +39,4 @@
     dest: "{{ gogs_dir }}custom/conf/app.ini"
     owner: git
     group: git
-  notify: Start Gogs service
+  notify: Reload systemd and restart Gogs service

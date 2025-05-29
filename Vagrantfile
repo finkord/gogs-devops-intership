@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
     psql.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
  
     psql.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update -y
+    # sudo apt-get update -y
     mkdir -p /home/vagrant/.ssh 
     chmod 700 /home/vagrant/.ssh 
     cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
@@ -70,7 +70,7 @@ Vagrant.configure("2") do |config|
     splunk.vm.synced_folder "./Splunk/", "/home/vagrant/splunk/"
  
     splunk.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update -y
+    # sudo apt-get update -y
     mkdir -p /home/vagrant/.ssh 
     chmod 700 /home/vagrant/.ssh 
     cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
@@ -193,7 +193,7 @@ Vagrant.configure("2") do |config|
     nginx.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
 
     nginx.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update -y
+    # sudo apt-get update -y
     mkdir -p /home/vagrant/.ssh 
     chmod 700 /home/vagrant/.ssh 
     cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
@@ -201,7 +201,7 @@ Vagrant.configure("2") do |config|
     sudo chown -R vagrant:vagrant /home/vagrant/.ssh
     SHELL
   end 
-  # Gogs Servers Configuration 192.168.128.31:3001 && 192.168.128.32:3002
+  # Gogs Servers Configuration 192.168.128.32:3001 && 192.168.128.33:3002
   (1..2).each do |i|
     config.vm.define "gogs#{i}" do |node|
       # ==================================== #

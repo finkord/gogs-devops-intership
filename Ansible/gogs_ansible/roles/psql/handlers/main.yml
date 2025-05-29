@@ -1,12 +1,8 @@
 ---
 # handlers file for roles/psql
-- name: Restart PostgreSQL
+- name: Reload systemd and Restart PostgreSQL
   ansible.builtin.systemd:
     name: postgresql
     state: restarted
-
-- name: Start PostgreSQL
-  ansible.builtin.systemd:
-    name: postgresql
-    enabled: yes
-    state: started
+    daemon_reload: true
+    enabled: true

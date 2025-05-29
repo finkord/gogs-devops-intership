@@ -1,2 +1,6 @@
 ---
 # defaults file for roles/psql
+postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
+postgres_gogs_db_name: "{{ vault_postgres_gogs_db_name }}"
+postgres_gogs_user_password: "{{ vault_postgres_gogs_user_password }}"
+postgres_postgres_user_password: "{{ vault_postgres_postgres_user_password }}"
