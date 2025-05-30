@@ -1,0 +1,46 @@
+---
+# tasks file for splunk
+- name: Download and unarchive Splunk tarball
+  ansible.builtin.unarchive:
+    src: https://download.splunk.com/products/splunk/releases/9.4.2/linux/splunk-9.4.2-e9664af3d956-linux-amd64.tgz
+    dest: /opt/
+    remote_src: yes
+
+- name: Ensure group "splunk" exists
+  ansible.builtin.group:
+    name: splunk
+    state: present
+
+- name: Create a user 'splunk' with a home directory
+  ansible.builtin.user:
+    name: splunk
+    group: splunk
+    create_home: yes
+
+- name: Recursively change ownership of a directory
+  ansible.builtin.file:
+    path: /opt/splunk
+    state: directory
+    recurse: yes
+    owner: splunk
+    group: splunk
+
+- name: Enable Splunk boot-start
+  ansible.builtin.command: /opt/splunk/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt
+  become: yes
+  environment:
+    SPLUNK_HOME: /opt/splunk
+    PATH: "/opt/splunk/bin:{{ ansible_env.PATH }}"
+
+- name: Ensure user-seed.conf exists
+  copy:
+    dest: /opt/splunk/etc/system/local/user-seed.conf
+    content: |
+      [user_info]
+      USERNAME = {{USERNAME}}
+      PASSWORD = {{PASSWORD}}
+
+- name: Start Splunk for the first time
+  command: /opt/splunk/bin/splunk start --accept-license --answer-yes --no-prompt
+  args:
+    creates: /opt/splunk/var/run/splunk/splunkd.pid

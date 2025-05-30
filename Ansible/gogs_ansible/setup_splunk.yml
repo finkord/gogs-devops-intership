@@ -1,0 +1,6 @@
+---
+- name: Setup Splunk Server
+  hosts: splunk
+  become: yes
+  roles:
+    - splunk
