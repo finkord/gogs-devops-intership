@@ -1,0 +1,80 @@
+# Default configuration file for the Linux (deb/rpm) and Windows MSI collector packages
+
+# If the collector is installed without the Linux/Windows installer script, the following
+# environment variables are required to be manually defined or configured below:
+# - SPLUNK_ACCESS_TOKEN: The Splunk access token to authenticate requests
+# - SPLUNK_API_URL: The Splunk API URL, e.g. https://api.us0.signalfx.com
+# - SPLUNK_BUNDLE_DIR: The path to the Smart Agent bundle, e.g. /usr/lib/splunk-otel-collector/agent-bundle
+# - SPLUNK_COLLECTD_DIR: The path to the collectd config directory for the Smart Agent, e.g. /usr/lib/splunk-otel-collector/agent-bundle/run/collectd
+# - SPLUNK_HEC_TOKEN: The Splunk HEC authentication token
+# - SPLUNK_HEC_URL: The Splunk HEC endpoint URL, e.g. https://ingest.us0.signalfx.com/v1/log
+# - SPLUNK_INGEST_URL: The Splunk ingest URL, e.g. https://ingest.us0.signalfx.com
+# - SPLUNK_LISTEN_INTERFACE: The network interface the agent receivers listen on.
+
+receivers: 
+  filelog:
+    include: [ /home/git/gogs/log/*.log ]
+    operators:
+      - type: regex_parser
+        regex: '^(?P<time>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (?P<sev>[A-Z]*) (?P<msg>.*)$'
+        timestamp:
+          parse_from: attributes.time
+          layout: '%Y-%m-%d %H:%M:%S'
+        severity:
+          parse_from: attributes.sev
+
+  hostmetrics:
+    collection_interval: 5s
+    scrapers:
+      cpu:
+      load:
+      memory:
+      disk:
+      network:
+
+processors:
+  batch:
+    timeout: 5s
+    send_batch_size: 100
+
+  memory_limiter:
+    check_interval: 2s
+    limit_mib: 200   
+    spike_limit_mib: 50
+
+  resourcedetection:
+    detectors:
+      - system
+    system:
+      hostname_sources:
+        - os
+
+exporters:
+  splunk_hec/logs:
+    token: "${SPLUNK_HEC_TOKEN}"
+    endpoint: "${SPLUNK_HEC_URL}"
+    source: "otel"
+    index: "gogs_logs"
+    sourcetype: "otel"
+    tls:
+      insecure_skip_verify: true
+
+  splunk_hec/metrics:
+    token: "${SPLUNK_HEC_TOKEN}"
+    endpoint: "${SPLUNK_HEC_URL}"
+    source: "otel"
+    index: "gogs_metrics"
+    sourcetype: "otel"
+    tls:
+      insecure_skip_verify: true
+
+service:
+  pipelines:
+    logs:
+      receivers: [filelog]
+      processors: [resourcedetection, memory_limiter, batch]
+      exporters: [splunk_hec/logs]
+    metrics:
+      receivers: [hostmetrics]
+      processors: [resourcedetection, memory_limiter, batch]
+      exporters: [splunk_hec/metrics]

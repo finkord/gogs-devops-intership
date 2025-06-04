@@ -1,8 +1,10 @@
 .vscode
 .vagrant
+
 *.log
+id_rsa
+
 RecycleBin
 Keys/*
-id_rsa
-collector
 Splunk/*
+/collector
