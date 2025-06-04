@@ -2,7 +2,7 @@
 # tasks file for splunk
 - name: Download and unarchive Splunk tarball
   ansible.builtin.unarchive:
-    src: https://download.splunk.com/products/splunk/releases/9.4.2/linux/splunk-9.4.2-e9664af3d956-linux-amd64.tgz
+    src: "https://download.splunk.com/products/splunk/releases/9.4.2/linux/splunk-9.4.2-e9664af3d956-linux-amd64.tgz"
     dest: /opt/
     remote_src: yes
 

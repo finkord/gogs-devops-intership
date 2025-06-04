@@ -4,3 +4,5 @@ postgresql_version: "14"
 postgresql_conf_dir: "/etc/postgresql/{{postgresql_version}}/main"
 postgresql_conf_file: "{{ postgresql_conf_dir }}/postgresql.conf"
 postgresql_hba_file: "{{ postgresql_conf_dir }}/pg_hba.conf"
+
+otel_config_template: "psql_config.yaml.j2"

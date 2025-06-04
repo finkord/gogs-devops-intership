@@ -1,0 +1,9 @@
+---
+- name: Setup Splunk otel collector
+  hosts:
+    - gogs
+    - nginx
+    - psql
+  become: yes
+  roles:
+    - collector

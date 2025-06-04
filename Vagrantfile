@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
   
     # VirtualBox provider settings for web VM
     splunk.vm.provider "virtualbox" do |vb|
-      vb.memory = 4096
+      vb.memory = 3072
       vb.cpus = 4
     end
     # ==================================== #
@@ -147,7 +147,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get install jenkins -y
     SHELL
   end 
-  # jenkins_node Server Configuration 192.168.128.23
+  # NodeJenkins Server Configuration 192.168.128.23
   config.vm.define "nodeJenkins" do |nodeJenkins|
     # ==================================== #
     nodeJenkins.vm.box = "ubuntu/jammy64"

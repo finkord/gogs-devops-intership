@@ -46,8 +46,12 @@ PROVIDER = file
 
 [log]
 MODE      = file
-LEVEL     = Info
+LEVEL     = Trace
 ROOT_PATH = /home/git/gogs/log
+
+[metrics]
+ENABLED = true
+ENABLE_BASIC_AUTH = false
 
 [security]
 INSTALL_LOCK = true
