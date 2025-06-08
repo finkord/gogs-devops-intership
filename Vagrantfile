@@ -93,24 +93,24 @@ Vagrant.configure("2") do |config|
     sudo apt-get install jenkins -y
     SHELL
   end 
-  # NodeJenkins Server Configuration 192.168.128.23
-  config.vm.define "nodeJenkins" do |nodeJenkins|
+  # jenkinsNode Server Configuration 192.168.128.23
+  config.vm.define "jenkinsNode" do |jenkinsNode|
     # ==================================== #
-    nodeJenkins.vm.box = "ubuntu/jammy64"
+    jenkinsNode.vm.box = "ubuntu/jammy64"
   
-    nodeJenkins.vm.hostname = "nodeJenkins"
-    nodeJenkins.vm.network "private_network", ip: "192.168.128.23"
+    jenkinsNode.vm.hostname = "jenkinsNode"
+    jenkinsNode.vm.network "private_network", ip: "192.168.128.23"
   
     # VirtualBox provider settings for web VM
-    nodeJenkins.vm.provider "virtualbox" do |vb|
+    jenkinsNode.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
       vb.cpus = 4
     end
     # ==================================== #
 
-    nodeJenkins.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
+    jenkinsNode.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
  
-    nodeJenkins.vm.provision "shell", inline: <<-SHELL
+    jenkinsNode.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update -y
     mkdir -p /home/vagrant/.ssh 
     chmod 700 /home/vagrant/.ssh 
