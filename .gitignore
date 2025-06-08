@@ -5,8 +5,15 @@
 id_rsa
 
 RecycleBin
+
 Keys/*
+!Keys/.gitkeep
+
 Splunk/*
+!Splunk/.gitkeep
+
 Jenkins/*
-/collector
-/test
+!Jenkins/.gitkeep
+
+collector
+test
