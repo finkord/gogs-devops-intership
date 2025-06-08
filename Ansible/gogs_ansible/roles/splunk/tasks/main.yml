@@ -1,10 +1,18 @@
 ---
 # tasks file for splunk
-- name: Download and unarchive Splunk tarball
+# === Install
+- name: Download Splunk Tarball
+  ansible.builtin.get_url:
+    url: "{{ splunk_link }}"
+    dest: "/tmp/{{ splunk_tarball_name: }}"
+    mode: "0664"
+
+- name: Unarchive Splunk Tarball
   ansible.builtin.unarchive:
-    src: "https://download.splunk.com/products/splunk/releases/9.4.2/linux/splunk-9.4.2-e9664af3d956-linux-amd64.tgz"
+    src: "/tmp/{{ splunk_tarball_name: }}"
     dest: /opt/
     remote_src: yes
+# ===
 
 - name: Ensure group "splunk" exists
   ansible.builtin.group:

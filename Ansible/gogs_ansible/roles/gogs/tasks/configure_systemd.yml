@@ -1,0 +1,12 @@
+---
+# roles/gogs/tasks/configure_systemd.yml
+
+- name: Copy Gogs systemd service file
+  ansible.builtin.copy:
+    src: "{{ gogs_dir }}/scripts/systemd/gogs.service"
+    dest: /etc/systemd/system/
+    remote_src: yes
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Reload systemd daemon and restart Gogs service

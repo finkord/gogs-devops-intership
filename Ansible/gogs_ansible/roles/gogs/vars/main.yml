@@ -1,7 +1,0 @@
----
-# vars file for roles/gogs
-gogs_tarball: https://github.com/gogs/gogs/releases/download/v0.13.2/gogs_0.13.2_linux_amd64.tar.gz
-
-home_dir: /home/git/
-
-gogs_dir: /home/git/gogs/

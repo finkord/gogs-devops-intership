@@ -2,6 +2,15 @@
 - name: Setup Gogs Server
   hosts: gogs
   become: yes
+
   roles:
-    - gogs
-    - collector
+    - role: firewall
+      vars:
+        firewall_additional_service_ports:
+          - { port: 3000, proto: tcp }
+          - { port: 2049, proto: tcp }
+          - { port: 2049, proto: udp }
+          - { port: 111, proto: tcp }
+          - { port: 111, proto: udp }
+    - role: gogs
+    - role: otel

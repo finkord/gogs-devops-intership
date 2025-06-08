@@ -1,0 +1,1 @@
+otel_agent_config_template: "agent_config_nfs.yaml.j2"

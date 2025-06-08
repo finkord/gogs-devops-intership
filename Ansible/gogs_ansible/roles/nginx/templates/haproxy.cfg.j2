@@ -1,0 +1,23 @@
+global
+  log /dev/log    local0
+  log /dev/log    local1 notice
+  daemon
+  maxconn 2000
+
+defaults
+  log     global
+  mode    tcp
+  option  tcplog
+  timeout connect 10s
+  timeout client  1m
+  timeout server  1m
+
+frontend ssh_front
+  bind *:2222
+  default_backend gogs_backends
+
+backend gogs_backends
+  balance roundrobin
+{% for ip in gogs_ips %}
+  server gogs{{ loop.index }} {{ ip }}:2222 check
+{% endfor %}

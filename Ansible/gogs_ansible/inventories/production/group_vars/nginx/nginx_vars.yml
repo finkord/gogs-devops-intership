@@ -1,1 +1,1 @@
-otel_config_template: "nginx_config.yaml.j2"
+otel_agent_config_template: "agent_config_nginx.yaml.j2"

@@ -1,9 +1,0 @@
----
-# defaults file for collector
-OTEL: "https://github.com/signalfx/splunk-otel-collector/releases/download/v0.126.0/splunk-otel-collector_0.126.0_amd64.deb"
-splunk_hec_token: "{{ vault_splunk_hec_token }}"
-splunk_hec_url: "https://192.168.128.21:8088/services/collector"
-
-postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
-postgres_gogs_user_password: "{{ vault_postgres_gogs_user_password }}"
-postgres_gogs_db_name: "{{ vault_postgres_gogs_db_name }}"

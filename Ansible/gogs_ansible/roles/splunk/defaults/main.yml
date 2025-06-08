@@ -1,4 +1,7 @@
 ---
 # defaults file for splunk
-USERNAME: finkord
-PASSWORD: 12345678
+USERNAME: "{{ vault_splunk_user_name }}"
+PASSWORD: "{{ vault_splunk_user_password }}"
+
+splunk_link: "https://download.splunk.com/products/splunk/releases/9.4.2/linux/splunk-9.4.2-e9664af3d956-linux-amd64.tgz"
+splunk_tarball_name: "splunk-9.4.2-e9664af3d956-linux-amd64.tgz"

@@ -4,7 +4,7 @@ RUN_MODE   = prod
 
 [database]
 TYPE     = postgres
-HOST     = {{ hostvars[groups['psql'][0]].ansible_host }}:5432
+HOST     = {{ psql_ip }}:5432
 NAME     = {{ postgres_gogs_db_name }}
 SCHEMA   = public
 USER     = {{ postgres_gogs_user_name }}
@@ -13,15 +13,15 @@ SSL_MODE = disable
 PATH     = /home/git/gogs/data/gogs.db
 
 [repository]
-ROOT           = /home/git/gogs-repositories
+ROOT           = {{ gogs_data_root }}
 DEFAULT_BRANCH = main
 
 [server]
-DOMAIN           = gogs
+DOMAIN           = 192.168.128.30
 HTTP_PORT        = 3000
-EXTERNAL_URL     = http://gogs/
+EXTERNAL_URL     = http://192.168.128.30/
 DISABLE_SSH      = false
-SSH_PORT         = 22
+SSH_PORT         = 2222
 START_SSH_SERVER = false
 OFFLINE_MODE     = true
 

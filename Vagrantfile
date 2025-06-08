@@ -23,38 +23,17 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y software-properties-common
     sudo add-apt-repository --yes --update ppa:ansible/ansible
     sudo apt-get install -y ansible
+
+    sudo cp /home/vagrant/ansible/id_rsa /home/vagrant/id_rsa
+    sudo chmod 600 /home/vagrant/id_rsa
+    sudo chown vagrant:vagrant /home/vagrant/id_rsa 
     SHELL
   end  
-  # PostgresSQL Server Configuration 192.168.128.29
-  config.vm.define "psql" do |psql|
-    # ==================================== #
-    psql.vm.box = "ubuntu/jammy64"
-  
-    psql.vm.hostname = "psql"
-    psql.vm.network "private_network", ip: "192.168.128.29"
-  
-    # VirtualBox provider settings for web VM
-    psql.vm.provider "virtualbox" do |vb|
-      vb.memory = 1024
-      vb.cpus = 1
-    end
-    # ==================================== #
-
-    psql.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
- 
-    psql.vm.provision "shell", inline: <<-SHELL
-    # sudo apt-get update -y
-    mkdir -p /home/vagrant/.ssh 
-    chmod 700 /home/vagrant/.ssh 
-    cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
-    chmod 600 /home/vagrant/.ssh/authorized_keys
-    sudo chown -R vagrant:vagrant /home/vagrant/.ssh
-    SHELL
-  end 
   # Splunk Server Configuration 192.168.128.21
   config.vm.define "splunk" do |splunk|
     # ==================================== #
-    splunk.vm.box = "ubuntu/jammy64"
+    # splunk.vm.box = "ubuntu/jammy64"
+    splunk.vm.box = "bento/ubuntu-24.04"
   
     splunk.vm.hostname = "splunk"
     splunk.vm.network "private_network", ip: "192.168.128.21"
@@ -76,39 +55,6 @@ Vagrant.configure("2") do |config|
     cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     chmod 600 /home/vagrant/.ssh/authorized_keys
     sudo chown -R vagrant:vagrant /home/vagrant/.ssh
-    SHELL
-  end 
-  # NFS Server Configuration 192.168.128.28
-  config.vm.define "nfs" do |nfs|
-    # ==================================== #
-    nfs.vm.box = "ubuntu/jammy64"
-  
-    nfs.vm.hostname = "nfs"
-    nfs.vm.network "private_network", ip: "192.168.128.28"
-  
-    # VirtualBox provider settings for web VM
-    nfs.vm.provider "virtualbox" do |vb|
-      vb.memory = 1024
-      vb.cpus = 1
-    end
-    # ==================================== #
-
-    nfs.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
-    nfs.vm.synced_folder "./NFS/", "/home/vagrant/nfs/"
- 
-    nfs.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update -y
-    mkdir -p /home/vagrant/.ssh 
-    chmod 700 /home/vagrant/.ssh 
-    cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
-    chmod 600 /home/vagrant/.ssh/authorized_keys
-    sudo chown -R vagrant:vagrant /home/vagrant/.ssh
-
-    sudo apt-get install nfs-kernel-server -y
-    sudo mkdir -p /srv/gogs-repositories
-    sudo chown git:git /srv/gogs-repositories
-    echo "/srv/gogs-repositories *(rw,sync,no_subtree_check)" >> /etc/exports
-    sudo exportfs -ra
     SHELL
   end 
   # Jenkins Server Configuration 192.168.128.22
@@ -173,6 +119,59 @@ Vagrant.configure("2") do |config|
     sudo chown -R vagrant:vagrant /home/vagrant/.ssh
 
     sudo apt-get install fontconfig openjdk-21-jre -y
+    SHELL
+  end 
+  # PostgresSQL Server Configuration 192.168.128.29
+  config.vm.define "psql" do |psql|
+    # ==================================== #
+    psql.vm.box = "ubuntu/jammy64"
+  
+    psql.vm.hostname = "psql"
+    psql.vm.network "private_network", ip: "192.168.128.29"
+  
+    # VirtualBox provider settings for web VM
+    psql.vm.provider "virtualbox" do |vb|
+      vb.memory = 1024
+      vb.cpus = 1
+    end
+    # ==================================== #
+
+    psql.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
+ 
+    psql.vm.provision "shell", inline: <<-SHELL
+    # sudo apt-get update -y
+    mkdir -p /home/vagrant/.ssh 
+    chmod 700 /home/vagrant/.ssh 
+    cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
+    chmod 600 /home/vagrant/.ssh/authorized_keys
+    sudo chown -R vagrant:vagrant /home/vagrant/.ssh
+    SHELL
+  end 
+  # NFS Server Configuration 192.168.128.28
+  config.vm.define "nfs" do |nfs|
+    # ==================================== #
+    nfs.vm.box = "ubuntu/jammy64"
+  
+    nfs.vm.hostname = "nfs"
+    nfs.vm.network "private_network", ip: "192.168.128.28"
+  
+    # VirtualBox provider settings for web VM
+    nfs.vm.provider "virtualbox" do |vb|
+      vb.memory = 1024
+      vb.cpus = 1
+    end
+    # ==================================== #
+
+    nfs.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
+    # nfs.vm.synced_folder "./NFS/", "/home/vagrant/nfs/"
+ 
+    nfs.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get update -y
+    mkdir -p /home/vagrant/.ssh 
+    chmod 700 /home/vagrant/.ssh 
+    cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
+    chmod 600 /home/vagrant/.ssh/authorized_keys
+    sudo chown -R vagrant:vagrant /home/vagrant/.ssh
     SHELL
   end 
   # Nginx Server Configuration 192.168.128.30

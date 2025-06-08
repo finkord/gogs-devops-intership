@@ -1,6 +1,24 @@
 ---
-# defaults file for roles/psql
-postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
+# defaults/main.yml
+
+postgresql_packages:
+  - python3-psycopg2
+  - postgresql
+  - acl
+  - postgresql-client
+
+postgresql_conf_file: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
+postgresql_hba_file: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
+postgres_version: "14"               # приклад
+
+# Дані до бази даниx
 postgres_gogs_db_name: "{{ vault_postgres_gogs_db_name }}"
+postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
 postgres_gogs_user_password: "{{ vault_postgres_gogs_user_password }}"
-postgres_postgres_user_password: "{{ vault_postgres_postgres_user_password }}"
+
+ufw_default_policy: "deny"
+ufw_allowed_ports:
+  - { name: "OpenSSH" }
+  - { port: 5432, proto: "tcp" }
+  
+# (можна додавати інші змінні за необхідністю)

@@ -2,6 +2,13 @@
 - name: Setup Nginx Reverse Proxy Server
   hosts: nginx
   become: yes
+
   roles:
-    - nginx
-    - collector
+    - role: firewall
+      vars:
+        firewall_additional_service_ports:
+          - { port: 80, proto: tcp }
+          - { port: 443, proto: tcp }
+          - { port: 2222, proto: tcp }
+    - role: nginx
+    - role: otel

@@ -1,2 +1,5 @@
 ---
-# vars file for roles/psql
+# vars/main.yml
+
+postgres_owner: "postgres"
+postgres_group: "postgres"

@@ -1,0 +1,27 @@
+---
+# tasks/configure.yml
+
+- name: Collect gogs IPs from inventory
+  set_fact:
+    gogs_ips: "{{ groups['gogs'] }}"
+  when: groups['gogs'] is defined and groups['gogs'] | length > 0
+
+- name: Deploy custom postgresql.conf with Gogs IPs
+  ansible.builtin.template:
+    src: postgresql.conf.j2
+    dest: "{{ postgresql_conf_file }}"
+    owner: "{{ postgres_owner }}"
+    group: "{{ postgres_group }}"
+    mode: "0640"
+  notify:
+    - Reload systemd and Restart PostgreSQL
+
+- name: Deploy custom pg_hba.conf with Gogs IPs
+  ansible.builtin.template:
+    src: pg_hba.conf.j2
+    dest: "{{ postgresql_hba_file }}"
+    owner: "{{ postgres_owner }}"
+    group: "{{ postgres_group }}"
+    mode: "0640"
+  notify:
+    - Reload systemd and Restart PostgreSQL

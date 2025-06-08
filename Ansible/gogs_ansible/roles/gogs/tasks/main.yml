@@ -1,42 +1,29 @@
 ---
-# tasks file for roles/gogs
-- name: Create git user for gogs
-  ansible.builtin.user:
-    name: git
-    comment: Gogs
-    create_home: yes
+# roles/gogs/tasks/main.yml
 
-- name: Download Gogs Binary tarball
-  ansible.builtin.get_url:
-    url: "{{ gogs_tarball }}"
-    dest: /tmp/gogs.tar.gz
+- name: Validate mandatory variables
+  ansible.builtin.assert:
+    that:
+      - gogs_tarball is defined
+      - gogs_tarball | length > 0
+    fail_msg: "Змінна 'gogs_tarball' повинна бути визначена (URL до архіву Gogs)."
 
-- name: Extract Gogs Binary tarball
-  ansible.builtin.unarchive:
-    src: /tmp/gogs.tar.gz
-    dest: "{{ home_dir }}"
-    remote_src: yes
-    owner: git
-    group: git
+- name: Create system group and user for Gogs
+  import_tasks: create_user.yml
 
-- name: Add systemd service
-  ansible.builtin.copy:
-    src: "{{gogs_dir}}scripts/systemd/gogs.service"
-    dest: /etc/systemd/system/
-    remote_src: yes
+- name: Download and extract Gogs
+  import_tasks: download_and_extract.yml
 
-- name: Ensure custom config directory exists
-  ansible.builtin.file:
-    path: /home/git/gogs/custom/conf
-    state: directory
-    owner: git
-    group: git
-    mode: "0755"
+- name: Configure systemd service for Gogs
+  import_tasks: configure_systemd.yml
 
-- name: Deploy custom app.ini
-  ansible.builtin.template:
-    src: app.ini.j2
-    dest: "{{ gogs_dir }}custom/conf/app.ini"
-    owner: git
-    group: git
-  notify: Reload systemd and restart Gogs service
+- name: (Optional) Mount NFS for repositories
+  import_tasks: install_nfs_client.yml
+  when: install_nfs_client
+
+- name: (Optional) Create and mount NFS volume
+  import_tasks: mount_nfs.yml
+  when: install_nfs_client
+
+- name: Ensure custom configuration directory exists
+  import_tasks: setup_custom_conf.yml

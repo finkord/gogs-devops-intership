@@ -1,0 +1,19 @@
+---
+# tasks/repo_setup.yml
+
+- name: Download and add Nginx signing key
+  ansible.builtin.apt_key:
+    url: "{{ nginx_signing_key_url }}"
+    state: present
+    keyring: "{{ nginx_keyring_path }}"
+
+- name: Add Nginx APT repository (stable)
+  ansible.builtin.apt_repository:
+    repo: "{{ nginx_apt_repo }}"
+    filename: "{{ nginx_apt_repo_filename }}"
+    state: present
+
+- name: Pin Nginx packages from nginx.org
+  ansible.builtin.copy:
+    dest: "{{ nginx_pinning_dest }}"
+    content: "{{ nginx_pinning_content }}"

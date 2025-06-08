@@ -1,6 +1,65 @@
 ---
-# defaults file for roles/gogs
-postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
+# roles/gogs/defaults/main.yml
+
+# === Обов'язкові змінні (їх потрібно передавати у playbook) ===
+# URL-адреса до архіву Gogs
+gogs_tarball: "https://github.com/gogs/gogs/releases/download/v0.13.2/gogs_0.13.2_linux_amd64.tar.gz"
+
+# Версія/ім'я архіву (щоб отримати його шлях: /tmp/{{ gogs_archive_name }})
+gogs_archive_name: "gogs_0.13.2_linux_amd64.tar.gz"
+
+# === Основні шляхи та директорії ===
+gogs_user: "git"
+gogs_group: "git"
+gogs_user_comment: "Gogs"
+
+# Домашня директорія для розпаковки Gogs (зазвичай /home/git)
+gogs_home_dir: "/home/git"
+
+# Шлях до розпакованого каталогу Gogs (наприклад, /home/git/gogs-<version>)
+# Якщо архів розпаковує в папку "gogs", достатньо: "{{ gogs_home_dir }}/gogs"
+# Залежно від того, як упакований ваш tarball
+gogs_dir: "{{ gogs_home_dir }}/gogs"
+
+# Тимчасова папка для збереження архіву
+gogs_archive_tmp_dir: "/tmp"
+
+# Підсумковий шлях до архіву
+gogs_archive_tmp_path: "{{ gogs_archive_tmp_dir }}/{{ gogs_archive_name }}"
+
+# Системний юніт-файл (назва сервісу)
+gogs_service_name: "gogs"
+
+# Адреса бази даних
+psql_ip: "{{ groups['psql'][0] }}"
+
+# Дані до бази даниx
 postgres_gogs_db_name: "{{ vault_postgres_gogs_db_name }}"
+postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
 postgres_gogs_user_password: "{{ vault_postgres_gogs_user_password }}"
-postgres_postgres_user_password: "{{ vault_postgres_postgres_user_password }}"
+
+# Локальний каталог для зберігання репозиторіїв, якщо NFS не використовується
+gogs_default_data_root: "/home/git/gogs-repositories"
+
+# === Налаштування NFS ===
+install_nfs_client: true
+nfs_package_name: "nfs-common"
+nfs_mount_point: "/mnt/gogs-repositories"
+nfs_server: "192.168.128.28"
+nfs_export: "/srv/gogs-repositories"
+
+# Опції монтування (fstype - nfs, opts - rw,sync і т. д.)
+nfs_mount_opts: "rw,sync"
+
+# Якщо потрібно записати у /etc/fstab, щоб монтування було постійним
+nfs_mount_fstab: true
+
+# === Інші налаштування ===
+# Шлях до директорії з кастомним конфігом Gogs
+gogs_custom_conf_dir: "{{ gogs_dir }}/custom/conf"
+
+# Назва шаблону для app.ini (використовується у tasks/setup_custom_conf.yml)
+gogs_app_ini_template: "app.ini.j2"
+
+# Права для нових директорій (можна змінити)
+gogs_dir_mode: "0755"

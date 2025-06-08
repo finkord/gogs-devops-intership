@@ -1,63 +1,11 @@
 ---
-# tasks file for roles/psql
-- name: Install PostgreSQL server
-  ansible.builtin.apt:
-    name:
-      - python3-psycopg2
-      - postgresql
-      - acl
-      - postgresql-client
-    state: present
-    update_cache: yes
+# tasks/main.yml
 
-- name: Collect gogs IPs from inventory
-  set_fact:
-    gogs_ips: "{{ groups['gogs'] }}"
+- name: Install PostgreSQL packages
+  import_tasks: install.yml
 
-- name: Deploy custom postgresql.conf with Gogs IPs
-  ansible.builtin.template:
-    src: postgresql.conf.j2
-    dest: "{{ postgresql_conf_file }}"
-    owner: postgres
-    group: postgres
-    mode: "0640"
+- name: Configure PostgreSQL (deploy templates, gather Gogs IPs)
+  import_tasks: configure.yml
 
-- name: Deploy custom pg_hba.conf with Gogs IPs
-  ansible.builtin.template:
-    src: pg_hba.conf.j2
-    dest: "{{ postgresql_hba_file }}"
-    owner: postgres
-    group: postgres
-    mode: "0640"
-  notify: Reload systemd and Restart PostgreSQL
-
-- name: Ensure PostgreSQL user '{{ postgres_gogs_user_name }}' exists
-  become_user: postgres
-  community.postgresql.postgresql_user:
-    name: "{{ postgres_gogs_user_name }}"
-    password: "{{ postgres_gogs_user_password }}"
-    role_attr_flags: CREATEDB
-
-- name: Ensure PostgreSQL database '{{ postgres_gogs_db_name }}' exists
-  become_user: postgres
-  community.postgresql.postgresql_db:
-    name: "{{ postgres_gogs_db_name }}"
-    owner: "{{ postgres_gogs_user_name }}"
-    state: present
-
-- name: Enable UFW firewall
-  ufw:
-    state: enabled
-    policy: deny
-
-- name: Allow SSH
-  ufw:
-    rule: allow
-    name: OpenSSH
-
-- name: Allow PostgreSQL port
-  ufw:
-    rule: allow
-    port: 5432
-    proto: tcp
-    # from_ip: 192.168.128.0/24
+- name: Create PostgreSQL user and database
+  import_tasks: db_user_db.yml

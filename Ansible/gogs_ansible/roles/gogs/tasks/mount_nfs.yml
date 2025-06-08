@@ -1,0 +1,55 @@
+---
+# roles/gogs/tasks/mount_nfs.yml
+
+- name: Ensure mount point directory exists
+  ansible.builtin.file:
+    path: "{{ nfs_mount_point }}"
+    state: directory
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+    mode: "{{ gogs_dir_mode }}"
+
+- name: Mount NFS volume 
+  ansible.posix.mount:
+    src: "{{ nfs_server }}:{{ nfs_export }}"
+    path: "{{ nfs_mount_point }}"
+    fstype: nfs
+    opts: "{{ nfs_mount_opts }}"
+    state: mounted
+
+- name: Forcefully remove existing .ssh directory
+  ansible.builtin.file:
+    path: "/home/{{ gogs_user }}/.ssh"
+    state: absent
+
+- name: Symlink .ssh directory to NFS mount
+  ansible.builtin.file:
+    src: "{{ nfs_mount_point }}"
+    dest: "/home/{{ gogs_user }}/.ssh"
+    state: link
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+
+- name: Ensure authorized_keys exists on NFS share
+  ansible.builtin.file:
+    path: "{{ nfs_mount_point }}/authorized_keys"
+    state: touch
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+    mode: '0600'
+
+- name: Ensure correct permissions for authorized_keys on NFS share
+  ansible.builtin.file:
+    path: "{{ nfs_mount_point }}/authorized_keys"
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+    mode: '0600'
+
+- name: Ensure NFS entry in /etc/fstab for persistence
+  ansible.builtin.mount:
+    src: "{{ nfs_server }}:{{ nfs_export }}"
+    path: "{{ nfs_mount_point }}"
+    fstype: nfs
+    opts: "{{ nfs_mount_opts }}"
+    state: present
+  when: nfs_mount_fstab

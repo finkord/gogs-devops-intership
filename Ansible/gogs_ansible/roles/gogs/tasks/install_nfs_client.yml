@@ -1,0 +1,8 @@
+---
+# roles/gogs/tasks/install_nfs_client.yml
+
+- name: Install NFS client package (nfs-common)
+  ansible.builtin.apt:
+    name: "{{ nfs_package_name }}"
+    state: present
+    update_cache: yes

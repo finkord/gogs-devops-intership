@@ -12,6 +12,7 @@ This project demonstrates my DevOps skills by maintaining a Gogs (Git service) i
 - **Jenkins** – continuous integration (CI)
 - **Splunk Enterprise** – monitoring and log management
 - **Splunk OpenTelemetry Collector** – agent for collecting telemetry data from servers
+- **NFS** – network file system to save gogs repositories
 
 ## Getting Started
 

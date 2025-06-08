@@ -1,4 +1,5 @@
 ---
 - import_playbook: setup_psql.yml
+- import_playbook: setup_nfs.yml
 - import_playbook: setup_gogs.yml
 - import_playbook: setup_nginx.yml

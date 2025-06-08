@@ -1,0 +1,15 @@
+---
+# roles/otel/tasks/main.yml
+
+- name: Install Splunk OTel Collector package
+  import_tasks: install_package.yml
+
+- name: Ensure user and group for OTel exist
+  import_tasks: ensure_user_group.yml
+
+- name: Ensure configuration directory exists
+  import_tasks: ensure_directories.yml
+
+- name: Deploy OTel configuration files
+  import_tasks: deploy_configs.yml
+

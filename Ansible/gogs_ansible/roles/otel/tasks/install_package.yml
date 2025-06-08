@@ -1,0 +1,24 @@
+---
+# roles/otel/tasks/install_package.yml
+
+- name: Download Splunk OTel Collector .deb to temp directory
+  ansible.builtin.get_url:
+    url: "{{ otel_link }}"
+    dest: "{{ otel_install_deb_path }}"
+    mode: "0644"
+  register: otel_download
+
+- name: Install Splunk OTel Collector .deb package
+  ansible.builtin.apt:
+    deb: "{{ otel_install_deb_path }}"
+  register: otel_installed
+  until: otel_installed is succeeded
+  retries: 2
+  delay: 5
+  # Якщо потрібна повторна спроба у випадку тимчасової помилки apt.
+
+# - name: Remove downloaded .deb after installation (optional)
+#   ansible.builtin.file:
+#     path: "{{ otel_install_deb_path }}"
+#     state: absent
+#   when: otel_installed is succeeded

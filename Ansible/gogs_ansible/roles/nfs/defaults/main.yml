@@ -1,0 +1,23 @@
+---
+# roles/nfs/defaults/main.yml
+
+# --- Шлях до папки репозиторіїв ---
+nfs_export_path: "/srv/gogs-repositories"
+
+# --- Власник і група для цієї папки ---
+nfs_export_owner: "git"
+nfs_export_group: "git"
+nfs_export_mode: "0755"
+
+# --- Опції експорту (напис, що додається в /etc/exports після шляху) ---
+nfs_export_options: "rw,sync,no_subtree_check,no_root_squash"
+
+# --- Ім'я користувача, котрий працюватиме з папкою ---
+nfs_git_user: "git"
+nfs_git_user_comment: "Gogs NFS user"
+
+# --- Служба NFS, яку треба запускати (убунту/debian) ---
+nfs_service_name: "nfs-kernel-server"
+
+# --- Назва групи у Inventory, з якої беремо клієнтів для експорту ---
+nfs_client_group: "gogs"

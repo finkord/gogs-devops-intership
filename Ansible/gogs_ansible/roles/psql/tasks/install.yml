@@ -1,0 +1,8 @@
+---
+# tasks/install.yml
+
+- name: Install PostgreSQL server packages
+  ansible.builtin.apt:
+    name: "{{ postgresql_packages }}"
+    state: present
+    update_cache: yes

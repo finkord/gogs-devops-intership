@@ -1,0 +1,8 @@
+---
+# tasks/install_packages.yml
+
+- name: Install prerequisite packages (curl, gnupg2, ...)
+  ansible.builtin.apt:
+    name: "{{ nginx_repo_prereq_packages }}"
+    state: present
+    update_cache: yes

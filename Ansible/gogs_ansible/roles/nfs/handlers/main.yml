@@ -1,0 +1,11 @@
+---
+# roles/nfs/handlers/main.yml
+
+# Якщо змінили /etc/exports, перезапустити службу або хотя б виконати exportfs -ra
+- name: Reload NFS exports
+  ansible.builtin.command: exportfs -ra
+
+- name: Restart NFS service
+  ansible.builtin.service:
+    name: "{{ nfs_service_name }}"
+    state: restarted

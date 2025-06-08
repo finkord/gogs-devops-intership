@@ -1,0 +1,31 @@
+---
+# roles/otel/defaults/main.yml
+
+# --- Зовнішні змінні, які потрібно передавати обов'язково ---
+# (наприклад, коли посилання на пакет приходить із playbook)
+otel_link: "https://github.com/signalfx/splunk-otel-collector/releases/download/v0.126.0/splunk-otel-collector_0.126.0_amd64.deb" # URL до .deb-архіву, наприклад: "https://github.com/signalfx/splunk-otel-collector/releases/download/vX.Y.Z/splunk-otel-collector_X.Y.Z.deb"
+otel_name: "splunk-otel-collector_0.126.0_amd64.deb" # Ім'я .deb-файлу, наприклад: "splunk-otel-collector_X.Y.Z_amd64.deb"
+
+splunk_hec_token: "{{ vault_splunk_hec_token }}"
+splunk_server_ip: "{{ groups['splunk'][0] }}"
+splunk_hec_url: "https://{{ splunk_server_ip }}:8088/services/collector"
+
+# --- Основні налаштування ---
+otel_user: "splunk-otel-collector"
+otel_group: "splunk-otel-collector"
+
+otel_install_tmp_dir: "/tmp"
+otel_install_deb_path: "{{ otel_install_tmp_dir }}/{{ otel_name }}"
+
+otel_config_dir: "/etc/otel/collector"
+otel_conf_main: "splunk-otel-collector.conf"
+otel_conf_agent: "agent_config.yaml"
+
+# Шлях до шаблону agent_config;
+# може бути локальна назва у templates/ або абсолютний шлях зі змінних
+otel_agent_config_template: "agent_config_nfs.yaml.j2"
+
+# Назва systemd-сервісу (як правило, визначається .deb-пакетом, наприклад, "splunk-otel-collector")
+otel_service_name: "splunk-otel-collector"
+# *** Додатково, якщо треба версію перевіряти ***
+# otel_package_version: "1.0.0"

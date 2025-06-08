@@ -1,8 +1,0 @@
----
-# handlers file for roles/collector
-- name: Reload systemd and restart collector
-  ansible.builtin.systemd:
-    name: splunk-otel-collector
-    state: restarted
-    daemon_reload: true
-    enabled: true

@@ -1,0 +1,7 @@
+# /etc/exports – керується роллю NFS
+# Згенеровано Ansible;
+
+{% for host in groups[nfs_client_group] %}
+{{ nfs_export_path }} {{ hostvars[host]['ansible_host'] | default(host) }}({{ nfs_export_options }})
+{% endfor %}
+

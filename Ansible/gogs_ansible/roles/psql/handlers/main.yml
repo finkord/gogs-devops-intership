@@ -1,5 +1,6 @@
 ---
-# handlers file for roles/psql
+# handlers/main.yml
+
 - name: Reload systemd and Restart PostgreSQL
   ansible.builtin.systemd:
     name: postgresql

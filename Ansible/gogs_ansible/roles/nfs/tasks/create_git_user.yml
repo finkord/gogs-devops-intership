@@ -1,0 +1,9 @@
+---
+# roles/nfs/tasks/create_git_user.yml
+
+- name: Ensure 'git' user exists (for NFS)
+  ansible.builtin.user:
+    name: "{{ nfs_git_user }}"
+    comment: "{{ nfs_git_user_comment }}"
+    create_home: yes
+    state: present

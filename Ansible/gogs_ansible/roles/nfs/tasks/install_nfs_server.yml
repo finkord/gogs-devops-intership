@@ -1,0 +1,14 @@
+---
+# roles/nfs/tasks/install_nfs_server.yml
+
+- name: Install NFS Kernel Server package
+  ansible.builtin.apt:
+    name: "{{ nfs_service_name }}"
+    state: present
+    update_cache: yes
+
+- name: Ensure NFS service is enabled and started
+  ansible.builtin.service:
+    name: "{{ nfs_service_name }}"
+    state: started
+    enabled: yes

@@ -1,0 +1,14 @@
+---
+# roles/nfs/tasks/main.yml
+
+- name: Install NFS server package and ensure service is running
+  import_tasks: install_nfs_server.yml
+
+- name: Create git user for NFS share
+  import_tasks: create_git_user.yml
+
+- name: Create NFS export directory
+  import_tasks: create_nfs_directory.yml
+
+- name: Generate /etc/exports from inventory
+  import_tasks: generate_exports.yml

@@ -1,0 +1,45 @@
+---
+# roles/gogs/tasks/setup_custom_conf.yml
+
+- name: Determine Gogs data root (NFS or local)
+  ansible.builtin.set_fact:
+    gogs_data_root: >-
+      {% if install_nfs_client %}
+      {{ nfs_mount_point }}
+      {% else %}
+      {{ gogs_default_data_root }}
+      {% endif %}
+
+- name: Ensure local data directory exists when not using NFS
+  ansible.builtin.file:
+    path: "{{ gogs_default_data_root }}"
+    state: directory
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+    mode: "{{ gogs_dir_mode }}"
+  when: not install_nfs_client
+
+- name: Ensure data root directory exists (NFS mount point or local)
+  ansible.builtin.file:
+    path: "{{ gogs_data_root }}"
+    state: directory
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+    mode: "{{ gogs_dir_mode }}"
+
+- name: Ensure custom config directory exists
+  ansible.builtin.file:
+    path: "{{ gogs_custom_conf_dir }}"
+    state: directory
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+    mode: "{{ gogs_dir_mode }}"
+
+- name: Deploy custom app.ini
+  ansible.builtin.template:
+    src: "{{ gogs_app_ini_template }}"
+    dest: "{{ gogs_custom_conf_dir }}/app.ini"
+    owner: "{{ gogs_user }}"
+    group: "{{ gogs_group }}"
+    mode: "0644"
+  notify: Reload systemd daemon and restart Gogs service

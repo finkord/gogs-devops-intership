@@ -1,0 +1,19 @@
+---
+# tasks/deploy_configs.yml
+
+- name: Deploy custom nginx.conf
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: "/etc/nginx/nginx.conf"
+    owner: root
+    group: root
+  notify: Restart Nginx
+
+- name: Deploy custom gogs.conf (if Gogs IPs present)
+  ansible.builtin.template:
+    src: gogs.conf.j2
+    dest: "/etc/nginx/conf.d/gogs.conf"
+    owner: root
+    group: root
+  when: gogs_ips | length > 0
+  notify: Restart Nginx
