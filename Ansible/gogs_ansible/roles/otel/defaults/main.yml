@@ -29,3 +29,7 @@ otel_agent_config_template: "agent_config_nfs.yaml.j2"
 otel_service_name: "splunk-otel-collector"
 # *** Додатково, якщо треба версію перевіряти ***
 # otel_package_version: "1.0.0"
+
+postgres_gogs_db_name: "{{ vault_postgres_gogs_db_name }}"
+postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
+postgres_gogs_user_password: "{{ vault_postgres_gogs_user_password }}"
