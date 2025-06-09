@@ -1,7 +1,7 @@
 ---
 # defaults file for nginx
 
-# Список пакетів, що потрібні для додавання репозиторію Nginx
+# List of packages required to add the Nginx repository
 nginx_repo_prereq_packages:
   - curl
   - gnupg2
@@ -9,24 +9,24 @@ nginx_repo_prereq_packages:
   - lsb-release
   - ubuntu-keyring
 
-# URL-адреса ключа та шлях для keyring
+# URL of the signing key and path to the keyring
 nginx_signing_key_url: "https://nginx.org/keys/nginx_signing.key"
 nginx_keyring_path: "/usr/share/keyrings/nginx-archive-keyring.gpg"
 
-# URL та компоненти репозиторію
+# Repository URL and components
 nginx_apt_repo: "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu {{ ansible_distribution_release }} nginx"
 
 nginx_apt_repo_filename: "nginx"
 
-# Шаблон для pinning-у
+# Template for APT pinning
 nginx_pinning_content: |
   Package: *
   Pin: origin nginx.org
   Pin: release o=nginx
   Pin-Priority: 900
 nginx_pinning_dest: "/etc/apt/preferences.d/99nginx"
-# Пакети, що треба встановити після додавання репозиторію
+# Packages to install after adding the repository
 nginx_packages:
   - nginx
   - nginx-module-otel
-# {{ groups['gogs'] }} з інвентаря
+# {{ groups['gogs'] }} from inventory

@@ -9,16 +9,9 @@ postgresql_packages:
 
 postgresql_conf_file: "/etc/postgresql/{{ postgres_version }}/main/postgresql.conf"
 postgresql_hba_file: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
-postgres_version: "14"               # приклад
+postgres_version: "14"
 
-# Дані до бази даниx
+# Database credentials
 postgres_gogs_db_name: "{{ vault_postgres_gogs_db_name }}"
 postgres_gogs_user_name: "{{ vault_postgres_gogs_user_name }}"
 postgres_gogs_user_password: "{{ vault_postgres_gogs_user_password }}"
-
-ufw_default_policy: "deny"
-ufw_allowed_ports:
-  - { name: "OpenSSH" }
-  - { port: 5432, proto: "tcp" }
-  
-# (можна додавати інші змінні за необхідністю)

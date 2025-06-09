@@ -22,9 +22,9 @@
   loop: "{{ firewall_additional_service_ports | default([]) }}"
   when: firewall_additional_service_ports is defined and firewall_additional_service_ports | length > 0
 
-- name: Enable UFW (якщо ще не увімкнено)
+- name: Enable UFW
   ansible.builtin.command:
     cmd: ufw --force enable
   changed_when: false
   register: ufw_status
-  failed_when: ufw_status.rc not in [0, 1]  
+  failed_when: ufw_status.rc not in [0, 1]

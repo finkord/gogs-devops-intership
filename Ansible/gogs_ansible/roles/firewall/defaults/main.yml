@@ -1,10 +1,10 @@
 ---
 # roles/firewall/defaults/main.yml
 
-# За замовчуванням відкриті порти, які потрібні для всіх серверів
+# Default open ports required for all servers
 firewall_allowed_common_ports:
-  - { port: 22, proto: tcp }    # SSH
+  - { port: 22, proto: tcp } # SSH
 
-# Додаткові порти, залежно від ролі/сервісу
-# Ви потім будете „доповнювати“ цю змінну в конкретних ролях, якщо потрібно
+# Additional ports depending on role/service
+# This variable can be extended in specific roles if needed
 firewall_additional_service_ports: []
