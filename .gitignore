@@ -17,3 +17,10 @@ Jenkins/*
 
 collector
 test
+
+Docker/data
+Docker/gogs
+Docker/Jenkins
+Docker/nginx
+Docker/pgdata
+Docker/env

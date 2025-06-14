@@ -16,30 +16,24 @@ services:
   db:
     image: postgres:16
     restart: unless-stopped
-    environment:
-      POSTGRES_DB: gogs
-      POSTGRES_USER: gogs
-      POSTGRES_PASSWORD: gogs_pass
     volumes:
       - ./pgdata:/var/lib/postgresql/data
+    env_file:
+      - ./env/db.env
     networks:
       - backend
 
   gogs1:
     image: my-go-app
     restart: unless-stopped
-    environment:
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_NAME: gogs
-      DB_USER: gogs
-      DB_PASS: gogs_pass
     expose:
       - "3000"
       - "22"
     volumes:
       - ./data:/data
       - ./data/gogs/conf/app.ini:/data/gogs/conf/app.ini:ro
+    env_file:
+      - ./env/gogs.env
     depends_on:
       - db
     networks:
@@ -48,12 +42,6 @@ services:
   gogs2:
     image: my-go-app
     restart: unless-stopped
-    environment:
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_NAME: gogs
-      DB_USER: gogs
-      DB_PASS: gogs_pass
     expose:
       - "3000"
       - "22"
@@ -62,6 +50,8 @@ services:
       - ./data/gogs/conf/app.ini:/data/gogs/conf/app.ini:ro
     depends_on:
       - db
+    env_file:
+      - ./env/gogs.env
     networks:
       - backend
 
