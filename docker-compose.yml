@@ -3,10 +3,9 @@ services:
     image: nginx
     ports:
       - "80:80"
-      - "443:443"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/gogs.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./configs/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./configs/nginx/gogs.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - gogs1
       - gogs2
@@ -16,42 +15,44 @@ services:
   db:
     image: postgres:16
     restart: unless-stopped
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data
     env_file:
-      - ./env/db.env
+      - .env
+    volumes:
+      - ./data/psql:/var/lib/postgresql/data
     networks:
       - backend
 
   gogs1:
-    image: my-go-app
+    image: gogs-v3
+    container_name: gogs1
     restart: unless-stopped
     expose:
-      - "3000"
       - "22"
-    volumes:
-      - ./data:/data
-      - ./data/gogs/conf/app.ini:/data/gogs/conf/app.ini:ro
+      - "3000"
+    ports:
+      - "22:22"
     env_file:
-      - ./env/gogs.env
+      - .env
+    volumes:
+      - ./data/gogs:/data
     depends_on:
       - db
     networks:
       - backend
 
   gogs2:
-    image: my-go-app
+    image: gogs-v3
+    container_name: gogs2
     restart: unless-stopped
     expose:
-      - "3000"
       - "22"
+      - "3000"
+    env_file:
+      - .env
     volumes:
-      - ./data:/data
-      - ./data/gogs/conf/app.ini:/data/gogs/conf/app.ini:ro
+      - ./data/gogs:/data
     depends_on:
       - db
-    env_file:
-      - ./env/gogs.env
     networks:
       - backend
 

@@ -16,16 +16,15 @@ Vagrant.configure("2") do |config|
     end
     # ==================================== #
 
-    jenkinsAgent.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
+    # jenkinsAgent.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
  
     jenkinsAgent.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update -y
-    mkdir -p /home/vagrant/.ssh 
-    chmod 700 /home/vagrant/.ssh 
-    cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
-    chmod 600 /home/vagrant/.ssh/authorized_keys
-    sudo chown -R vagrant:vagrant /home/vagrant/.ssh
-
+    # mkdir -p /home/vagrant/.ssh 
+    # chmod 700 /home/vagrant/.ssh 
+    # cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
+    # chmod 600 /home/vagrant/.ssh/authorized_keys
+    # sudo chown -R vagrant:vagrant /home/vagrant/.ssh
     sudo apt-get install fontconfig openjdk-21-jre -y
     SHELL
   end  

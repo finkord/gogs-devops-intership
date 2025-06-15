@@ -1,3 +1,6 @@
 .env
-/gogs.io
+.vagrant/
+.vscode/
 data/
+gogs.io/
+|gogs.io/Dockerfile
