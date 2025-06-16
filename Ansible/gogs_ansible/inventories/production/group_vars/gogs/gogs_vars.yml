@@ -1,1 +1,0 @@
-otel_agent_config_template: "agent_config_gogs.yaml.j2"

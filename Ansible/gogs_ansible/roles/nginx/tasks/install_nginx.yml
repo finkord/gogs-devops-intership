@@ -1,8 +1,0 @@
----
-# tasks/install_nginx.yml
-
-- name: Install Nginx and additional packages (OTEL)
-  ansible.builtin.apt:
-    name: "{{ nginx_packages }}"
-    state: present
-    update_cache: yes

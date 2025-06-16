@@ -1,6 +1,0 @@
----
-# tasks/gather_gogs_ips.yml
-
-- name: Collect Gogs IPs from inventory
-  ansible.builtin.set_fact:
-    gogs_ips: "{{ groups['gogs'] | default([]) }}"
