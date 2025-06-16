@@ -1,5 +1,6 @@
 .vscode
 .vagrant
+.env
 
 *.log
 id_rsa
@@ -17,10 +18,3 @@ Jenkins/*
 
 collector
 test
-
-Docker/data
-Docker/gogs
-Docker/Jenkins
-Docker/nginx
-Docker/pgdata
-Docker/env
