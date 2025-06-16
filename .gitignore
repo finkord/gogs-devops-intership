@@ -15,6 +15,3 @@ Splunk/*
 
 Jenkins/*
 !Jenkins/.gitkeep
-
-collector
-test
