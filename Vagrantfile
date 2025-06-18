@@ -19,13 +19,32 @@ Vagrant.configure("2") do |config|
     # jenkinsAgent.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
  
     jenkinsAgent.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update -y
+    # sudo apt-get update -y
     # mkdir -p /home/vagrant/.ssh 
     # chmod 700 /home/vagrant/.ssh 
     # cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     # chmod 600 /home/vagrant/.ssh/authorized_keys
     # sudo chown -R vagrant:vagrant /home/vagrant/.ssh
+
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+    sudo apt-get update  -y
+
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+    sudo usermod -aG docker vagrant
+
     sudo apt-get install fontconfig openjdk-21-jre -y
+
+    sudo apt-get install build-essential -y
+
     SHELL
   end  
 end
