@@ -16,15 +16,15 @@ Vagrant.configure("2") do |config|
     end
     # ==================================== #
 
-    # jenkinsAgent.vm.synced_folder "./Keys/", "/home/vagrant/key.pub/"
+    jenkinsAgent.vm.synced_folder "./configs/vm/", "/home/vagrant/key.pub/"
  
     jenkinsAgent.vm.provision "shell", inline: <<-SHELL
-    # sudo apt-get update -y
-    # mkdir -p /home/vagrant/.ssh 
-    # chmod 700 /home/vagrant/.ssh 
-    # cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
-    # chmod 600 /home/vagrant/.ssh/authorized_keys
-    # sudo chown -R vagrant:vagrant /home/vagrant/.ssh
+    sudo apt-get update -y
+    mkdir -p /home/vagrant/.ssh 
+    chmod 700 /home/vagrant/.ssh 
+    cat /home/vagrant/key.pub/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
+    chmod 600 /home/vagrant/.ssh/authorized_keys
+    sudo chown -R vagrant:vagrant /home/vagrant/.ssh
 
     sudo install -m 0755 -d /etc/apt/keyrings
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
@@ -44,7 +44,6 @@ Vagrant.configure("2") do |config|
     sudo apt-get install fontconfig openjdk-21-jre -y
 
     sudo apt-get install build-essential -y
-
     SHELL
   end  
 end

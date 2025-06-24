@@ -3,3 +3,6 @@
 .vscode/
 data/
 gogs.io/
+
+id_rsa
+id_rsa.pub
