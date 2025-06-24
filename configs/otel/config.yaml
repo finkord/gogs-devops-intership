@@ -5,11 +5,13 @@ receivers:
 #======================================
   otlp/traces:
     protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
       http:
         endpoint: 0.0.0.0:4318
   nginx:
     endpoint: "http://nginx:11180/status"
-    collection_interval: 10s
+    collection_interval: 60s
 
 #======================================
 # POSTGRESQL METRICS
@@ -67,7 +69,7 @@ processors:
   resourcedetection/system:
     detectors: ["system"]
     system:
-      hostname_sources: ["os"]  
+      hostname_sources: ["dns", "os"]  
 
 exporters:
   splunk_hec/traces:
@@ -96,12 +98,12 @@ service:
   pipelines:
     traces:
       receivers: [otlp/traces]
-      processors: [batch, resourcedetection/docker, resourcedetection/system]
+      processors: [batch, resourcedetection/docker]
       exporters: [splunk_hec/traces]
 
     metrics:
       receivers: [docker_stats, nginx, postgresql]
-      processors: [batch, resourcedetection/docker, resourcedetection/system]
+      processors: [batch, resourcedetection/docker]
       exporters: [splunk_hec/metrics]
 
     # logs:

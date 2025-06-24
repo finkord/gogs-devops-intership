@@ -44,7 +44,7 @@ services:
     networks:
       - gogs_network
   gogs1:
-    image: gogs-otel
+    image: gogs-dev:latest
     # image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     container_name: gogs-1
     restart: unless-stopped
@@ -63,7 +63,7 @@ services:
     networks:
       - gogs_network
   gogs2:
-    image: gogs-otel
+    image: gogs-dev:latest
     # image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     container_name: gogs-2
     restart: unless-stopped
