@@ -26,13 +26,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: ["--config", "/etc/otelcol-contrib/config.yaml"]
     ports:
-      - 1888:1888 # pprof extension
-      - 8888:8888 # Prometheus metrics exposed by the Collector
-      - 8889:8889 # Prometheus exporter metrics
-      - 13133:13133 # health_check extension
       - 4317:4317 # OTLP gRPC receiver
       - 4318:4318 # OTLP http receiver
-      - 55679:55679 # zpages extension
     networks:
       - gogs_network
   nginx:
@@ -49,9 +44,11 @@ services:
     networks:
       - gogs_network
   gogs1:
-    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
+    image: gogs-otel
+    # image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     container_name: gogs-1
     restart: unless-stopped
+    privileged: true
     expose:
       - "22"
       - "3000"
@@ -66,9 +63,11 @@ services:
     networks:
       - gogs_network
   gogs2:
-    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
+    image: gogs-otel
+    # image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     container_name: gogs-2
     restart: unless-stopped
+    privileged: true
     expose:
       - "3000"
     env_file:

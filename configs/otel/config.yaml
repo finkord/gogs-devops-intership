@@ -39,9 +39,31 @@ receivers:
         enabled: false
       container.memory.total_rss:
         enabled: true
+      container.cpu.utilization:
+        enabled: true
+      container.memory.percent:
+        enabled: true
+      container.network.io.usage.rx_bytes:
+        enabled: true
+      container.network.io.usage.tx_bytes:
+        enabled: true
+      container.network.io.usage.rx_dropped:
+        enabled: true
+      container.network.io.usage.tx_dropped:
+        enabled: true
+      container.memory.usage.limit:
+        enabled: true
+      container.memory.usage.total:
+        enabled: true
+      container.blockio.io_service_bytes_recursive:
+        enabled: true      
 
 processors:
   batch:
+  resourcedetection/docker:
+    detectors: [env, docker]
+    timeout: 2s
+    override: false
   resourcedetection/system:
     detectors: ["system"]
     system:
@@ -51,7 +73,7 @@ exporters:
   splunk_hec/traces:
     token: "${SPLUNK_HEC_TRACES_TOKEN}"
     endpoint: "${SPLUNK_HEC_URL}"
-    source: "otel_metrics"
+    source: "otel_traces"
     index: "traces"
     tls:
       insecure_skip_verify: true
@@ -65,7 +87,7 @@ exporters:
   splunk_hec/logs:
     token: "${SPLUNK_HEC_LOGS_TOKEN}"
     endpoint: "${SPLUNK_HEC_URL}"
-    source: "otel_metrics"
+    source: "otel_logs"
     index: "logs"
     tls:
       insecure_skip_verify: true
@@ -74,12 +96,12 @@ service:
   pipelines:
     traces:
       receivers: [otlp/traces]
-      processors: [batch, resourcedetection/system]
+      processors: [batch, resourcedetection/docker, resourcedetection/system]
       exporters: [splunk_hec/traces]
 
     metrics:
       receivers: [docker_stats, nginx, postgresql]
-      processors: [batch, resourcedetection/system]
+      processors: [batch, resourcedetection/docker, resourcedetection/system]
       exporters: [splunk_hec/metrics]
 
     # logs:
