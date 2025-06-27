@@ -1,38 +1,54 @@
 services:
   splunk:
-    image: splunk/splunk
+    image: splunk/splunk:9.4
     container_name: splunk
+    expose:
+      - "8088"
     ports:
       - "8000:8000"
-      - "8088:8088"
-    environment:
-      - SPLUNK_PASSWORD=12345678
-      - SPLUNK_START_ARGS=--accept-license
-      - SPLUNK_IGNORE_FILESYSTEM_VALIDATION=1
+    env_file:
+      - .env
     volumes:
       - splunk_var:/opt/splunk/var
       - splunk_etc:/opt/splunk/etc
     networks:
       - gogs_network
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    networks:
+      - gogs_network
+
   otel-collector:
-    image: otel/opentelemetry-collector-contrib
+    image: otel/opentelemetry-collector-contrib:0.128.0
     container_name: otel-collector
     restart: unless-stopped
     env_file:
       - .env
-    user: 0:0
+    user: "0:0"
     volumes:
-      - ./configs/otel/config.yaml:/etc/otelcol-contrib/config.yaml
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: ["--config", "/etc/otelcol-contrib/config.yaml"]
-    ports:
-      - 4317:4317 # OTLP gRPC receiver
-      - 4318:4318 # OTLP http receiver
+      - ./configs/otel/config.yaml:/etc/otelcol-contrib/config.yaml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    command:
+      - "--config=/etc/otelcol-contrib/config.yaml"
+    expose:
+      - "4317"
+      - "4318"
     networks:
       - gogs_network
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.Name}}/{{.ID}}"
+
   nginx:
     image: nginx:1.27.5-alpine-otel
     container_name: nginx
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
@@ -43,33 +59,43 @@ services:
       - gogs2
     networks:
       - gogs_network
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.Name}}/{{.ID}}"
+
   gogs1:
     image: gogs-dev:latest
-    # image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     container_name: gogs-1
     restart: unless-stopped
     privileged: true
     expose:
-      - "22"
-      - "3000"
+      - 3000
     ports:
       - "22:22"
     env_file:
       - .env
+    environment:
+      OTEL_HOST_NAME: gogs
     volumes:
       - ./data/gogs:/data
     depends_on:
       - db
     networks:
       - gogs_network
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.Name}}/{{.ID}}"
   gogs2:
     image: gogs-dev:latest
-    # image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     container_name: gogs-2
     restart: unless-stopped
     privileged: true
     expose:
-      - "3000"
+      - 3000
+    environment:
+      OTEL_HOST_NAME: gogs
     env_file:
       - .env
     volumes:
@@ -78,6 +104,11 @@ services:
       - db
     networks:
       - gogs_network
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.Name}}/{{.ID}}"
+
   db:
     image: postgres:16
     container_name: db
@@ -86,11 +117,18 @@ services:
       - .env
     volumes:
       - ./data/psql:/var/lib/postgresql/data
+      - ./configs/psql/:/docker-entrypoint-initdb.d
     networks:
       - gogs_network
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.Name}}/{{.ID}}"
+
 networks:
   gogs_network:
     driver: bridge
+
 volumes:
   splunk_var:
   splunk_etc:

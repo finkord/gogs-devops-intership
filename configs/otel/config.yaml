@@ -1,4 +1,10 @@
 
+extensions:
+  docker_observer:
+    endpoint: unix:///var/run/docker.sock
+    excluded_images: ['splunk']
+    timeout: 15s
+
 receivers:
 #======================================
 # NGINX TRACES AND METRICS
@@ -18,10 +24,10 @@ receivers:
 #======================================
   postgresql:
     endpoint: db:5432
-    username: "${SPLUNK_PSQL_USER}"
-    password: "${SPLUNK_PSQL_PASSWORD}"
+    username: "${POSTGRES_OTEL_USER}"
+    password: "${POSTGRES_OTEL_PASSWORD}"
     databases:
-      - gogs
+      - "${POSTGRES_GOGS_DB}"
     collection_interval: 10s
     tls:
       insecure: true
@@ -34,6 +40,9 @@ receivers:
     endpoint: unix:///var/run/docker.sock
     collection_interval: 10s
     timeout: 10s
+    excluded_images:
+      - "splunk/splunk:9.4"    
+      - "jenkins/jenkins"    
     metrics:
       container.uptime:
         enabled: true
@@ -59,6 +68,24 @@ receivers:
         enabled: true
       container.blockio.io_service_bytes_recursive:
         enabled: true      
+  filelog:
+    include:
+      - /var/lib/docker/containers/*/*.log
+    include_file_name: false
+    include_file_path: true
+    operators:
+    - type: json_parser
+      if: body matches "^{.*}$"
+      parse_to: attributes
+      output: parse_container_name
+    - id: recombine
+      type: recombine
+      combine_field: body
+      is_first_entry: body matches "^\\d{4}-\\d{2}-\\d{2}T\\d{2}"
+    - type: regex_parser
+      id: parse_container_name
+      regex: '(?P<container_name>.+)'
+      parse_from: attributes.attrs.tag
 
 processors:
   batch:
@@ -106,8 +133,9 @@ service:
       processors: [batch, resourcedetection/docker]
       exporters: [splunk_hec/metrics]
 
-    # logs:
-    #   receivers: []
-    #   processors: [batch, resourcedetection/system]
-    #   exporters: [splunk_hec/logs]
-
+    logs:
+      receivers: [filelog]
+      processors: [batch, resourcedetection/system]
+      exporters: [splunk_hec/logs]
+  
+  extensions: [docker_observer]
