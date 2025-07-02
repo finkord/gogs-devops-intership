@@ -8,7 +8,11 @@ services:
     volumes:
       - ./data/jenkins:/var/jenkins_home
     networks:
-      - jenkins_network
+      # - jenkins_network
+      - gogs_gogs_network
+
 networks:
   jenkins_network:
     driver: bridge
+  gogs_gogs_network:
+    external: true

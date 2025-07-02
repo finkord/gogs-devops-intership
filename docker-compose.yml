@@ -19,10 +19,14 @@ services:
     image: sonarqube:community
     ports:
       - "9000:9000"
+    env_file:
+      - .env
     volumes:
       - ./data/sonarqube/data:/opt/sonarqube/data
       - ./data/sonarqube/logs:/opt/sonarqube/logs
       - ./data/sonarqube/extensions:/opt/sonarqube/extensions
+    depends_on:
+      - db
     networks:
       - gogs_network
 
