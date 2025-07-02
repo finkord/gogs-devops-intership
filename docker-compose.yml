@@ -1,3 +1,4 @@
+name: gogs
 services:
   splunk:
     image: splunk/splunk:9.4
@@ -16,15 +17,17 @@ services:
 
   sonarqube:
     image: sonarqube:community
-    container_name: sonarqube
     ports:
       - "9000:9000"
+    volumes:
+      - ./data/sonarqube/data:/opt/sonarqube/data
+      - ./data/sonarqube/logs:/opt/sonarqube/logs
+      - ./data/sonarqube/extensions:/opt/sonarqube/extensions
     networks:
       - gogs_network
 
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.128.0
-    container_name: otel-collector
     restart: unless-stopped
     env_file:
       - .env
@@ -47,7 +50,6 @@ services:
 
   nginx:
     image: nginx:1.27.5-alpine-otel
-    container_name: nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -66,7 +68,6 @@ services:
 
   gogs1:
     image: gogs-dev:latest
-    container_name: gogs-1
     restart: unless-stopped
     privileged: true
     expose:
@@ -87,17 +88,17 @@ services:
       driver: "json-file"
       options:
         tag: "{{.Name}}/{{.ID}}"
+
   gogs2:
     image: gogs-dev:latest
-    container_name: gogs-2
     restart: unless-stopped
     privileged: true
     expose:
       - 3000
-    environment:
-      OTEL_HOST_NAME: gogs
     env_file:
       - .env
+    environment:
+      OTEL_HOST_NAME: gogs
     volumes:
       - ./data/gogs:/data
     depends_on:
@@ -111,7 +112,6 @@ services:
 
   db:
     image: postgres:16
-    container_name: db
     restart: unless-stopped
     env_file:
       - .env

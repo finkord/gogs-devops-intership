@@ -66,8 +66,7 @@ receivers:
         enabled: true
       container.memory.usage.total:
         enabled: true
-      container.blockio.io_service_bytes_recursive:
-        enabled: true      
+        
   filelog:
     include:
       - /var/lib/docker/containers/*/*.log
@@ -89,6 +88,8 @@ receivers:
 
 processors:
   batch:
+    timeout: 10s
+    send_batch_size: 1000
   resourcedetection/docker:
     detectors: [env, docker]
     timeout: 2s
@@ -97,6 +98,20 @@ processors:
     detectors: ["system"]
     system:
       hostname_sources: ["dns", "os"]  
+  filter/metrics:
+    metrics:
+      include:
+        match_type: regexp
+        resource_attributes:
+          - key: container.name
+            value: "^gogs.*"
+  filter/logs:
+    logs:
+      include:
+        match_type: regexp
+        record_attributes:
+          - key: container_name
+            value: "^gogs.*"
 
 exporters:
   splunk_hec/traces:
@@ -130,12 +145,12 @@ service:
 
     metrics:
       receivers: [docker_stats, nginx, postgresql]
-      processors: [batch, resourcedetection/docker]
+      processors: [batch, resourcedetection/docker, filter/metrics]
       exporters: [splunk_hec/metrics]
 
     logs:
       receivers: [filelog]
-      processors: [batch, resourcedetection/system]
+      processors: [batch, resourcedetection/system, filter/logs]
       exporters: [splunk_hec/logs]
   
   extensions: [docker_observer]
