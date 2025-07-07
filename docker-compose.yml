@@ -15,6 +15,34 @@ services:
     networks:
       - gogs_network
 
+  jenkins:
+    image: jenkins/jenkins
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./data/jenkins:/var/jenkins_home
+    networks:
+      - gogs_network
+
+  zap:
+    image: zaproxy/zap-stable
+    ports:
+      - "8090:8090"
+    environment:
+      ZAP_PORT: 8090
+    volumes:
+      - ./data/zap:/zap/wrk/:rw
+      - ./configs/zap/:/zap/wrk/configs/:rw
+    command: zap.sh -daemon -port 8090 -host 0.0.0.0
+      -config api.disablekey=true
+      -config api.addrs.addr.name=.*
+      -config api.addrs.addr.regex=true
+      -autorun /zap/wrk/configs/config.yaml
+    networks:
+      - gogs_network
+
   sonarqube:
     image: sonarqube:community
     ports:

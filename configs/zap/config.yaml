@@ -1,0 +1,31 @@
+--- # ZAP automation configuration file, for more details see https://www.zaproxy.org/docs/automate/automation-framework/
+env:                                   # The environment, mandatory
+  contexts :                           # List of 1 or more contexts, mandatory
+    - name: gogs-context                  # Name to be used to refer to this context in other jobs, mandatory
+      urls: 
+        - http://nginx
+  parameters:
+    failOnError: true                  # If set exit on an error         
+    failOnWarning: false               # If set exit on a warning
+    continueOnFailure: false           # Continue running all jobs, even if one fails
+    progressToStdout: true             # If set will write job progress to stdout
+
+jobs:
+  - type: spider                       # The traditional spider - fast but doesnt handle modern apps so well
+    parameters:
+      context: "gogs-context"          # String: Name of the context to spider, default: first context
+      # user: "gogs-user"                # String: An optional user to use for authentication, must be defined in the env
+      url: http://nginx
+      maxDuration: 10                  # Int: The max time in minutes the spider will be allowed to run for, default: 0 unlimited
+      maxDepth: 3                      # Int: The maximum tree depth to explore
+      
+  - type: activeScan                   # The active scanner - this actively attacks the target so should only be used with permission
+    parameters:
+      context: "gogs-context"          # String: Name of the context to attack, default: first context
+      # user: "gogs-user"                # String: An optional user to use for authentication, must be defined in the env
+      maxScanDurationInMins: 10        # Int: The max time in minutes the active scanner will be allowed to run for, default: 0 unlimited
+
+  - type: report                       # Report generation
+    parameters:
+      reportDir: /zap/wrk/             # String: The directory into which the report will be written
+      reportDescription: Gogs          # String: The report description
