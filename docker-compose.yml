@@ -17,7 +17,7 @@ services:
 
   jenkins:
     image: jenkins/jenkins
-    container_name: jenkins
+    container_name: gogs-jenkins
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -45,6 +45,7 @@ services:
 
   sonarqube:
     image: sonarqube:community
+    container_name: gogs-sonarqube
     ports:
       - "9000:9000"
     env_file:
@@ -99,7 +100,7 @@ services:
         tag: "{{.Name}}/{{.ID}}"
 
   gogs1:
-    image: gogs-dev:latest
+    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     restart: unless-stopped
     privileged: true
     expose:
@@ -122,7 +123,7 @@ services:
         tag: "{{.Name}}/{{.ID}}"
 
   gogs2:
-    image: gogs-dev:latest
+    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
     restart: unless-stopped
     privileged: true
     expose:
