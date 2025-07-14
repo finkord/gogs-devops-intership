@@ -3,3 +3,7 @@
 *.tfstate*
 *tfvars
 stuff
+
+
+backend.tf
+data.tf

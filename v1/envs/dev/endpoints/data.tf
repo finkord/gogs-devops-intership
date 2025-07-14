@@ -1,6 +1,8 @@
 data "terraform_remote_state" "vpc" {
-  backend = "local"
+  backend = "s3"
   config = {
-    path = "../vpc/terraform.tfstate"
+    bucket = "finkord-gogs-tfstate"
+    key    = "envs/dev/vpc/terraform.tfstate"
+    region = "us-east-1"
   }
 }

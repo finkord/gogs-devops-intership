@@ -14,7 +14,6 @@ output "s3_endpoint_id" {
   value       = aws_vpc_endpoint.s3.id
 }
 
-output "ecr_endpoints_security_group_id" {
-  description = "Security group ID for ECR endpoints"
-  value       = aws_security_group.ecr_endpoints.id
+output "security_group_id" {
+  value = module.endpoints_sg.security_group_id
 }

@@ -98,6 +98,19 @@ ecr-apply:
 ecr-destroy:
 	@$(MAKE) destroy ENV=dev SERVICE=ecr
 
+# ECS commands
+ecs-init:
+	@$(MAKE) init ENV=dev SERVICE=ecs
+
+ecs-plan:
+	@$(MAKE) plan ENV=dev SERVICE=ecs
+
+ecs-apply:
+	@$(MAKE) apply ENV=dev SERVICE=ecs
+
+ecs-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=ecs
+
 # VPC commands
 vpc-init:
 	@$(MAKE) init ENV=dev SERVICE=vpc
@@ -137,6 +150,32 @@ endpoints-apply:
 endpoints-destroy:
 	@$(MAKE) destroy ENV=dev SERVICE=endpoints
 
+# SG commands
+sg-init:
+	@$(MAKE) init ENV=dev SERVICE=sg
+
+sg-plan:
+	@$(MAKE) plan ENV=dev SERVICE=sg
+
+sg-apply:
+	@$(MAKE) apply ENV=dev SERVICE=sg
+
+sg-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=sg
+
+# s3 commands
+s3-init:
+	@$(MAKE) init ENV=dev SERVICE=s3
+
+s3-plan:
+	@$(MAKE) plan ENV=dev SERVICE=s3
+
+s3-apply:
+	@$(MAKE) apply ENV=dev SERVICE=s3
+
+s3-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=s3
+
 # Help command
 help:
 	@echo Available commands:
@@ -152,15 +191,17 @@ help:
 	@echo   output       - Show output values
 	@echo   clean        - Clean up Terraform files
 	@echo   workspace-*  - Workspace management commands
-	@echo.
 	@echo Convenience commands:
 	@echo   ecr-init, ecr-plan, ecr-apply, ecr-destroy
 	@echo   vpc-init, vpc-plan, vpc-apply, vpc-destroy
-	@echo.
+	@echo   rds-init, rds-plan, rds-apply, rds-destroy
+	@echo   endpoints-init, endpoints-plan, endpoints-apply, endpoints-destroy
+	@echo   sg-init, sg-plan, sg-apply, sg-destroy
+	@echo   s3-init, s3-plan, s3-apply, s3-destroy
 	@echo Usage examples:
 	@echo   make plan ENV=dev SERVICE=ecr
 	@echo   make apply ENV=dev SERVICE=vpc
 	@echo   make ecr-plan
 	@echo   make vpc-apply
 
-.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy help
+.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy ecs-init ecs-plan ecs-apply ecs-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy sg-init sg-plan sg-apply sg-destroy s3-init s3-plan s3-apply s3-destroy help
