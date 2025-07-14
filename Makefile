@@ -176,6 +176,19 @@ s3-apply:
 s3-destroy:
 	@$(MAKE) destroy ENV=dev SERVICE=s3
 
+# EFS commands
+efs-init:
+	@$(MAKE) init ENV=dev SERVICE=efs
+
+efs-plan:
+	@$(MAKE) plan ENV=dev SERVICE=efs
+
+efs-apply:
+	@$(MAKE) apply ENV=dev SERVICE=efs
+
+efs-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=efs
+
 # Help command
 help:
 	@echo Available commands:
@@ -198,10 +211,11 @@ help:
 	@echo   endpoints-init, endpoints-plan, endpoints-apply, endpoints-destroy
 	@echo   sg-init, sg-plan, sg-apply, sg-destroy
 	@echo   s3-init, s3-plan, s3-apply, s3-destroy
+	@echo   efs-init, efs-plan, efs-apply, efs-destroy	
 	@echo Usage examples:
 	@echo   make plan ENV=dev SERVICE=ecr
 	@echo   make apply ENV=dev SERVICE=vpc
 	@echo   make ecr-plan
 	@echo   make vpc-apply
 
-.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy ecs-init ecs-plan ecs-apply ecs-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy sg-init sg-plan sg-apply sg-destroy s3-init s3-plan s3-apply s3-destroy help
+.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy ecs-init ecs-plan ecs-apply ecs-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy sg-init sg-plan sg-apply sg-destroy s3-init s3-plan s3-apply s3-destroy efs-init efs-plan efs-apply efs-destroy help

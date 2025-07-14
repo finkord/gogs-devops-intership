@@ -142,25 +142,25 @@ resource "aws_vpc_endpoint" "s3" {
   }
 }
 
-# EFS API endpoint
-resource "aws_vpc_endpoint" "efs" {
-  vpc_id              = data.terraform_remote_state.vpc.outputs.vpc_id
-  service_name        = "com.amazonaws.${var.aws_region}.efs"
-  vpc_endpoint_type   = "Interface"
-  subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
-  security_group_ids  = [module.endpoints_sg.security_group_id]
-  private_dns_enabled = true
-}
+# # EFS API endpoint
+# resource "aws_vpc_endpoint" "efs" {
+#   vpc_id              = data.terraform_remote_state.vpc.outputs.vpc_id
+#   service_name        = "com.amazonaws.${var.aws_region}.efs"
+#   vpc_endpoint_type   = "Interface"
+#   subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
+#   security_group_ids  = [module.endpoints_sg.security_group_id]
+#   private_dns_enabled = true
+# }
 
-# EFS mount target endpoint
-resource "aws_vpc_endpoint" "efs_mount_targets" {
-  vpc_id              = data.terraform_remote_state.vpc.outputs.vpc_id
-  service_name        = "com.amazonaws.${var.aws_region}.efs.mount-targets"
-  vpc_endpoint_type   = "Interface"
-  subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
-  security_group_ids  = [module.endpoints_sg.security_group_id]
-  private_dns_enabled = true
-}
+# # EFS mount target endpoint
+# resource "aws_vpc_endpoint" "efs_mount_targets" {
+#   vpc_id              = data.terraform_remote_state.vpc.outputs.vpc_id
+#   service_name        = "com.amazonaws.${var.aws_region}.efs.mount-targets"
+#   vpc_endpoint_type   = "Interface"
+#   subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
+#   security_group_ids  = [module.endpoints_sg.security_group_id]
+#   private_dns_enabled = true
+# }
 
 # SSM endpoint
 resource "aws_vpc_endpoint" "ssm" {
