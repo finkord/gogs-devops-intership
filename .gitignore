@@ -4,6 +4,10 @@
 *tfvars
 stuff
 
+# Дозволити всі backend.tf і data.tf
+!backend.tf
+!data.tf
 
-backend.tf
-data.tf
+# Але ігнорувати ті, що під v1/ і її підкаталогами
+v1/**/backend.tf
+v1/**/data.tf
