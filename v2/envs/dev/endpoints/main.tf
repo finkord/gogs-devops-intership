@@ -73,25 +73,25 @@ module "endpoints" {
       }
     }
 
-    ssmmessages = {
-      service             = "ssmmessages"
-      service_type        = "Interface"
-      private_dns_enabled = true
-      subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
-      tags = {
-        Name = "ssmmessages-gogs-vpc-endpoint"
-      }
-    }
+    # ssmmessages = {
+    #   service             = "ssmmessages"
+    #   service_type        = "Interface"
+    #   private_dns_enabled = true
+    #   subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
+    #   tags = {
+    #     Name = "ssmmessages-gogs-vpc-endpoint"
+    #   }
+    # }
 
-    ec2messages = {
-      service             = "ec2messages"
-      service_type        = "Interface"
-      private_dns_enabled = true
-      subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
-      tags = {
-        Name = "ec2messages-gogs-vpc-endpoint"
-      }
-    }
+    # ec2messages = {
+    #   service             = "ec2messages"
+    #   service_type        = "Interface"
+    #   private_dns_enabled = true
+    #   subnet_ids          = data.terraform_remote_state.vpc.outputs.private_subnet_ids
+    #   tags = {
+    #     Name = "ec2messages-gogs-vpc-endpoint"
+    #   }
+    # }
   }
 
   tags = {

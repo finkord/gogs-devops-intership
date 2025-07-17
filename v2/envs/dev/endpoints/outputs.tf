@@ -8,15 +8,15 @@ output "ssm_endpoint_dns" {
   value       = module.endpoints.endpoints["ssm"].dns_entry
 }
 
-output "ssmmessages_endpoint_id" {
-  description = "SSM Messages endpoint ID"
-  value       = module.endpoints.endpoints["ssmmessages"].id
-}
+# output "ssmmessages_endpoint_id" {
+#   description = "SSM Messages endpoint ID"
+#   value       = module.endpoints.endpoints["ssmmessages"].id
+# }
 
-output "ec2messages_endpoint_id" {
-  description = "EC2 Messages endpoint ID"
-  value       = module.endpoints.endpoints["ec2messages"].id
-}
+# output "ec2messages_endpoint_id" {
+#   description = "EC2 Messages endpoint ID"
+#   value       = module.endpoints.endpoints["ec2messages"].id
+# }
 
 output "logs_endpoint_id" {
   description = "CloudWatch Logs endpoint ID"

@@ -7,7 +7,7 @@ resource "aws_ecs_task_definition" "gogs_task" {
 
   # task_role_arn      = aws_iam_role.ecs_task_role.arn
   # execution_role_arn = aws_iam_role.ecs_task_execution_role.arn
-  execution_role_arn = "arn:aws:iam::416929699302:role/ecsTaskExecutionRole"
+  execution_role_arn = data.terraform_remote_state.iam.outputs.ecs_task_execution_role_arn
 
   volume {
     name = "efs-volume"

@@ -34,6 +34,14 @@ data "terraform_remote_state" "alb" {
   }
 }
 
+data "terraform_remote_state" "iam" {
+  backend = "s3"
+  config = {
+    bucket = "finkord-gogs-tfstate"
+    key    = "envs/dev/iam/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
 
 data "aws_ssm_parameter" "db_host" {
   name            = "/rds/gogs/db_host"
