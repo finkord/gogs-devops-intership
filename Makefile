@@ -7,7 +7,8 @@
 # ===========
 
 # Docker image metadata
-IMAGE_NAME := gogs-dev
+# IMAGE_NAME := gogs-dev
+IMAGE_NAME := gogs/test
 
 # Context directory for docker build
 CONTEXT_DIR := ./gogs.io

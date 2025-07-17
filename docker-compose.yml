@@ -100,7 +100,7 @@ services:
         tag: "{{.Name}}/{{.ID}}"
 
   gogs1:
-    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
+    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/test:latest
     restart: unless-stopped
     privileged: true
     expose:
@@ -123,7 +123,7 @@ services:
         tag: "{{.Name}}/{{.ID}}"
 
   gogs2:
-    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/images:latest
+    image: 416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/test:latest
     restart: unless-stopped
     privileged: true
     expose:
