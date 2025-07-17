@@ -4,7 +4,7 @@
 # Default values
 ENV ?= dev
 SERVICE ?= 
-TERRAFORM_DIR = v1\envs\$(ENV)\$(SERVICE)
+TERRAFORM_DIR = v2\envs\$(ENV)\$(SERVICE)
 
 # Check if required parameters are set
 check-params:
@@ -189,6 +189,45 @@ efs-apply:
 efs-destroy:
 	@$(MAKE) destroy ENV=dev SERVICE=efs
 
+# ALB commands
+alb-init:
+	@$(MAKE) init ENV=dev SERVICE=alb
+
+alb-plan:
+	@$(MAKE) plan ENV=dev SERVICE=alb
+
+alb-apply:
+	@$(MAKE) apply ENV=dev SERVICE=alb
+
+alb-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=alb
+
+# Route53 commands
+route53-init:
+	@$(MAKE) init ENV=dev SERVICE=route53
+
+route53-plan:
+	@$(MAKE) plan ENV=dev SERVICE=route53
+
+route53-apply:
+	@$(MAKE) apply ENV=dev SERVICE=route53
+
+route53-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=route53
+
+# IAM commands
+iam-init:
+	@$(MAKE) init ENV=dev SERVICE=iam
+
+iam-plan:
+	@$(MAKE) plan ENV=dev SERVICE=iam
+
+iam-apply:
+	@$(MAKE) apply ENV=dev SERVICE=iam
+
+iam-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=iam
+
 # Help command
 help:
 	@echo Available commands:
@@ -212,10 +251,14 @@ help:
 	@echo   sg-init, sg-plan, sg-apply, sg-destroy
 	@echo   s3-init, s3-plan, s3-apply, s3-destroy
 	@echo   efs-init, efs-plan, efs-apply, efs-destroy	
+	@echo   alb-init, alb-plan, alb-apply, alb-destroy
+	@echo   route53-init, route53-plan, route53-apply, route53-destroy
+	@echo   iam-init, iam-plan, iam-apply, iam-destroy
 	@echo Usage examples:
 	@echo   make plan ENV=dev SERVICE=ecr
 	@echo   make apply ENV=dev SERVICE=vpc
 	@echo   make ecr-plan
 	@echo   make vpc-apply
 
-.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy ecs-init ecs-plan ecs-apply ecs-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy sg-init sg-plan sg-apply sg-destroy s3-init s3-plan s3-apply s3-destroy efs-init efs-plan efs-apply efs-destroy help
+.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy ecs-init ecs-plan ecs-apply ecs-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy sg-init sg-plan sg-apply sg-destroy s3-init s3-plan s3-apply s3-destroy efs-init efs-plan efs-apply efs-destroy alb-init alb-plan alb-apply alb-destroy route53-init route53-plan route53-apply route53-destroy iam-init iam-plan iam-apply iam-destroy help
+
