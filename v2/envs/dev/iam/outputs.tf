@@ -32,3 +32,13 @@ output "administrator_access_custom_policy_arn" {
   description = "ARN of the custom AdministratorAccess policy"
   value       = aws_iam_policy.administrator_access_custom.arn
 }
+
+output "jenkins_ecr_user_name" {
+  description = "IAM user name for Jenkins ECR"
+  value       = aws_iam_user.jenkins_ecr.name
+}
+
+output "jenkins_ecr_user_arn" {
+  description = "IAM user ARN for Jenkins ECR"
+  value       = aws_iam_user.jenkins_ecr.arn
+}
