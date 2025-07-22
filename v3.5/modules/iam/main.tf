@@ -112,7 +112,7 @@ resource "aws_iam_role_policy_attachment" "attach_ecs_execution" {
 #########################################################
 #########################################################
 resource "aws_iam_user" "jenkins_ecr" {
-  name = "Jenkins-ecr"
+  name = "Jenkins-ecr-user"
 }
 
 resource "aws_iam_policy" "jenkins_ecr_policy" {
