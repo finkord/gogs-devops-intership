@@ -4,35 +4,35 @@ output "vpc_id" {
   value       = module.vpc.vpc_id
 }
 
+output "vpc_name" {
+  description = "ID of the VPC"
+  value       = "gogs-vpc"
+}
+
 output "vpc_cidr_block" {
   description = "The CIDR block of the VPC"
   value       = module.vpc.vpc_cidr_block
 }
 
-output "vpc_arn" {
-  description = "The ARN of the VPC"
-  value       = module.vpc.vpc_arn
-}
-
 # Subnet Outputs
 output "public_subnet_ids" {
   description = "List of IDs of public subnets"
-  value       = module.vpc.public_subnets
+  value       = module.vpc.public_subnet_ids
 }
 
 output "private_subnet_ids" {
   description = "List of IDs of private subnets"
-  value       = module.vpc.private_subnets
+  value       = module.vpc.private_subnet_ids
 }
 
 output "public_subnet_cidrs" {
   description = "List of cidr_blocks of public subnets"
-  value       = module.vpc.public_subnets_cidr_blocks
+  value       = module.vpc.public_subnet_cidrs
 }
 
 output "private_subnet_cidrs" {
   description = "List of cidr_blocks of private subnets"
-  value       = module.vpc.private_subnets_cidr_blocks
+  value       = module.vpc.private_subnet_cidrs
 }
 
 # Route Table Outputs
