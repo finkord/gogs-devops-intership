@@ -241,6 +241,19 @@ jenkins-apply:
 jenkins-destroy:
 	@$(MAKE) destroy ENV=dev SERVICE=jenkins
 
+# EBS commands
+ebs-init:
+	@$(MAKE) init ENV=dev SERVICE=ebs
+
+ebs-plan:
+	@$(MAKE) plan ENV=dev SERVICE=ebs
+
+ebs-apply:
+	@$(MAKE) apply ENV=dev SERVICE=ebs
+
+ebs-destroy:
+	@$(MAKE) destroy ENV=dev SERVICE=ebs
+
 # Help command
 help:
 	@echo Available commands:
@@ -268,11 +281,12 @@ help:
 	@echo   route53-init, route53-plan, route53-apply, route53-destroy
 	@echo   iam-init, iam-plan, iam-apply, iam-destroy
 	@echo   jenkins-init, jenkins-plan, jenkins-apply, jenkins-destroy
+	@echo   ebs-init, ebs-plan, ebs-apply, ebs-destroy
 	@echo Usage examples:
 	@echo   make plan ENV=dev SERVICE=ecr
 	@echo   make apply ENV=dev SERVICE=vpc
 	@echo   make ecr-plan
 	@echo   make vpc-apply
 
-.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy ecs-init ecs-plan ecs-apply ecs-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy sg-init sg-plan sg-apply sg-destroy s3-init s3-plan s3-apply s3-destroy efs-init efs-plan efs-apply efs-destroy alb-init alb-plan alb-apply alb-destroy route53-init route53-plan route53-apply route53-destroy iam-init iam-plan iam-apply iam-destroy jenkins-init jenkins-plan jenkins-apply jenkins-destroy help
+.PHONY: check-params init plan apply apply-auto destroy destroy-auto validate fmt show output clean workspace-list workspace-new workspace-select ecr-init ecr-plan ecr-apply ecr-destroy ecs-init ecs-plan ecs-apply ecs-destroy vpc-init vpc-plan vpc-apply vpc-destroy rds-init rds-plan rds-apply rds-destroy endpoints-init endpoints-plan endpoints-apply endpoints-destroy sg-init sg-plan sg-apply sg-destroy s3-init s3-plan s3-apply s3-destroy efs-init efs-plan efs-apply efs-destroy alb-init alb-plan alb-apply alb-destroy route53-init route53-plan route53-apply route53-destroy iam-init iam-plan iam-apply iam-destroy jenkins-init jenkins-plan jenkins-apply jenkins-destroy ebs-init ebs-plan ebs-apply ebs-destroy help
 

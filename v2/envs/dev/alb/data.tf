@@ -24,3 +24,12 @@ data "terraform_remote_state" "route53" {
     region = "us-east-1"
   }
 }
+
+data "terraform_remote_state" "jenkins" {
+  backend = "s3"
+  config = {
+    bucket = "finkord-gogs-tfstate"
+    key    = "envs/dev/jenkins/terraform.tfstate"
+    region = "us-east-1"
+  }
+}

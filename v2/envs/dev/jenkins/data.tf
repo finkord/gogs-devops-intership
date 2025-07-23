@@ -15,3 +15,12 @@ data "terraform_remote_state" "sg" {
     region = "us-east-1"
   }
 }
+
+data "terraform_remote_state" "ebs" {
+  backend = "s3"
+  config = {
+    bucket = "finkord-gogs-tfstate"
+    key    = "envs/dev/ebs/terraform.tfstate"
+    region = "us-east-1"
+  }
+}

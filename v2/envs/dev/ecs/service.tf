@@ -12,7 +12,7 @@ resource "aws_ecs_service" "gogs" {
   }
 
   load_balancer {
-    target_group_arn = data.terraform_remote_state.alb.outputs.alb_target_group_arn
+    target_group_arn = data.terraform_remote_state.alb.outputs.gogs_target_group_arn
     container_name   = "gogs"
     container_port   = 3000
   }
