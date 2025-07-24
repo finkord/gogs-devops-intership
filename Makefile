@@ -87,16 +87,16 @@ workspace-select: check-params
 # Convenience commands for your current structure
 # ECR commands
 ecr-init:
-	@$(MAKE) init ENV=dev SERVICE=ecr
+	@$(MAKE) init ENV=dev SERVICE=global/ecr
 
 ecr-plan:
-	@$(MAKE) plan ENV=dev SERVICE=ecr
+	@$(MAKE) plan ENV=dev SERVICE=global/ecr
 
 ecr-apply:
-	@$(MAKE) apply ENV=dev SERVICE=ecr
+	@$(MAKE) apply ENV=dev SERVICE=global/ecr
 
 ecr-destroy:
-	@$(MAKE) destroy ENV=dev SERVICE=ecr
+	@$(MAKE) destroy ENV=dev SERVICE=global/ecr
 
 # ECS commands
 ecs-init:
@@ -165,16 +165,16 @@ sg-destroy:
 
 # s3 commands
 s3-init:
-	@$(MAKE) init ENV=dev SERVICE=s3
+	@$(MAKE) init ENV=dev SERVICE=global/s3
 
 s3-plan:
-	@$(MAKE) plan ENV=dev SERVICE=s3
+	@$(MAKE) plan ENV=dev SERVICE=global/s3
 
 s3-apply:
-	@$(MAKE) apply ENV=dev SERVICE=s3
+	@$(MAKE) apply ENV=dev SERVICE=global/s3
 
 s3-destroy:
-	@$(MAKE) destroy ENV=dev SERVICE=s3
+	@$(MAKE) destroy ENV=dev SERVICE=global/s3
 
 # EFS commands
 efs-init:

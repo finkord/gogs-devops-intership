@@ -1,18 +1,14 @@
 variable "region" { default = "us-east-1" }
 variable "ami_id" { default = "ami-020cba7c55df1f615" }
 variable "instance_type" { default = "t2.micro" }
-variable "key_name" { default = "jenkins-key" }
+variable "key_name" { default = "jenkins_master_key" }
 
 locals {
   subnet_id = data.terraform_remote_state.vpc.outputs.public_subnet_ids[0]
 }
 
-resource "aws_key_pair" "jenkins" {
-  key_name   = "jenkins-key"
-  public_key = file("U:/Dev/DevOps/terraform/keys/jenkins-key.pub")
-}
-
 locals {
+  # user_data = file("./jenkins-test.sh")
   user_data = file("./jenkins-v1.0.sh")
 }
 
@@ -25,7 +21,7 @@ resource "aws_instance" "jenkins-master" {
   availability_zone           = "us-east-1a"
   associate_public_ip_address = true
   user_data                   = local.user_data
-  # iam_instance_profile        = data.terraform_remote_state.iam.outputs.jenkins_ec2_master_role_name
+  iam_instance_profile        = aws_iam_instance_profile.jenkins_master.name
 
   tags = {
     Name = "jenkins-master-ec2"
