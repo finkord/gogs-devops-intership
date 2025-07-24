@@ -24,3 +24,21 @@ data "terraform_remote_state" "ebs" {
     region = "us-east-1"
   }
 }
+
+data "terraform_remote_state" "iam" {
+  backend = "s3"
+  config = {
+    bucket = "finkord-gogs-tfstate"
+    key    = "envs/dev/iam/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
+data "terraform_remote_state" "alb" {
+  backend = "s3"
+  config = {
+    bucket = "finkord-gogs-tfstate"
+    key    = "envs/dev/alb/terraform.tfstate"
+    region = "us-east-1"
+  }
+}

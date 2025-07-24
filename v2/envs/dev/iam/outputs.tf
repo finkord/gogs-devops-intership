@@ -1,12 +1,3 @@
-output "terraform_deployer_user_name" {
-  description = "IAM user name for Terraform deployer"
-  value       = aws_iam_user.terraform_deployer.name
-}
-
-output "terraform_deployer_user_arn" {
-  description = "IAM user ARN for Terraform deployer"
-  value       = aws_iam_user.terraform_deployer.arn
-}
 
 output "ecs_task_execution_role_name" {
   description = "Name of the ECS task execution IAM role"
@@ -26,11 +17,6 @@ output "cloudwatch_logs_full_access_policy_arn" {
 output "ecs_task_execution_policy_arn" {
   description = "ARN of the custom ECS Task Execution policy"
   value       = aws_iam_policy.ecs_task_execution_policy.arn
-}
-
-output "administrator_access_custom_policy_arn" {
-  description = "ARN of the custom AdministratorAccess policy"
-  value       = aws_iam_policy.administrator_access_custom.arn
 }
 
 output "jenkins_ecr_user_name" {

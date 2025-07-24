@@ -1,9 +1,13 @@
+# ecr/backend.tf
 terraform {
   backend "s3" {
     bucket       = "finkord-gogs-tfstate"
-    key          = "v3.5/envs/dev/01-base/terraform.tfstate"
+    key          = "envs/dev/ecr/terraform.tfstate"
     region       = "us-east-1"
     use_lockfile = true
-    # encrypt      = true
   }
+}
+
+provider "aws" {
+  region = var.aws_region
 }

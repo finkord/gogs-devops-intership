@@ -25,6 +25,7 @@ resource "aws_instance" "jenkins-master" {
   availability_zone           = "us-east-1a"
   associate_public_ip_address = true
   user_data                   = local.user_data
+  # iam_instance_profile        = data.terraform_remote_state.iam.outputs.jenkins_ec2_master_role_name
 
   tags = {
     Name = "jenkins-master-ec2"
@@ -37,3 +38,10 @@ resource "aws_volume_attachment" "jenkins_attach_ebs" {
   instance_id  = aws_instance.jenkins-master.id
   force_detach = true
 }
+
+resource "aws_lb_target_group_attachment" "jenkins" {
+  target_group_arn = data.terraform_remote_state.alb.outputs.jenkins_target_group_arn
+  target_id        = aws_instance.jenkins-master.id
+  port             = 8080
+}
+
