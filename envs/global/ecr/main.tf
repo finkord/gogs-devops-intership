@@ -14,7 +14,7 @@ module "ecr" {
           tagStatus     = "tagged"
           tagPrefixList = ["prod"]
           countType     = "imageCountMoreThan"
-          countNumber   = 5
+          countNumber   = 3
         }
         action = {
           type = "expire"
@@ -64,7 +64,7 @@ module "ecr" {
         selection = {
           tagStatus   = "any"
           countType   = "imageCountMoreThan"
-          countNumber = 3
+          countNumber = 1
         }
         action = {
           type = "expire"
