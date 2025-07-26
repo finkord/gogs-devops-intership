@@ -11,11 +11,11 @@ resource "aws_ecs_service" "gogs" {
     assign_public_ip = false
   }
 
-  # load_balancer {
-  #   target_group_arn = data.terraform_remote_state.alb.outputs.gogs_target_group_arn
-  #   container_name   = "gogs"
-  #   container_port   = 3000
-  # }
+  load_balancer {
+    target_group_arn = data.terraform_remote_state.alb.outputs.gogs_target_group_arn
+    container_name   = "gogs"
+    container_port   = 3000
+  }
 }
 
 resource "aws_appautoscaling_target" "gogs" {

@@ -109,9 +109,16 @@ resource "aws_iam_policy" "jenkins_agent" {
           "ecr:PutImage",
           "ecr:InitiateLayerUpload",
           "ecr:UploadLayerPart",
+          "ecr:GetAuthorizationToken",
           "ecr:CompleteLayerUpload"
         ]
-        Resource = [data.terraform_remote_state.ecr.outputs.ecr_repository_arn]
+        Resource : "*"
+        # Resource = [data.terraform_remote_state.ecr.outputs.ecr_repository_arn]
+      },
+      {
+        "Effect" : "Allow",
+        "Action" : "ecs:UpdateService",
+        "Resource" : "arn:aws:ecs:us-east-1:416929699302:service/gogs-cluster/*"
       }
     ]
   })

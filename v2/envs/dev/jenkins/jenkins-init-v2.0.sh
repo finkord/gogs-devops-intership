@@ -1,21 +1,28 @@
 #!/bin/bash
-# set -eux
+set -eux
 
-# DEVICE="/dev/xvdf"
-# MOUNT_POINT="/var/lib/jenkins"
+DEVICE="/dev/xvdf"
+MOUNT_POINT="/var/lib/jenkins"
 
-# while [ ! -b "$DEVICE" ]; do
-#   echo "Waiting for $DEVICE to be ready..."
-#   sleep 2
-# done
+while [ ! -b "$DEVICE" ]; do
+  echo "Waiting for $DEVICE to be ready..."
+  sleep 2
+done
 
-# if ! blkid $DEVICE; then
-#   echo "No filesystem found on $DEVICE, formatting..."
-#   mkfs.ext4 $DEVICE
-# fi
+if ! blkid $DEVICE; then
+  echo "No filesystem found on $DEVICE, formatting..."
+  mkfs.ext4 $DEVICE
+fi
 
-# mkdir -p $MOUNT_POINT
-# mount $DEVICE $MOUNT_POINT
+mkdir -p $MOUNT_POINT
+mount $DEVICE $MOUNT_POINT
+
+# allocate swap memory
+fallocate -l 2G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+echo '/swapfile none swap sw 0 0' >> /etc/fstab
 
 ##########################
 #   Installing Jave      #
@@ -34,7 +41,7 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
 sudo apt-get update -y
 sudo apt-get install -y jenkins
 
-sudo chown -R jenkins:jenkins /var/lib/jenkins
+chown -R jenkins:jenkins /var/lib/jenkins
 
 sudo systemctl enable jenkins
 sudo systemctl restart jenkins

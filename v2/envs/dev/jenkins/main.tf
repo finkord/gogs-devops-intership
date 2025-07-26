@@ -9,7 +9,7 @@ locals {
 
 locals {
   # user_data = file("./jenkins-test.sh")
-  user_data = file("./jenkins-v1.0.sh")
+  user_data = file("./jenkins-init-v2.0.sh")
 }
 
 resource "aws_instance" "jenkins-master" {
@@ -23,16 +23,27 @@ resource "aws_instance" "jenkins-master" {
   user_data                   = local.user_data
   iam_instance_profile        = aws_iam_instance_profile.jenkins_master.name
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  root_block_device {
+    volume_size = 10
+    volume_type = "gp3"
+  }
+
   tags = {
     Name = "jenkins-master-ec2"
   }
 }
 
 resource "aws_volume_attachment" "jenkins_attach_ebs" {
-  device_name  = "/dev/xvdf"
-  volume_id    = data.terraform_remote_state.ebs.outputs.ebs_id
-  instance_id  = aws_instance.jenkins-master.id
-  force_detach = true
+  device_name = "/dev/xvdf"
+  volume_id   = data.terraform_remote_state.ebs.outputs.ebs_id
+  instance_id = aws_instance.jenkins-master.id
+  # force_detach = true
+
+  depends_on = [aws_instance.jenkins-master]
 }
 
 resource "aws_lb_target_group_attachment" "jenkins" {

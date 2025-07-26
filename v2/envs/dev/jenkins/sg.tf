@@ -1,5 +1,5 @@
 resource "aws_security_group" "jenkins_agent" {
-  name   = "jenkins-agent-sg"
+  name   = "gogs-vpc-jenkins-agent-sg"
   vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
 
   ingress {
@@ -21,5 +21,9 @@ resource "aws_security_group" "jenkins_agent" {
     from_port   = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "gogs-vpc-jenkins-agent-sg"
   }
 }

@@ -52,6 +52,14 @@ resource "aws_ecs_task_definition" "gogs_task" {
         {
           name  = "GOGS_DB_NAME"
           value = data.aws_ssm_parameter.db_name.value
+        },
+        {
+          name  = "GOGS_DOMAIN"
+          value = "awsgogs.pp.ua"
+        },
+        {
+          name  = "GOGS_EXTERNAL_URL"
+          value = "https://awsgogs.pp.ua/"
         }
       ]
       mountPoints = [
