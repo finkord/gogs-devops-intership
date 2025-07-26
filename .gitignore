@@ -1,0 +1,8 @@
+
+.terraform*
+*.tfstate*
+*tfvars
+stuff
+keys
+
+*.tar*
