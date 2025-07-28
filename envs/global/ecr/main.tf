@@ -64,7 +64,7 @@ module "ecr" {
         selection = {
           tagStatus   = "any"
           countType   = "imageCountMoreThan"
-          countNumber = 1
+          countNumber = 10
         }
         action = {
           type = "expire"

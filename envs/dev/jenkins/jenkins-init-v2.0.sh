@@ -3,6 +3,7 @@ set -eux
 
 DEVICE="/dev/xvdf"
 MOUNT_POINT="/var/lib/jenkins"
+FSTAB_ENTRY="$DEVICE $MOUNT_POINT ext4 defaults,nofail 0 2"
 
 while [ ! -b "$DEVICE" ]; do
   echo "Waiting for $DEVICE to be ready..."
@@ -15,6 +16,13 @@ if ! blkid $DEVICE; then
 fi
 
 mkdir -p $MOUNT_POINT
+
+if ! grep -qs "^$DEVICE " /etc/fstab; then
+  echo "Adding $DEVICE to /etc/fstab..."
+  echo "$FSTAB_ENTRY" >> /etc/fstab
+  sudo systemctl daemon-reload
+fi
+
 mount $DEVICE $MOUNT_POINT
 
 # allocate swap memory
