@@ -22,12 +22,15 @@ resource "aws_iam_role" "jenkins_master" {
 }
 
 resource "aws_iam_policy" "jenkins_master_policy" {
-  name = "jenkins-master-policy"
+  name        = "jenkins_master_policy"
+  path        = "/"
+  description = "Jenkins master policy"
 
   policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
+    Version = "2012-10-17"
+    Statement = [
       {
+        "Effect" : "Allow",
         "Action" : [
           "ec2:DescribeSpotInstanceRequests",
           "ec2:CancelSpotInstanceRequests",
@@ -47,12 +50,23 @@ resource "aws_iam_policy" "jenkins_master_policy" {
           "ec2:DescribeAvailabilityZones",
           "ec2:DescribeSecurityGroups",
           "ec2:DescribeSubnets",
-          "iam:ListInstanceProfilesForRole",
-          "iam:PassRole",
-          "ec2:GetPasswordData",
-          "ec2:DescribeSpotPriceHistory"
+          "ec2:GetPasswordData"
         ],
+        "Resource" : "*"
+      },
+      {
         "Effect" : "Allow",
+        "Action" : "iam:PassRole",
+        "Resource" : "*"
+      },
+      {
+        "Effect" : "Allow",
+        "Action" = [
+          "iam:ListInstanceProfiles",
+          "iam:CreateServiceLinkedRole",
+          "iam:ListRoles"
+        ]
+
         "Resource" : "*"
       }
     ]
