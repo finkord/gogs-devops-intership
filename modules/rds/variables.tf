@@ -47,3 +47,7 @@ variable "publicly_accessible" {
   type    = bool
   default = false
 }
+
+variable "rds_monitoring_role_arn" {
+  type = string
+}

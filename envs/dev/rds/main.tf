@@ -13,6 +13,8 @@ module "rds" {
   password           = random_password.rds_password.result
   subnet_ids         = data.terraform_remote_state.vpc.outputs.private_subnet_ids
   security_group_ids = [data.terraform_remote_state.sg.outputs.rds_sg_id]
+
+  rds_monitoring_role_arn = "arn:aws:iam::416929699302:role/rds-monitoring-role"
 }
 
 module "ssm-parameters" {

@@ -60,8 +60,44 @@ resource "aws_ecs_task_definition" "gogs_task" {
         {
           name  = "GOGS_EXTERNAL_URL"
           value = "https://awsgogs.pp.ua/"
+        },
+        {
+          name  = "SPLUNK_MEMORY_LIMIT_MIB"
+          value = "512"
         }
       ]
+
+      secrets = [
+        {
+          name      = "SPLUNK_HEC_TRACES_TOKEN"
+          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_TRACES_TOKEN"
+        },
+        {
+          name      = "SPLUNK_HEC_METRICS_TOKEN"
+          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_METRICS_TOKEN"
+        },
+        {
+          name      = "SPLUNK_HEC_LOGS_TOKEN"
+          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_LOGS_TOKEN"
+        },
+        {
+          name      = "SPLUNK_ACCESS_TOKEN"
+          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_ACCESS_TOKEN"
+        },
+        {
+          name      = "SPLUNK_HEC_URL"
+          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_URL"
+        },
+        {
+          name      = "SPLUNK_INGEST_URL"
+          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_INGEST_URL"
+        },
+        {
+          name      = "SPLUNK_API_URL"
+          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_API_URL"
+        }
+      ]
+
       mountPoints = [
         {
           sourceVolume  = "efs-volume"
@@ -69,14 +105,14 @@ resource "aws_ecs_task_definition" "gogs_task" {
           readOnly      = false
         }
       ]
-      logConfiguration = {
-        logDriver = "awslogs"
-        options = {
-          "awslogs-group"         = "/ecs/gogs"
-          "awslogs-region"        = var.aws_region
-          "awslogs-stream-prefix" = "ecs"
-        }
-      }
+      # logConfiguration = {
+      #   logDriver = "awslogs"
+      #   options = {
+      #     "awslogs-group"         = "/ecs/gogs"
+      #     "awslogs-region"        = var.aws_region
+      #     "awslogs-stream-prefix" = "ecs"
+      #   }
+      # }
     }
   ])
 }

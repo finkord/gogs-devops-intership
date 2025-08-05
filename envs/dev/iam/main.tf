@@ -39,6 +39,32 @@ resource "aws_iam_policy" "cloudwatch_logs_full_access" {
   })
 }
 
+resource "aws_iam_role_policy" "allow_ssm_parameters" {
+  name = "AllowGetSSMParameters"
+  role = aws_iam_role.ecs_task_execution_role.name
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "ssm:GetParameters"
+        ],
+        Resource = [
+          "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_TRACES_TOKEN",
+          "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_METRICS_TOKEN",
+          "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_LOGS_TOKEN",
+          "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_ACCESS_TOKEN",
+          "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_URL",
+          "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_INGEST_URL",
+          "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_API_URL"
+        ]
+      }
+    ]
+  })
+}
+
 resource "aws_iam_policy" "ecs_task_execution_policy" {
   name = "AmazonECSTaskExecutionRolePolicy"
 

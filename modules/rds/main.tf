@@ -23,6 +23,14 @@ resource "aws_db_instance" "this" {
   skip_final_snapshot    = true
   publicly_accessible    = var.publicly_accessible
 
+  monitoring_interval = 60
+  monitoring_role_arn = var.rds_monitoring_role_arn
+
+  performance_insights_enabled          = true
+  performance_insights_retention_period = 7
+
+  enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]
+
   tags = {
     Name = "${var.project}-rds"
   }
