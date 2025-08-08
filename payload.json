@@ -1,0 +1,63 @@
+{
+  "username": "Splunk Observability",
+  "avatar_url": "https://i.postimg.cc/xqrvx4FW/change-color-of-back.png",
+  "embeds": [
+    {
+      "title": "{{{messageTitle}}}",
+      "url": "{{{detectorUrl}}}",
+      "color": 1184274,
+      "description": "",
+
+      "fields": [
+        {
+          "name": "Severity",
+          "value": "{{{severity}}}",
+          "inline": true
+        },
+        {
+          "name": "Incident ID",
+          "value": "{{{incidentId}}}",
+          "inline": true
+        },
+        {
+          "name": "Detector ID",
+          "value": "{{{detectorId}}}",
+          "inline": true
+        },
+        {
+          "name": "Description",
+          "value": "{{{encodeString description}}}",
+          "inline": false
+        },
+        {
+          "name": "Info",
+          "value": "```json\n{{{messageBody}}}\n```",
+          "inline": false
+        },
+        {
+          "name": "Source",
+          "value": "{{{src}}}",
+          "inline": false
+        },
+        {
+          "name": "Detector",
+          "value": "{{{encodeString detector}}}",
+          "inline": true
+        },
+        {
+          "name": "Status Extended",
+          "value": "{{{statusExtended}}}",
+          "inline": true
+        }
+      ],
+
+      "image": {
+        "url": "{{{imageUrl}}}"
+      },
+      "footer": {
+        "text": "Alert via Splunk Observability Webhook"
+      },
+      "timestamp": "{{{timestamp}}}"
+    }
+  ]
+}
