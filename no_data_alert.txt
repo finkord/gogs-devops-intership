@@ -1,0 +1,27 @@
+| makeresults
+| eval containers="gogs-nginx-1,gogs-otel-collector-1,gogs-db-1,gogs-gogs1-1,gogs-gogs2-1"
+| makemv delim="," containers
+| mvexpand containers
+
+| append [
+    mstats latest(container.cpu.utilization) AS cpu,
+           latest(container.memory.usage) AS mem,
+           latest(container.network.io.usage) AS net
+    where index=metrics earliest=-2m latest=now 
+    by container.name
+    | eval group=case(
+        match('container.name', "gogs-nginx."), "gogs-nginx-1",
+        match('container.name', "gogs-otel-collector."), "gogs-otel-collector-1",
+        match('container.name', "gogs-db."), "gogs-db-1",
+        match('container.name', "gogs-gogs1."), "gogs-gogs1-1",
+        match('container.name', "gogs-gogs2."), "gogs-gogs2-1"
+    )
+    | eval has_metrics=if(isnotnull(cpu) OR isnotnull(mem) OR isnotnull(net), 1, null())
+    | stats max(has_metrics) as has_metrics by group
+    | rename group as containers
+]
+
+| stats values(has_metrics) as has_metrics by containers
+| where isnull(has_metrics)
+| stats values(containers) as missing_groups
+| eval message = "Containers with no metrics: " . mvjoin(missing_groups, ", ")
