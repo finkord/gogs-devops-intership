@@ -1,0 +1,439 @@
+{
+  "title": "Gogs Dashboard",
+  "description": "",
+  "inputs": {
+    "input_global_trp": {
+      "options": {
+        "defaultValue": "-60m@m,now",
+        "token": "global_time"
+      },
+      "title": "Global Time Range",
+      "type": "input.timerange"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {
+            "earliest": "$global_time.earliest$",
+            "latest": "$global_time.latest$"
+          }
+        }
+      }
+    }
+  },
+  "visualizations": {
+    "viz_BddUb9uz": {
+      "dataSources": {
+        "primary": "ds_9P8NcCUf"
+      },
+      "options": {
+        "dataValuesDisplay": "minmax",
+        "legendDisplay": "top",
+        "legendTruncation": "ellipsisMiddle",
+        "lineWidth": 2,
+        "showIndependentYRanges": false,
+        "showOverlayY2Axis": false,
+        "showRoundedY2AxisLabels": false,
+        "showSplitSeries": false,
+        "showY2MajorGridLines": true,
+        "xAxisLabelRotation": 0,
+        "xAxisTitleVisibility": "hide",
+        "y2AxisAbbreviation": "auto",
+        "y2AxisScale": "linear",
+        "y2AxisTitleVisibility": "show",
+        "yAxisAbbreviation": "auto",
+        "yAxisScale": "linear",
+        "yAxisTitleVisibility": "show"
+      },
+      "title": "Network MB received",
+      "type": "splunk.line"
+    },
+    "viz_J3jJwLLV": {
+      "containerOptions": {},
+      "dataSources": {
+        "primary": "ds_1nGFdUbm"
+      },
+      "options": {
+        "tableFormat": {
+          "align": "left"
+        }
+      },
+      "showLastUpdated": false,
+      "showProgressBar": false,
+      "title": "Container Uptime",
+      "type": "splunk.table"
+    },
+    "viz_Q0vQ1jpG": {
+      "containerOptions": {},
+      "dataSources": {
+        "primary": "ds_3nDz36Nm"
+      },
+      "options": {
+        "tableFormat": {
+          "align": "left"
+        }
+      },
+      "showLastUpdated": false,
+      "showProgressBar": false,
+      "title": "Packets dropped",
+      "type": "splunk.table"
+    },
+    "viz_QCSuc4wm": {
+      "containerOptions": {},
+      "dataSources": {
+        "primary": "ds_vXnRUbdu"
+      },
+      "options": {
+        "tableFormat": {
+          "align": "left"
+        }
+      },
+      "showLastUpdated": false,
+      "showProgressBar": false,
+      "title": "Mem usage / Mem limit",
+      "type": "splunk.table"
+    },
+    "viz_aZxBmtID": {
+      "dataSources": {
+        "primary": "ds_pOxR9Trw"
+      },
+      "options": {
+        "legendDisplay": "top",
+        "legendMode": "standard",
+        "legendTruncation": "ellipsisMiddle",
+        "nullValueDisplay": "zero",
+        "showOverlayY2Axis": false,
+        "showRoundedY2AxisLabels": false,
+        "showSplitSeries": true,
+        "showY2MajorGridLines": true,
+        "stackMode": "auto",
+        "xAxisLabelRotation": 0,
+        "xAxisTitleText": "Time",
+        "xAxisTitleVisibility": "hide",
+        "y2AxisAbbreviation": "auto",
+        "y2AxisScale": "linear",
+        "y2AxisTitleVisibility": "show",
+        "yAxisAbbreviation": "auto",
+        "yAxisTitleVisibility": "hide"
+      },
+      "title": "Container Memory Percent",
+      "type": "splunk.area"
+    },
+    "viz_b7XqCz6B": {
+      "containerOptions": {
+        "visibility": {}
+      },
+      "dataSources": {
+        "primary": "ds_vLCS5sab"
+      },
+      "showLastUpdated": false,
+      "showProgressBar": false,
+      "title": "All Logs",
+      "type": "splunk.events"
+    },
+    "viz_iNvcGOBI": {
+      "containerOptions": {
+        "visibility": {}
+      },
+      "dataSources": {
+        "primary": "ds_7NTvlqvA"
+      },
+      "options": {
+        "legendDisplay": "top",
+        "showSplitSeries": true,
+        "xAxisTitleVisibility": "hide",
+        "yAxisTitleText": "",
+        "yAxisTitleVisibility": "hide"
+      },
+      "showLastUpdated": false,
+      "showProgressBar": false,
+      "title": "Cpu Usage Total",
+      "type": "splunk.area"
+    },
+    "viz_pE3gmkuV": {
+      "dataSources": {
+        "primary": "ds_2SH7etGr"
+      },
+      "options": {
+        "dataValuesDisplay": "minmax",
+        "legendDisplay": "top",
+        "legendMode": "standard",
+        "legendTruncation": "ellipsisMiddle",
+        "lineWidth": 2,
+        "nullValueDisplay": "gaps",
+        "showIndependentYRanges": false,
+        "showOverlayY2Axis": false,
+        "showRoundedY2AxisLabels": false,
+        "showSplitSeries": false,
+        "showY2MajorGridLines": true,
+        "xAxisLabelRotation": 0,
+        "xAxisTitleVisibility": "hide",
+        "y2AxisAbbreviation": "auto",
+        "y2AxisScale": "linear",
+        "y2AxisTitleVisibility": "show",
+        "yAxisAbbreviation": "auto",
+        "yAxisScale": "linear",
+        "yAxisTitleVisibility": "show"
+      },
+      "title": "Network MB sent",
+      "type": "splunk.line"
+    },
+    "viz_sPm99aA4": {
+      "dataSources": {
+        "primary": "ds_oCLMQQT4"
+      },
+      "options": {
+        "tableFormat": {
+          "align": "left",
+          "headerAlign": "left"
+        }
+      },
+      "title": "Status Codes",
+      "type": "splunk.table"
+    }
+  },
+  "dataSources": {
+    "ds_1nGFdUbm": {
+      "name": "Container Uptime search",
+      "options": {
+        "query": "| mstats latest(container.uptime) as uptime_seconds \n  WHERE index=metrics \n  BY container.name\n| eval uptime_hours = round(uptime_seconds / 3600, 2)\n| table container.name uptime_hours\n| rename container.name as \"Container\", uptime_hours as \"Uptime (h)\"\n| sort - \"Uptime (h)\"",
+        "queryParameters": {
+          "earliest": "-60m@m",
+          "latest": "now"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_2SH7etGr": {
+      "name": "Network MB sent search",
+      "options": {
+        "query": "| mstats sum(container.network.io.usage.tx_bytes) as tx_bytes\n  WHERE index=metrics\n  BY container.name span=30s\n| eval tx_mb = round(tx_bytes / (1024 * 1024), 2)\n| timechart sum(tx_mb) by container.name",
+        "queryParameters": {
+          "earliest": "$global_time.earliest$",
+          "latest": "$global_time.latest$"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_3nDz36Nm": {
+      "name": "Packets dropped search",
+      "options": {
+        "query": "| mstats latest(container.network.io.usage.rx_dropped) as rx_dropped, latest(container.network.io.usage.tx_dropped) as tx_dropped \r\n  WHERE index=metrics \r\n  BY container.name\r\n| eval rx_dropped = round(rx_dropped, 2)\r\n| eval tx_dropped = round(tx_dropped, 2)\r\n| table container.name rx_dropped tx_dropped\r\n| rename container.name as \"Container\", rx_dropped as \"RX Dropped\", tx_dropped as \"TX Dropped\"\r\n| sort - \"RX Dropped\"",
+        "queryParameters": {
+          "earliest": "-60m@m",
+          "latest": "now"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_7NTvlqvA": {
+      "name": "Cpu Usage Total - Area chart search",
+      "options": {
+        "query": "| mstats avg(container.cpu.utilization) as cpu\r\n  WHERE index=metrics\r\n  BY container.name\r\n  span=30s\r\n| eval cpu_percent = cpu * 100\r\n| timechart span=30s avg(cpu_percent) by container.name",
+        "queryParameters": {
+          "earliest": "$global_time.earliest$",
+          "latest": "$global_time.latest$"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_9P8NcCUf": {
+      "name": "Network MB received search",
+      "options": {
+        "query": "| mstats sum(container.network.io.usage.rx_bytes) as rx_bytes\n  WHERE index=metrics\n  BY container.name span=30s\n| eval rx_mb = round(rx_bytes / (1024 * 1024), 2)\n| timechart sum(rx_mb) by container.name",
+        "queryParameters": {
+          "earliest": "$global_time.earliest$",
+          "latest": "$global_time.latest$"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_oCLMQQT4": {
+      "name": "status codes",
+      "options": {
+        "query": "index=\"logs\"\r\n| rex field=log \"(?<status>\\d{3}) \\d+\"\r\n| rex field=log \"(?<method>GET|POST|PUT|DELETE|PATCH|OPTIONS) (?<uri_path>/[^\\s]+)\"\r\n| eval status = mvindex(status, 0)\r\n| where status != \"200\"\r\n| stats count by uri_path, status",
+        "queryParameters": {
+          "earliest": "$global_time.earliest$",
+          "latest": "$global_time.latest$"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_pOxR9Trw": {
+      "name": "Container Memory Percent Area chart search",
+      "options": {
+        "query": "| mstats avg(container.memory.percent) as mem_usage \r\n  WHERE index=metrics \r\n  BY container.name \r\n  span=10s\r\n| eval mem = round(mem_usage, 2)\r\n| timechart avg(mem) by container.name\r\n",
+        "queryParameters": {
+          "earliest": "$global_time.earliest$",
+          "latest": "$global_time.latest$"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_vLCS5sab": {
+      "name": "Logs All search",
+      "options": {
+        "query": "index=logs\r\n",
+        "queryParameters": {
+          "earliest": "$global_time.earliest$",
+          "latest": "$global_time.latest$"
+        }
+      },
+      "type": "ds.search"
+    },
+    "ds_vXnRUbdu": {
+      "name": "Bar chart search",
+      "options": {
+        "query": "| mstats latest(container.memory.usage.total) as mem_usage_bytes, latest(container.memory.usage.limit) as mem_limit_bytes \n  WHERE index=metrics \n  BY container.name\n| eval mem_usage_mb = round(mem_usage_bytes / (1024 * 1024), 2)\n| eval mem_limit_gb = round(mem_limit_bytes / (1024 * 1024 * 1024), 2)\n| table container.name mem_usage_mb mem_limit_gb\n| rename container.name as \"container.name\", mem_usage_mb as \"Mem usage (in MB)\", mem_limit_gb as \"Mem limit (in GB)\"\n| sort - \"Mem usage (in MB)\"",
+        "queryParameters": {
+          "earliest": "-60m@m",
+          "latest": "now"
+        }
+      },
+      "type": "ds.search"
+    }
+  },
+  "layout": {
+    "globalInputs": [
+      "input_global_trp"
+    ],
+    "layoutDefinitions": {
+      "layout_1": {
+        "options": {
+          "height": 960,
+          "width": 1440
+        },
+        "structure": [
+          {
+            "item": "viz_iNvcGOBI",
+            "position": {
+              "h": 428,
+              "w": 721,
+              "x": 0,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_QCSuc4wm",
+            "position": {
+              "h": 300,
+              "w": 719,
+              "x": 0,
+              "y": 428
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_J3jJwLLV",
+            "position": {
+              "h": 300,
+              "w": 721,
+              "x": 719,
+              "y": 428
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_aZxBmtID",
+            "position": {
+              "h": 428,
+              "w": 719,
+              "x": 721,
+              "y": 0
+            },
+            "type": "block"
+          }
+        ],
+        "type": "grid"
+      },
+      "layout_IroMKLxT": {
+        "structure": [],
+        "type": "grid"
+      },
+      "layout_KQw7m72S": {
+        "structure": [
+          {
+            "item": "viz_sPm99aA4",
+            "position": {
+              "h": 490,
+              "w": 1200,
+              "x": 0,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_b7XqCz6B",
+            "position": {
+              "h": 525,
+              "w": 1200,
+              "x": 0,
+              "y": 490
+            },
+            "type": "block"
+          }
+        ],
+        "type": "grid"
+      },
+      "layout_mwvbid7C": {
+        "structure": [
+          {
+            "item": "viz_BddUb9uz",
+            "position": {
+              "h": 400,
+              "w": 599,
+              "x": 0,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_pE3gmkuV",
+            "position": {
+              "h": 400,
+              "w": 601,
+              "x": 599,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_Q0vQ1jpG",
+            "position": {
+              "h": 400,
+              "w": 1200,
+              "x": 0,
+              "y": 400
+            },
+            "type": "block"
+          }
+        ],
+        "type": "grid"
+      }
+    },
+    "options": {},
+    "tabs": {
+      "items": [
+        {
+          "label": "CPU & Memory",
+          "layoutId": "layout_1"
+        },
+        {
+          "label": "Network",
+          "layoutId": "layout_mwvbid7C"
+        },
+        {
+          "label": "Logs",
+          "layoutId": "layout_KQw7m72S"
+        },
+        {
+          "label": "New tab",
+          "layoutId": "layout_IroMKLxT"
+        }
+      ]
+    }
+  }
+}
