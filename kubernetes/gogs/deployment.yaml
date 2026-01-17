@@ -1,0 +1,31 @@
+# Deployment for gogs
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gogs-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gogs-dev
+  template:
+    metadata:
+      labels:
+        app: gogs-dev
+    spec:
+      containers:
+        - name: gogs
+          image: finkord/gogs-dev:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: SOCAT_LINK
+              value: "false"
+          volumeMounts:
+            - name: gogs-data
+              mountPath: /data
+      volumes:
+        - name: gogs-data
+          persistentVolumeClaim:
+            claimName: gogs-pvc

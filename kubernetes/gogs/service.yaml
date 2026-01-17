@@ -1,0 +1,17 @@
+# Service for gogs
+apiVersion: v1
+kind: Service
+metadata:
+  name: gogs-service
+spec:
+  selector:
+    app: gogs-dev
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+  # sessionAffinity: ClientIP # <--- This forces the user to the same pod
+  # sessionAffinityConfig:
+  #   clientIP:
+  #     timeoutSeconds: 10800 # Optional: how long to stay sticky (3 hours)
