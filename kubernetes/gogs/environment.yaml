@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gogs-env
+data:
+  SOCAT_LINK: "false"
+  GOGS_DB_TYPE: "postgres"
+  GOGS_DB_HOST: "database-service"
+  GOGS_DB_SCHEMA: "public"
+  GOGS_DB_PORT: "5432"
+  GOGS_DB_NAME: "gogs"
+  GOGS_DB_USER: "gogs"
+  GOGS_DB_PASSWORD: "gogs_password"
+  GOGS_DB_SSL_MODE: "disable"
+  GOGS_DEFAULT_BRANCH: "main"
+  GOGS_DOMAIN: "172.18.106.220"
+  GOGS_HTTP_PORT: "3000"
+  GOGS_EXTERNAL_URL: "http://172.18.106.220/"
+  GOGS_DISABLE_SSH: "false"
+  GOGS_SSH_PORT: "22"
+  GOGS_START_SSH_SERVER: "false"
+  GOGS_OFFLINE_MODE: "false"
+  GOGS_LOG_MODE: "console"

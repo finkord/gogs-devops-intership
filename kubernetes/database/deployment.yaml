@@ -1,0 +1,36 @@
+# Deployment for database
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database-dev
+  template:
+    metadata:
+      labels:
+        app: database-dev
+    spec:
+      containers:
+        - name: database
+          image: postgres:16
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: database-env
+          volumeMounts:
+            - name: database-data
+              mountPath: /var/lib/postgresql/data
+            - name: database-init
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: database-data
+          persistentVolumeClaim:
+            claimName: database-pvc
+        - name: database-init
+          configMap:
+            name: database-init

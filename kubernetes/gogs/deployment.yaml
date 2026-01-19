@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: gogs-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: gogs-dev
@@ -19,9 +19,9 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
-          env:
-            - name: SOCAT_LINK
-              value: "false"
+          envFrom:
+            - configMapRef:
+                name: gogs-env
           volumeMounts:
             - name: gogs-data
               mountPath: /data

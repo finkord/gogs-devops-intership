@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: database-env
+data:
+  # Postgres superuser
+  POSTGRES_USER: gogs
+  POSTGRES_PASSWORD: gogs_password
+
+  # Gogs database user and password
+  POSTGRES_GOGS_USER: gogs
+  POSTGRES_GOGS_PASSWORD: gogs_password
+  POSTGRES_GOGS_DB: gogs
+
+  # OpenTelemetry user and password
+  POSTGRES_OTEL_USER: otel
+  POSTGRES_OTEL_PASSWORD: otel_password
+
+  # Sonarqube
+  SONARQUBE_SONAR_DB: sonarqube
+  SONARQUBE_SONAR_USER: sonaruser
+  SONARQUBE_SONAR_PASSWORD: sonarpassword
