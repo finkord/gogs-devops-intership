@@ -1,0 +1,26 @@
+The reason you cannot access the sites is likely that your computer doesn't know that jenkins.minikube.local and gogs.minikube.local should point to your Minikube cluster.
+
+Based on your cluster status, the Ingress IP is 172.18.106.220.
+
+Step 1: Update your Windows Hosts File
+You need to map the hostnames to the cluster IP in your local machine's configuration.
+
+Open Notepad as Administrator (Search for Notepad, right-click, and select "Run as administrator").
+Open the file: C:\Windows\System32\drivers\etc\hosts
+Add the following lines at the end of the file:
+text
+172.18.106.220 jenkins.minikube.local
+172.18.106.220 gogs.minikube.local
+Save the file.
+Step 2: Restart Gogs (Optional but Recommended)
+Since we updated the 
+environment.yaml
+ with the new external URL, you should restart the Gogs pods so they pick up the new environment variables:
+
+powershell
+kubectl rollout restart deployment gogs-deployment
+Step 3: Test Access
+Try opening the following in your browser:
+
+Jenkins: http://jenkins.minikube.local/
+Gogs: http://gogs.minikube.local/
