@@ -8,3 +8,6 @@ keys
 *.tar*
 
 /envs/dev/splunk
+
+.env
+.vagrant
