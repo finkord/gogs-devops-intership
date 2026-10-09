@@ -78,32 +78,36 @@ To deploy the full stack, run the following in order (adjust as needed for your 
 
 1. **Global resources (e.g., ECR, S3):**
    ```sh
-   make ecr-apply
-   make s3-apply
+   make apply-auto ENV=global SERVICE=ecr
+   make apply-auto ENV=global SERVICE=s3
    ```
 
 2. **Networking and security:**
    ```sh
-   make vpc-apply
-   make sg-apply
+   make apply-auto ENV=dev SERVICE=vpc
+   make apply-auto ENV=dev SERVICE=sg
    ```
 
 3. **Core infrastructure:**
    ```sh
-   make rds-apply
-   make efs-apply
-   make alb-apply
-   make endpoints-apply
-   make route53-apply
+   make apply-auto ENV=dev SERVICE=rds
+   make apply-auto ENV=dev SERVICE=efs
+   make apply-auto ENV=dev SERVICE=alb
+   make apply-auto ENV=dev SERVICE=endpoints
+   make apply-auto ENV=dev SERVICE=route53
+   make apply-auto ENV=dev SERVICE=iam
    ```
 
-4. **Application and supporting services:**
+4. **Application:**
    ```sh
-   make ecs-apply
-   make iam-apply
-   make jenkins-apply
-   make ebs-apply
+   make apply-auto ENV=dev SERVICE=ecs
    ```
+
+
+```
+   make apply-auto ENV=dev SERVICE=jenkins
+   make apply-auto ENV=dev SERVICE=ebs
+```
 
 **Tip:** Always run `make plan` before `make apply` to review changes.
 

@@ -1,0 +1,120 @@
+{
+  "000000000000/us-east-1" : {
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66/5918f63103ce4179" : {
+      "ruleArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66/5918f63103ce4179",
+      "listenerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66",
+      "priority" : "10",
+      "conditions" : [ {
+        "field" : "host-header",
+        "values" : [ ],
+        "hostHeaderValues" : [ "jenkins.awsgogs.pp.ua" ],
+        "pathPatternValues" : [ ],
+        "httpHeaderName" : null,
+        "httpHeaderValues" : [ ],
+        "httpMethodValues" : [ ],
+        "sourceIpValues" : [ ],
+        "queryStringValues" : [ ]
+      } ],
+      "actions" : [ {
+        "type" : "forward",
+        "order" : 1,
+        "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/jenkins-tg/7552f20cd5e3402b",
+        "targetGroups" : [ ],
+        "stickinessEnabled" : null,
+        "stickinessDurationSeconds" : null,
+        "redirectProtocol" : null,
+        "redirectPort" : null,
+        "redirectHost" : null,
+        "redirectPath" : null,
+        "redirectQuery" : null,
+        "redirectStatusCode" : null,
+        "fixedResponseStatusCode" : null,
+        "fixedResponseContentType" : null,
+        "fixedResponseMessageBody" : null
+      } ],
+      "default" : false
+    },
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66/8c5fc3cfe39548e9" : {
+      "ruleArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66/8c5fc3cfe39548e9",
+      "listenerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66",
+      "priority" : "default",
+      "conditions" : [ ],
+      "actions" : [ {
+        "type" : "forward",
+        "order" : 1,
+        "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485",
+        "targetGroups" : [ ],
+        "stickinessEnabled" : null,
+        "stickinessDurationSeconds" : null,
+        "redirectProtocol" : null,
+        "redirectPort" : null,
+        "redirectHost" : null,
+        "redirectPath" : null,
+        "redirectQuery" : null,
+        "redirectStatusCode" : null,
+        "fixedResponseStatusCode" : null,
+        "fixedResponseContentType" : null,
+        "fixedResponseMessageBody" : null
+      } ],
+      "default" : true
+    },
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae/3dcbced690134352" : {
+      "ruleArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae/3dcbced690134352",
+      "listenerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae",
+      "priority" : "5",
+      "conditions" : [ {
+        "field" : "host-header",
+        "values" : [ ],
+        "hostHeaderValues" : [ "jenkins.awsgogs.pp.ua" ],
+        "pathPatternValues" : [ ],
+        "httpHeaderName" : null,
+        "httpHeaderValues" : [ ],
+        "httpMethodValues" : [ ],
+        "sourceIpValues" : [ ],
+        "queryStringValues" : [ ]
+      } ],
+      "actions" : [ {
+        "type" : "redirect",
+        "order" : 1,
+        "targetGroupArn" : null,
+        "targetGroups" : [ ],
+        "stickinessEnabled" : null,
+        "stickinessDurationSeconds" : null,
+        "redirectProtocol" : "HTTPS",
+        "redirectPort" : "443",
+        "redirectHost" : "#{host}",
+        "redirectPath" : "/#{path}",
+        "redirectQuery" : "#{query}",
+        "redirectStatusCode" : "HTTP_301",
+        "fixedResponseStatusCode" : null,
+        "fixedResponseContentType" : null,
+        "fixedResponseMessageBody" : null
+      } ],
+      "default" : false
+    },
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae/e79d3e5ed2114147" : {
+      "ruleArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae/e79d3e5ed2114147",
+      "listenerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae",
+      "priority" : "default",
+      "conditions" : [ ],
+      "actions" : [ {
+        "type" : "forward",
+        "order" : 1,
+        "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485",
+        "targetGroups" : [ ],
+        "stickinessEnabled" : null,
+        "stickinessDurationSeconds" : null,
+        "redirectProtocol" : null,
+        "redirectPort" : null,
+        "redirectHost" : null,
+        "redirectPath" : null,
+        "redirectQuery" : null,
+        "redirectStatusCode" : null,
+        "fixedResponseStatusCode" : null,
+        "fixedResponseContentType" : null,
+        "fixedResponseMessageBody" : null
+      } ],
+      "default" : true
+    }
+  }
+}

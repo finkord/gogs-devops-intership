@@ -1,0 +1,33 @@
+{
+  "000000000000/us-east-1::fs-b42aab4dd9494296b" : {
+    "AvailabilityZoneId" : null,
+    "AvailabilityZoneName" : null,
+    "CreationTime" : 1791538419,
+    "CreationToken" : "gogs-efs",
+    "Encrypted" : true,
+    "FileSystemArn" : "arn:aws:elasticfilesystem:us-east-1:000000000000:file-system/fs-b42aab4dd9494296b",
+    "FileSystemId" : "fs-b42aab4dd9494296b",
+    "FileSystemProtection" : {
+      "ReplicationOverwriteProtection" : "ENABLED"
+    },
+    "KmsKeyId" : null,
+    "LifeCycleState" : "available",
+    "Name" : "gogs-efs",
+    "NumberOfMountTargets" : 2,
+    "OwnerId" : "000000000000",
+    "PerformanceMode" : "generalPurpose",
+    "ProvisionedThroughputInMibps" : null,
+    "SizeInBytes" : {
+      "Timestamp" : null,
+      "Value" : 0,
+      "ValueInArchive" : null,
+      "ValueInIA" : 0,
+      "ValueInStandard" : 0
+    },
+    "Tags" : [ {
+      "Key" : "Name",
+      "Value" : "gogs-efs"
+    } ],
+    "ThroughputMode" : "bursting"
+  }
+}

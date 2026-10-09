@@ -1,0 +1,21 @@
+{
+  "000000000000/us-east-1::gogs-cluster" : {
+    "clusterArn" : "arn:aws:ecs:us-east-1:000000000000:cluster/gogs-cluster",
+    "clusterName" : "gogs-cluster",
+    "status" : "ACTIVE",
+    "registeredContainerInstancesCount" : 0,
+    "runningTasksCount" : 2,
+    "pendingTasksCount" : 0,
+    "activeServicesCount" : 1,
+    "settings" : [ {
+      "name" : "containerInsights",
+      "value" : "disabled"
+    } ],
+    "capacityProviders" : null,
+    "defaultCapacityProviderStrategy" : null,
+    "tags" : {
+      "Terraform" : "true",
+      "Environment" : "dev"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "000000000000/us-east-1::000000000000::gogs/test" : {
+    "repositoryArn" : "arn:aws:ecr:us-east-1:000000000000:repository/gogs/test",
+    "registryId" : "000000000000",
+    "repositoryName" : "gogs/test",
+    "repositoryUri" : "000000000000.dkr.ecr.us-east-1.localhost:4566/gogs/test",
+    "registryRepositoryName" : null,
+    "createdAt" : "2026-10-09T09:30:27.321406769Z",
+    "imageTagMutability" : "MUTABLE",
+    "scanOnPush" : true,
+    "encryptionType" : "AES256",
+    "kmsKey" : null,
+    "lifecyclePolicyText" : "{\"rules\":[{\"action\":{\"type\":\"expire\"},\"description\":\"Keep last 5 images with tag prefix prod\",\"rulePriority\":1,\"selection\":{\"countNumber\":3,\"countType\":\"imageCountMoreThan\",\"tagPrefixList\":[\"prod\"],\"tagStatus\":\"tagged\"}},{\"action\":{\"type\":\"expire\"},\"description\":\"Keep last 2 images with tag prefix main\",\"rulePriority\":2,\"selection\":{\"countNumber\":2,\"countType\":\"imageCountMoreThan\",\"tagPrefixList\":[\"main\",\"master\"],\"tagStatus\":\"tagged\"}},{\"action\":{\"type\":\"expire\"},\"description\":\"Keep last 2 images with tag prefix develop\",\"rulePriority\":3,\"selection\":{\"countNumber\":2,\"countType\":\"imageCountMoreThan\",\"tagPrefixList\":[\"develop\",\"dev\"],\"tagStatus\":\"tagged\"}},{\"action\":{\"type\":\"expire\"},\"description\":\"Keep last 1 untagged images\",\"rulePriority\":8,\"selection\":{\"countNumber\":1,\"countType\":\"imageCountMoreThan\",\"tagStatus\":\"untagged\"}},{\"action\":{\"type\":\"expire\"},\"description\":\"Remove any other images beyond last 3 (catch-all)\",\"rulePriority\":10,\"selection\":{\"countNumber\":10,\"countType\":\"imageCountMoreThan\",\"tagStatus\":\"any\"}}]}",
+    "repositoryPolicyText" : "{\"Statement\":[{\"Action\":[\"ecr:ListTagsForResource\",\"ecr:ListImages\",\"ecr:GetRepositoryPolicy\",\"ecr:GetLifecyclePolicyPreview\",\"ecr:GetLifecyclePolicy\",\"ecr:GetDownloadUrlForLayer\",\"ecr:GetAuthorizationToken\",\"ecr:DescribeRepositories\",\"ecr:DescribeImages\",\"ecr:DescribeImageScanFindings\",\"ecr:BatchGetImage\",\"ecr:BatchCheckLayerAvailability\"],\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::000000000000:root\"},\"Sid\":\"PrivateReadOnly\"}],\"Version\":\"2012-10-17\"}",
+    "tags" : {
+      "Terraform" : "true",
+      "Environment" : "dev"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "000000000000/us-east-1" : {
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/gogs-alb/fa7567cc2e064392" : {
+      "loadBalancerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/gogs-alb/fa7567cc2e064392",
+      "dnsName" : "gogs-alb-fa7567cc2e064392.elb.localhost.floci.io",
+      "canonicalHostedZoneId" : "Z35SXDOTRQ7X7K",
+      "createdTime" : "2026-10-09T09:37:55.685185918Z",
+      "loadBalancerName" : "gogs-alb",
+      "scheme" : "internet-facing",
+      "vpcId" : "vpc-016449a8",
+      "state" : "active",
+      "type" : "application",
+      "availabilityZones" : [ {
+        "subnetId" : "subnet-a4c0c6e2",
+        "zoneName" : "us-east-1a"
+      }, {
+        "subnetId" : "subnet-45000295",
+        "zoneName" : "us-east-1b"
+      } ],
+      "securityGroups" : [ "sg-aed5f8b76891d5621" ],
+      "ipAddressType" : "ipv4",
+      "region" : "us-east-1",
+      "attributes" : {
+        "access_logs.s3.enabled" : "false",
+        "connection_logs.s3.enabled" : "false",
+        "routing.http2.enabled" : "true",
+        "routing.http.x_amzn_tls_version_and_cipher_suite.enabled" : "false",
+        "waf.fail_open.enabled" : "false",
+        "routing.http.desync_mitigation_mode" : "defensive",
+        "zonal_shift.config.enabled" : "false",
+        "deletion_protection.enabled" : "false",
+        "routing.http.xff_client_port.enabled" : "false",
+        "idle_timeout.timeout_seconds" : "60",
+        "routing.http.preserve_host_header.enabled" : "false",
+        "client_keep_alive.seconds" : "3600",
+        "routing.http.drop_invalid_header_fields.enabled" : "false",
+        "routing.http.xff_header_processing.mode" : "append"
+      }
+    }
+  }
+}

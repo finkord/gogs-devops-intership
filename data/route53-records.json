@@ -1,0 +1,91 @@
+{
+  "000000000000/Z0JQNFM15JY0N58" : [ {
+    "name" : "awsgogs.pp.ua.",
+    "type" : "SOA",
+    "ttl" : 900,
+    "records" : [ {
+      "value" : "ns-1.awsdns-01.org awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
+    } ],
+    "aliasTarget" : null,
+    "weight" : null,
+    "region" : null,
+    "setIdentifier" : null,
+    "failover" : null,
+    "healthCheckId" : null
+  }, {
+    "name" : "awsgogs.pp.ua.",
+    "type" : "NS",
+    "ttl" : 172800,
+    "records" : [ {
+      "value" : "ns-1.awsdns-01.org."
+    }, {
+      "value" : "ns-2.awsdns-02.net."
+    }, {
+      "value" : "ns-3.awsdns-03.com."
+    }, {
+      "value" : "ns-4.awsdns-04.co.uk."
+    } ],
+    "aliasTarget" : null,
+    "weight" : null,
+    "region" : null,
+    "setIdentifier" : null,
+    "failover" : null,
+    "healthCheckId" : null
+  }, {
+    "name" : "_632d6c1a13e0f1a0800192060ad41b77.awsgogs.pp.ua.",
+    "type" : "CNAME",
+    "ttl" : 60,
+    "records" : [ {
+      "value" : "_37cae42929f7f7afe9e988d0549407f2.acm-validations.aws."
+    } ],
+    "aliasTarget" : null,
+    "weight" : null,
+    "region" : null,
+    "setIdentifier" : null,
+    "failover" : null,
+    "healthCheckId" : null
+  }, {
+    "name" : "_bb193083d1d8c58ef64fbb69a3c17cae.jenkins.awsgogs.pp.ua.",
+    "type" : "CNAME",
+    "ttl" : 60,
+    "records" : [ {
+      "value" : "_6215626664e5e73158eb43b45e3fbda4.acm-validations.aws."
+    } ],
+    "aliasTarget" : null,
+    "weight" : null,
+    "region" : null,
+    "setIdentifier" : null,
+    "failover" : null,
+    "healthCheckId" : null
+  }, {
+    "name" : "jenkins.awsgogs.pp.ua.",
+    "type" : "A",
+    "ttl" : null,
+    "records" : null,
+    "aliasTarget" : {
+      "hostedZoneId" : "Z35SXDOTRQ7X7K",
+      "dnsName" : "gogs-alb-fa7567cc2e064392.elb.localhost.floci.io",
+      "evaluateTargetHealth" : true
+    },
+    "weight" : null,
+    "region" : null,
+    "setIdentifier" : null,
+    "failover" : null,
+    "healthCheckId" : null
+  }, {
+    "name" : "awsgogs.pp.ua.",
+    "type" : "A",
+    "ttl" : null,
+    "records" : null,
+    "aliasTarget" : {
+      "hostedZoneId" : "Z35SXDOTRQ7X7K",
+      "dnsName" : "gogs-alb-fa7567cc2e064392.elb.localhost.floci.io",
+      "evaluateTargetHealth" : true
+    },
+    "weight" : null,
+    "region" : null,
+    "setIdentifier" : null,
+    "failover" : null,
+    "healthCheckId" : null
+  } ]
+}

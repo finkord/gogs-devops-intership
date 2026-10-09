@@ -1,0 +1,15 @@
+{
+  "000000000000/Jenkins-ecr" : {
+    "userId" : "AIDA1IMF5QTUX6UAZYXZ",
+    "userName" : "Jenkins-ecr",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:user/Jenkins-ecr",
+    "createDate" : "2026-10-09T09:35:10.217429493Z",
+    "passwordLastUsed" : null,
+    "tags" : { },
+    "groupNames" : [ ],
+    "attachedPolicyArns" : [ "arn:aws:iam::000000000000:policy/Jenkins-ecr-policy" ],
+    "inlinePolicies" : { },
+    "permissionsBoundaryArn" : null
+  }
+}

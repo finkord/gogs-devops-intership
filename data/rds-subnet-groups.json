@@ -1,0 +1,18 @@
+{
+  "000000000000/us-east-1::gogs-rds-subnet-group" : {
+    "dbSubnetGroupName" : "gogs-rds-subnet-group",
+    "description" : "Managed by Terraform",
+    "dbSubnetGroupArn" : "arn:aws:rds:us-east-1:000000000000:subgrp:gogs-rds-subnet-group",
+    "vpcId" : "vpc-016449a8",
+    "subnetGroupStatus" : "Complete",
+    "subnetIds" : [ "subnet-97ae316f", "subnet-e94d50a1" ],
+    "subnetAvailabilityZones" : {
+      "subnet-97ae316f" : "us-east-1b",
+      "subnet-e94d50a1" : "us-east-1a"
+    },
+    "tags" : {
+      "Name" : "gogs-rds-subnet-group"
+    },
+    "dbSubnetGroupDescription" : "Managed by Terraform"
+  }
+}

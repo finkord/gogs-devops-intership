@@ -1,0 +1,448 @@
+{
+  "000000000000/us-east-1::sg-aed5f8b76891d5621" : {
+    "groupId" : "sg-aed5f8b76891d5621",
+    "groupName" : "gogs-vpc-alb-sg-20261009093140365300000003",
+    "description" : "Security Group managed by Terraform",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ {
+      "ipProtocol" : "tcp",
+      "fromPort" : 80,
+      "toPort" : 80,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "HTTP"
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "tcp",
+      "fromPort" : 443,
+      "toPort" : 443,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "HTTPS"
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "All protocols"
+      } ],
+      "ipv6Ranges" : [ {
+        "cidrIpv6" : "::/0",
+        "description" : "All protocols"
+      } ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ {
+      "key" : "Name",
+      "value" : "gogs-vpc-alb-sg"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::sg-b967f50276ad95664" : {
+    "groupId" : "sg-b967f50276ad95664",
+    "groupName" : "default",
+    "description" : "default VPC security group",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "Allow all inbound"
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "Allow all outbound"
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc-default-sg"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::sg-default-us-east-1" : {
+    "groupId" : "sg-default-us-east-1",
+    "groupName" : "default",
+    "description" : "default VPC security group",
+    "vpcId" : "vpc-default-us-east-1",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ ]
+  },
+  "000000000000/us-east-1::sg-b5a98e7352b52f37e" : {
+    "groupId" : "sg-b5a98e7352b52f37e",
+    "groupName" : "gogs-vpc-jenkins-sg-20261009093140365400000004",
+    "description" : "Security Group managed by Terraform",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ {
+      "ipProtocol" : "tcp",
+      "fromPort" : 22,
+      "toPort" : 22,
+      "ipRanges" : [ {
+        "cidrIp" : "193.56.13.53/32",
+        "description" : "SSH access from admin IP"
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "tcp",
+      "fromPort" : 8080,
+      "toPort" : 8080,
+      "ipRanges" : [ ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ {
+        "groupId" : "sg-aed5f8b76891d5621",
+        "userId" : "000000000000",
+        "groupName" : null,
+        "description" : "Jenkins web interface from ALB"
+      } ],
+      "prefixListIds" : [ ]
+    } ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "tcp",
+      "fromPort" : 443,
+      "toPort" : 443,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "HTTPS"
+      } ],
+      "ipv6Ranges" : [ {
+        "cidrIpv6" : "::/0",
+        "description" : "HTTPS"
+      } ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "tcp",
+      "fromPort" : 22,
+      "toPort" : 22,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "SSH for Git operations"
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "tcp",
+      "fromPort" : 80,
+      "toPort" : 80,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "HTTP"
+      } ],
+      "ipv6Ranges" : [ {
+        "cidrIpv6" : "::/0",
+        "description" : "HTTP"
+      } ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ {
+      "key" : "Name",
+      "value" : "gogs-vpc-jenkins-sg"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::sg-f5f5d3da877967235" : {
+    "groupId" : "sg-f5f5d3da877967235",
+    "groupName" : "gogs-vpc-rds-sg-20261009093140365200000002",
+    "description" : "Security Group managed by Terraform",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ {
+      "ipProtocol" : "tcp",
+      "fromPort" : 5432,
+      "toPort" : 5432,
+      "ipRanges" : [ ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ {
+        "groupId" : "sg-390646ab77eeca3bf",
+        "userId" : "000000000000",
+        "groupName" : null,
+        "description" : "Ingress Rule"
+      } ],
+      "prefixListIds" : [ ]
+    } ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ {
+      "key" : "Name",
+      "value" : "gogs-vpc-rds-sg"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::sg-43f995f343936cead" : {
+    "groupId" : "sg-43f995f343936cead",
+    "groupName" : "gogs-vpc-endpoints-sg-20261009093140365500000005",
+    "description" : "Security Group managed by Terraform",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ {
+      "ipProtocol" : "tcp",
+      "fromPort" : 443,
+      "toPort" : 443,
+      "ipRanges" : [ {
+        "cidrIp" : "10.1.0.0/21",
+        "description" : "HTTPS"
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "All protocols"
+      } ],
+      "ipv6Ranges" : [ {
+        "cidrIpv6" : "::/0",
+        "description" : "All protocols"
+      } ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc-endpoints-sg"
+    } ]
+  },
+  "000000000000/us-east-1::sg-390646ab77eeca3bf" : {
+    "groupId" : "sg-390646ab77eeca3bf",
+    "groupName" : "gogs-vpc-ecs-tasks-sg-20261009093140367500000006",
+    "description" : "Security Group managed by Terraform",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ {
+      "ipProtocol" : "tcp",
+      "fromPort" : 3000,
+      "toPort" : 3000,
+      "ipRanges" : [ ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ {
+        "groupId" : "sg-aed5f8b76891d5621",
+        "userId" : "000000000000",
+        "groupName" : null,
+        "description" : "Ingress Rule"
+      } ],
+      "prefixListIds" : [ ]
+    } ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : "All protocols"
+      } ],
+      "ipv6Ranges" : [ {
+        "cidrIpv6" : "::/0",
+        "description" : "All protocols"
+      } ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "tcp",
+      "fromPort" : 5432,
+      "toPort" : 5432,
+      "ipRanges" : [ ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ {
+        "groupId" : "sg-f5f5d3da877967235",
+        "userId" : "000000000000",
+        "groupName" : null,
+        "description" : "Egress Rule"
+      } ],
+      "prefixListIds" : [ ]
+    }, {
+      "ipProtocol" : "tcp",
+      "fromPort" : 2049,
+      "toPort" : 2049,
+      "ipRanges" : [ ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ {
+        "groupId" : "sg-210081ea802317e32",
+        "userId" : "000000000000",
+        "groupName" : null,
+        "description" : "Egress Rule"
+      } ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ {
+      "key" : "Name",
+      "value" : "gogs-vpc-ecs-tasks-sg"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::sg-210081ea802317e32" : {
+    "groupId" : "sg-210081ea802317e32",
+    "groupName" : "gogs-vpc-efs-sg-20261009093140365000000001",
+    "description" : "Security Group managed by Terraform",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "ipPermissions" : [ {
+      "ipProtocol" : "tcp",
+      "fromPort" : 2049,
+      "toPort" : 2049,
+      "ipRanges" : [ ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ {
+        "groupId" : "sg-390646ab77eeca3bf",
+        "userId" : "000000000000",
+        "groupName" : null,
+        "description" : "Ingress Rule"
+      } ],
+      "prefixListIds" : [ ]
+    } ],
+    "ipPermissionsEgress" : [ {
+      "ipProtocol" : "-1",
+      "fromPort" : null,
+      "toPort" : null,
+      "ipRanges" : [ {
+        "cidrIp" : "0.0.0.0/0",
+        "description" : null
+      } ],
+      "ipv6Ranges" : [ ],
+      "userIdGroupPairs" : [ ],
+      "prefixListIds" : [ ]
+    } ],
+    "tags" : [ {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc-efs-sg"
+    } ]
+  }
+}

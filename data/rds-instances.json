@@ -1,0 +1,55 @@
+{
+  "000000000000/us-east-1::gogs-rds" : {
+    "dbInstanceIdentifier" : "gogs-rds",
+    "engine" : "POSTGRES",
+    "engineIdentifier" : "postgres",
+    "engineVersion" : "16.9",
+    "masterUsername" : "gogs",
+    "masterPassword" : "7F_I$:9ip8wx5oZO",
+    "dbName" : "gogs",
+    "dbInstanceClass" : "db.t4g.micro",
+    "allocatedStorage" : 20,
+    "status" : "AVAILABLE",
+    "endpoint" : {
+      "address" : "172.19.0.2",
+      "port" : 7001
+    },
+    "iamDatabaseAuthenticationEnabled" : false,
+    "parameterGroupName" : null,
+    "optionGroupName" : null,
+    "dbSubnetGroupName" : "gogs-rds-subnet-group",
+    "dbClusterIdentifier" : null,
+    "vpcId" : "vpc-016449a8",
+    "vpcSecurityGroupIds" : [ "sg-f5f5d3da877967235" ],
+    "availabilityZone" : "us-east-1b",
+    "multiAz" : false,
+    "autoMinorVersionUpgrade" : true,
+    "storageEncrypted" : false,
+    "kmsKeyId" : null,
+    "backupRetentionPeriod" : 0,
+    "preferredBackupWindow" : "04:00-06:00",
+    "preferredMaintenanceWindow" : "mon:00:00-mon:03:00",
+    "copyTagsToSnapshot" : false,
+    "publiclyAccessible" : false,
+    "subnetAvailabilityZones" : {
+      "subnet-97ae316f" : "us-east-1b",
+      "subnet-e94d50a1" : "us-east-1a"
+    },
+    "dbiResourceId" : "db-2DA600B0F9344E7C8D1674BC",
+    "dbInstanceArn" : "arn:aws:rds:us-east-1:000000000000:db:gogs-rds",
+    "masterUserSecretArn" : null,
+    "masterUserSecretStatus" : null,
+    "masterUserSecretKmsKeyId" : null,
+    "tags" : {
+      "Name" : "gogs-rds"
+    },
+    "createdAt" : "2026-10-09T09:32:05.432326357Z",
+    "proxyPort" : 7001,
+    "dockerVolumeName" : "floci-rds-db-2DA600B0F9344E7C8D1674BC-17c966",
+    "volumeId" : "17c966",
+    "containerStorageResourceId" : "db-2DA600B0F9344E7C8D1674BC",
+    "containerId" : "7c9efbf2914f26f3d4b5f1a5a44145f63a385f6976b94bbc86a5bf603daf5451",
+    "containerHost" : "172.19.0.3",
+    "containerPort" : 5432
+  }
+}

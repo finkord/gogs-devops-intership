@@ -1,0 +1,54 @@
+{
+  "000000000000/us-east-1::be05aa8e-420b-4eb4-a63b-c27d35be4e23" : {
+    "arn" : "arn:aws:acm:us-east-1:000000000000:certificate/be05aa8e-420b-4eb4-a63b-c27d35be4e23",
+    "domainName" : "awsgogs.pp.ua",
+    "subjectAlternativeNames" : [ "awsgogs.pp.ua", "jenkins.awsgogs.pp.ua" ],
+    "status" : "ISSUED",
+    "type" : "AMAZON_ISSUED",
+    "validationMethod" : "DNS",
+    "createdAt" : "2026-10-09T09:34:26.419683522Z",
+    "issuedAt" : "2026-10-09T09:34:26.419683522Z",
+    "importedAt" : null,
+    "notBefore" : "2026-10-09T09:34:26Z",
+    "notAfter" : "2027-10-09T09:34:26Z",
+    "serial" : "0d:b2:c2:73:6f:e1:09:fa:9d:51:9b:db:0a:8b:f7:a7",
+    "subject" : "CN=awsgogs.pp.ua",
+    "issuer" : "CN=Floci Local CA",
+    "keyAlgorithm" : "RSA-2048",
+    "signatureAlgorithm" : "SHA512WITHRSA",
+    "inUseBy" : [ ],
+    "tags" : { },
+    "certificateBody" : "-----BEGIN CERTIFICATE-----\nMIIDKzCCAhOgAwIBAgIQDbLCc2/hCfqdUZvbCov3pzANBgkqhkiG9w0BAQ0FADAZ\nMRcwFQYDVQQDDA5GbG9jaSBMb2NhbCBDQTAeFw0yNjEwMDkwOTM0MjZaFw0yNzEw\nMDkwOTM0MjZaMBgxFjAUBgNVBAMMDWF3c2dvZ3MucHAudWEwggEiMA0GCSqGSIb3\nDQEBAQUAA4IBDwAwggEKAoIBAQDR1298Xct5ERKk1lKJ7vEvPwzkXeLVZTCwyrr1\nMi53g1V5tN2WhF1LzFfQ+sOaTiI+c+5oXGGvBNavMetZr+2ctEtzoUmD02KiWujx\nh/q/3MYQs/WP5OyImcyl3AyA9XFHiyT50EIMC8SZSEhk+YzUJUhwtHFh5CCR1KNV\navpWcyGSXpqmBSBGIjfEiwoNdtXdQJz9a99BNUkjJoKpGem5uadkWFelFaeG7stu\nV3NGQvPFK652IbZqRIjgOrtPEBoB5M2EgUYS67mc11RKsU5VDPlfoqabPFUcdb23\ndyI8rs6ST4VPX4Pq94N6lc5HKIemaYCTUu+6u61m2weZg3rZAgMBAAGjcDBuMC8G\nA1UdEQQoMCaCDWF3c2dvZ3MucHAudWGCFWplbmtpbnMuYXdzZ29ncy5wcC51YTAO\nBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD\nAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQENBQADggEBABQFUkZ8alDSAkklOWgWxAhe\n7rvMzlKjt4TyfDhAn8MSbiVLdV0IUifZ41q9CBpW9ffZpfuGKzKoYmkA4Hv/yztN\n1uLrY+TAYs3Oc5tpVToMTFFNTTqsVUuLqX4kc9u99UQGFoCTbeiQI29JubJRH5gL\nOHPVLUAVbjvM8Jy/4XmAofYTwshkyjsCqztGZptbUNPBLFADyiu/+N7RVDexEQQV\nql/eXx2XtJLOL3Ja4OUnvVJNNqTkBVdUZsS5FTuOcTqlFkuBRRLKo4BLk5nHZo90\n5OxQtwmDXNlgWDSfnopFSiK6ntGVX8xdbEEjzhWKyV0lWdC3j6VlaXFfjnZ0uW0=\n-----END CERTIFICATE-----\n",
+    "privateKey" : "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA0ddvfF3LeRESpNZSie7xLz8M5F3i1WUwsMq69TIud4NVebTd\nloRdS8xX0PrDmk4iPnPuaFxhrwTWrzHrWa/tnLRLc6FJg9Niolro8Yf6v9zGELP1\nj+TsiJnMpdwMgPVxR4sk+dBCDAvEmUhIZPmM1CVIcLRxYeQgkdSjVWr6VnMhkl6a\npgUgRiI3xIsKDXbV3UCc/WvfQTVJIyaCqRnpubmnZFhXpRWnhu7LbldzRkLzxSuu\ndiG2akSI4Dq7TxAaAeTNhIFGEuu5nNdUSrFOVQz5X6KmmzxVHHW9t3ciPK7Okk+F\nT1+D6veDepXORyiHpmmAk1LvurutZtsHmYN62QIDAQABAoIBAA+AAe6WO2P9YHAX\nxbUwbBUrli9IhmtxWUv3JEwIJs8HVDkUeflhhxuveSgeXHRJg7WIbjU8ElocJHiA\nmowU1vDIOjo3u8dWm1ah76AnBXJbzi891RcfLN/346+NBh5reDCK770FMVppmcjM\nbPk1HBOFOn6FZvT5EHUn12Bv8b8Qs+21dBvTf/g+R3r3lgawARQyVynQ3r02qFY8\n7EVtwe/rqcP0wMVGgunROCsabfMpSaT9KaC0CJhzFoCak5gI/z1vQ34lvPCduDTT\nnfBvMnzvVlFkkSrw0RlLoEb36bn/eBYZspJ1pQthSPScMPZTTHJTEzGKpVde8Yvu\nEowOqtUCgYEA85wr+ijzebhymT+DsZRxjx9ryYs8ZVgMlqiUWcF+tMta/UaGKpUm\n4BnfOFbWwdPRWtlM78CKynuK6ftWTMqM1NMoiHFRJC6hvRXC+3c7e+cBFrAxM4e6\nh4YQi+OMXbEOx43X/xwmdH8B/WjEvdLj/JooFPdyh7fG+dkhhtaIWR0CgYEA3IOY\nI+Qrw2oa3KypIHtqlc/2CymqAa6q4w6TUFvIhn9YrK8NmYA0gOPHkAHvRszY3Fzi\nyejvMpfi+1X8fLpyutqv7zUMDZVxBw2hfnrmtVMCulQD7BIwsT/t40UrDucpy5Lk\nGcBwTN2SsebMOeHiReN8guAd5bMCQuTfh/km9+0CgYA5qQVfuMGoVdgKHdZ1+cTH\nM5C3q5UoB6czIcO7Wuk6scdfm4m2GoeRE46aLzO1vQUYk8Z6GQDA3G0M5MiQdIDQ\n/wnhAbFK9x6hOr1j99zEfvDrBdkfcUjdOwY/liRrKLVu1kwBvg/8EvPNnzayF3CP\nIY3LKKabKQyXpqUg3TZ4oQKBgAUNxwjbi904q1DvbBjgezrfv0XWOJ09QZFeniWz\nVM8wT/n1MRyZgZqKneJBCRjYTQgP4Oq7ue+w53TXLag2Jbb+mBWlY5dUG3kL6O2b\nJ3p0YpWeo1BfwlntmyggR7JZve16elvUuz4nvdrx7TBOav8rDYl6VXUUOzMJR843\n+ZqpAoGBANJW0Nf03SNrgj/DZSX4o6a/NoLwnPLGyrXBiTn8sLJfysyP8feyq0jZ\nLQwjY6fJL32uy/yR5o/VMAhaKNosBmrxK0jA9HBf/gMXZ+jW7bsqhna9cDwmypdw\nDnyVHKp3a/yUi4sF0zOCOmMIAg+Abnp1LOEqPrijstL4VnIztkGK\n-----END RSA PRIVATE KEY-----\n",
+    "certificateChain" : "-----BEGIN CERTIFICATE-----\nMIIC4TCCAcmgAwIBAgIQbInemkUtaE3bh1z3ggiyNDANBgkqhkiG9w0BAQ0FADAZ\nMRcwFQYDVQQDDA5GbG9jaSBMb2NhbCBDQTAgFw0yNjEwMDkwOTI0MjRaGA8yMDUw\nMTIzMTIzNTk1OVowGTEXMBUGA1UEAwwORmxvY2kgTG9jYWwgQ0EwggEiMA0GCSqG\nSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDKStzpkA3BPC892xS2b3X3tw4+Q5iUMQ27\nsUjnLQo9iY8fHZFL5yvKx0iCYKzhcwJ1Y0f5K4/Fo9hGq6zcJvqGwRtKp6nyTDVk\nQG2lW2+m0bl4yyxhrSGVLvJhtEPwHQgg71YNNyj5E4UnPoj+xjjTexW5PgE4yj0W\nQnTGj/5/euQfFaMno8eip99OkA9fOYa1P0FT7JNUkY2IiZAynPfgB3cB3XLXznl4\navTeZDlSfvrgu3F/CWJz88IS8eHlF5ev9kfsfqwWGkhB8n169+d4nyzvcmEQRyda\nkTVcplUd+eErqahCvAvncJUOb9N/T5POw7qcCvdUuFMY2p5p40OpAgMBAAGjIzAh\nMA4GA1UdDwEB/wQEAwIBpjAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBDQUA\nA4IBAQBo8gnWj+e0tc4SJWTIWm1RAHgP95OR9GKJsocwcDyVGTyEces8o9ibkYRA\nP5haGA6JWYas+GzY8naJUBcSDKZt/41uUTbOLtCEIk6lfMCy3WcDtfDogVf7m3mb\nPom+04DwpByjRTd++yIMYd8Vcva75Ad5YlIL9MoMQuNKHHk1qDVmCpYxiXGwNMUR\nFm7VLdGOpbR+81hvW5LcqQJ3JLKc1tr+zoPJrfs6RHc4qeQB+h+Ll3fyO3RRazBE\nJJGglNr1RVnHyOgqn2tGhwuhMjEcHUamZMN+jx2vISpqmUOpaSiTvauCRwPzltzZ\n2e9RbUgXqyCUo5zgSR478Zpv1U14\n-----END CERTIFICATE-----\n",
+    "certOptions" : {
+      "certificateTransparencyLoggingPreference" : "ENABLED",
+      "export" : "DISABLED"
+    },
+    "certAuthorityArn" : null,
+    "domainValidationOptions" : [ {
+      "domainName" : "awsgogs.pp.ua",
+      "validationDomain" : "awsgogs.pp.ua",
+      "validationStatus" : "SUCCESS",
+      "validationMethod" : "DNS",
+      "resourceRecord" : {
+        "name" : "_632d6c1a13e0f1a0800192060ad41b77.awsgogs.pp.ua.",
+        "type" : "CNAME",
+        "value" : "_37cae42929f7f7afe9e988d0549407f2.acm-validations.aws."
+      },
+      "validationEmails" : null
+    }, {
+      "domainName" : "jenkins.awsgogs.pp.ua",
+      "validationDomain" : "jenkins.awsgogs.pp.ua",
+      "validationStatus" : "SUCCESS",
+      "validationMethod" : "DNS",
+      "resourceRecord" : {
+        "name" : "_bb193083d1d8c58ef64fbb69a3c17cae.jenkins.awsgogs.pp.ua.",
+        "type" : "CNAME",
+        "value" : "_6215626664e5e73158eb43b45e3fbda4.acm-validations.aws."
+      },
+      "validationEmails" : null
+    } ],
+    "idempotencyToken" : "tf20261009093426009300000002"
+  }
+}

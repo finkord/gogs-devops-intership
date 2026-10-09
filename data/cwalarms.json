@@ -1,0 +1,138 @@
+{
+  "000000000000/us-east-1::TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0bf3729b-f6c8-45c8-92b6-69a19fa9b806" : {
+    "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0bf3729b-f6c8-45c8-92b6-69a19fa9b806",
+    "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0bf3729b-f6c8-45c8-92b6-69a19fa9b806",
+    "alarmDescription" : "DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ae38d51f-ee7b-4b5f-87bd-ba2dd4ab082e:resource/ecs/service/gogs-cluster/gogs-service:policyName/cpu-scaling.",
+    "alarmConfigurationUpdatedTimestamp" : 1791538807,
+    "actionsEnabled" : true,
+    "okActions" : [ ],
+    "alarmActions" : [ "arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ae38d51f-ee7b-4b5f-87bd-ba2dd4ab082e:resource/ecs/service/gogs-cluster/gogs-service:policyName/cpu-scaling" ],
+    "insufficientDataActions" : [ ],
+    "stateValue" : "INSUFFICIENT_DATA",
+    "stateReason" : "Unchecked",
+    "stateReasonData" : null,
+    "stateUpdatedTimestamp" : 1791538807,
+    "metricName" : "ECSServiceAverageCPUUtilization",
+    "namespace" : "AWS/ECS",
+    "statistic" : "Average",
+    "dimensions" : [ {
+      "name" : "ClusterName",
+      "value" : "gogs-cluster"
+    }, {
+      "name" : "ServiceName",
+      "value" : "gogs-service"
+    } ],
+    "period" : 60,
+    "unit" : null,
+    "evaluationPeriods" : 3,
+    "datapointsToAlarm" : 0,
+    "threshold" : 60.0,
+    "comparisonOperator" : "GreaterThanThreshold",
+    "treatMissingData" : "missing",
+    "evaluateLowSampleCountPercentile" : null,
+    "tags" : { },
+    "region" : "us-east-1"
+  },
+  "000000000000/us-east-1::TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-b22edf79-9fa1-4eef-8d37-81d8d8dd809b" : {
+    "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-b22edf79-9fa1-4eef-8d37-81d8d8dd809b",
+    "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-b22edf79-9fa1-4eef-8d37-81d8d8dd809b",
+    "alarmDescription" : "DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ae38d51f-ee7b-4b5f-87bd-ba2dd4ab082e:resource/ecs/service/gogs-cluster/gogs-service:policyName/cpu-scaling.",
+    "alarmConfigurationUpdatedTimestamp" : 1791538807,
+    "actionsEnabled" : true,
+    "okActions" : [ ],
+    "alarmActions" : [ "arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ae38d51f-ee7b-4b5f-87bd-ba2dd4ab082e:resource/ecs/service/gogs-cluster/gogs-service:policyName/cpu-scaling" ],
+    "insufficientDataActions" : [ ],
+    "stateValue" : "INSUFFICIENT_DATA",
+    "stateReason" : "Unchecked",
+    "stateReasonData" : null,
+    "stateUpdatedTimestamp" : 1791538807,
+    "metricName" : "ECSServiceAverageCPUUtilization",
+    "namespace" : "AWS/ECS",
+    "statistic" : "Average",
+    "dimensions" : [ {
+      "name" : "ClusterName",
+      "value" : "gogs-cluster"
+    }, {
+      "name" : "ServiceName",
+      "value" : "gogs-service"
+    } ],
+    "period" : 60,
+    "unit" : null,
+    "evaluationPeriods" : 15,
+    "datapointsToAlarm" : 0,
+    "threshold" : 60.0,
+    "comparisonOperator" : "LessThanThreshold",
+    "treatMissingData" : "missing",
+    "evaluateLowSampleCountPercentile" : null,
+    "tags" : { },
+    "region" : "us-east-1"
+  },
+  "000000000000/us-east-1::TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0aa42f83-4573-4208-8d38-5e35e5b8ee80" : {
+    "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0aa42f83-4573-4208-8d38-5e35e5b8ee80",
+    "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0aa42f83-4573-4208-8d38-5e35e5b8ee80",
+    "alarmDescription" : "DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ffe6922a-bc62-44e4-9f48-3e7e33a4dc6e:resource/ecs/service/gogs-cluster/gogs-service:policyName/memory-scaling.",
+    "alarmConfigurationUpdatedTimestamp" : 1791538807,
+    "actionsEnabled" : true,
+    "okActions" : [ ],
+    "alarmActions" : [ "arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ffe6922a-bc62-44e4-9f48-3e7e33a4dc6e:resource/ecs/service/gogs-cluster/gogs-service:policyName/memory-scaling" ],
+    "insufficientDataActions" : [ ],
+    "stateValue" : "INSUFFICIENT_DATA",
+    "stateReason" : "Unchecked",
+    "stateReasonData" : null,
+    "stateUpdatedTimestamp" : 1791538807,
+    "metricName" : "ECSServiceAverageMemoryUtilization",
+    "namespace" : "AWS/ECS",
+    "statistic" : "Average",
+    "dimensions" : [ {
+      "name" : "ClusterName",
+      "value" : "gogs-cluster"
+    }, {
+      "name" : "ServiceName",
+      "value" : "gogs-service"
+    } ],
+    "period" : 60,
+    "unit" : null,
+    "evaluationPeriods" : 3,
+    "datapointsToAlarm" : 0,
+    "threshold" : 70.0,
+    "comparisonOperator" : "GreaterThanThreshold",
+    "treatMissingData" : "missing",
+    "evaluateLowSampleCountPercentile" : null,
+    "tags" : { },
+    "region" : "us-east-1"
+  },
+  "000000000000/us-east-1::TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-9f8de0fd-368c-4bf6-95ad-e9304957ae23" : {
+    "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-9f8de0fd-368c-4bf6-95ad-e9304957ae23",
+    "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-9f8de0fd-368c-4bf6-95ad-e9304957ae23",
+    "alarmDescription" : "DO NOT EDIT OR DELETE. For TargetTrackingScaling policy arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ffe6922a-bc62-44e4-9f48-3e7e33a4dc6e:resource/ecs/service/gogs-cluster/gogs-service:policyName/memory-scaling.",
+    "alarmConfigurationUpdatedTimestamp" : 1791538807,
+    "actionsEnabled" : true,
+    "okActions" : [ ],
+    "alarmActions" : [ "arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ffe6922a-bc62-44e4-9f48-3e7e33a4dc6e:resource/ecs/service/gogs-cluster/gogs-service:policyName/memory-scaling" ],
+    "insufficientDataActions" : [ ],
+    "stateValue" : "INSUFFICIENT_DATA",
+    "stateReason" : "Unchecked",
+    "stateReasonData" : null,
+    "stateUpdatedTimestamp" : 1791538807,
+    "metricName" : "ECSServiceAverageMemoryUtilization",
+    "namespace" : "AWS/ECS",
+    "statistic" : "Average",
+    "dimensions" : [ {
+      "name" : "ClusterName",
+      "value" : "gogs-cluster"
+    }, {
+      "name" : "ServiceName",
+      "value" : "gogs-service"
+    } ],
+    "period" : 60,
+    "unit" : null,
+    "evaluationPeriods" : 15,
+    "datapointsToAlarm" : 0,
+    "threshold" : 70.0,
+    "comparisonOperator" : "LessThanThreshold",
+    "treatMissingData" : "missing",
+    "evaluateLowSampleCountPercentile" : null,
+    "tags" : { },
+    "region" : "us-east-1"
+  }
+}

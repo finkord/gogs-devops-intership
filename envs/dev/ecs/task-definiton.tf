@@ -60,7 +60,7 @@ resource "aws_ecs_task_definition" "gogs_task" {
         },
         {
           name  = "GOGS_EXTERNAL_URL"
-          value = "http://awsgogs.pp.ua/"
+          value = "https://awsgogs.pp.ua/"
         },
         {
           name  = "SPLUNK_MEMORY_LIMIT_MIB"

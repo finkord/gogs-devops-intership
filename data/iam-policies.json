@@ -1,0 +1,68 @@
+{
+  "000000000000/arn:aws:iam::000000000000:policy/CloudWatchLogsFullAccess" : {
+    "policyId" : "ANPAVH8ERAF7L104XWZY",
+    "policyName" : "CloudWatchLogsFullAccess",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:policy/CloudWatchLogsFullAccess",
+    "description" : "",
+    "defaultVersionId" : "v1",
+    "attachmentCount" : 1,
+    "nextVersionNumber" : 2,
+    "createDate" : "2026-10-09T09:35:10.217434863Z",
+    "updateDate" : "2026-10-09T09:35:10.217434863Z",
+    "tags" : { },
+    "versions" : {
+      "v1" : {
+        "versionId" : "v1",
+        "document" : "{\"Statement\":[{\"Action\":[\"logs:*\",\"cloudwatch:GenerateQuery\",\"cloudwatch:GenerateQueryResultsSummary\"],\"Effect\":\"Allow\",\"Resource\":\"*\",\"Sid\":\"CloudWatchLogsFullAccess\"}],\"Version\":\"2012-10-17\"}",
+        "defaultVersion" : true,
+        "createDate" : "2026-10-09T09:35:10.217434863Z"
+      }
+    },
+    "defaultDocument" : "{\"Statement\":[{\"Action\":[\"logs:*\",\"cloudwatch:GenerateQuery\",\"cloudwatch:GenerateQueryResultsSummary\"],\"Effect\":\"Allow\",\"Resource\":\"*\",\"Sid\":\"CloudWatchLogsFullAccess\"}],\"Version\":\"2012-10-17\"}"
+  },
+  "000000000000/arn:aws:iam::000000000000:policy/Jenkins-ecr-policy" : {
+    "policyId" : "ANPAA2YXY0D5QKZSC3MH",
+    "policyName" : "Jenkins-ecr-policy",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:policy/Jenkins-ecr-policy",
+    "description" : "Full ECR access with additional permissions for CloudTrail and service-linked role creation",
+    "defaultVersionId" : "v1",
+    "attachmentCount" : 1,
+    "nextVersionNumber" : 2,
+    "createDate" : "2026-10-09T09:35:10.217417751Z",
+    "updateDate" : "2026-10-09T09:35:10.217417751Z",
+    "tags" : { },
+    "versions" : {
+      "v1" : {
+        "versionId" : "v1",
+        "document" : "{\"Statement\":[{\"Action\":[\"ecr:*\",\"cloudtrail:LookupEvents\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":\"iam:CreateServiceLinkedRole\",\"Condition\":{\"StringEquals\":{\"iam:AWSServiceName\":\"replication.ecr.amazonaws.com\"}},\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+        "defaultVersion" : true,
+        "createDate" : "2026-10-09T09:35:10.217417751Z"
+      }
+    },
+    "defaultDocument" : "{\"Statement\":[{\"Action\":[\"ecr:*\",\"cloudtrail:LookupEvents\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":\"iam:CreateServiceLinkedRole\",\"Condition\":{\"StringEquals\":{\"iam:AWSServiceName\":\"replication.ecr.amazonaws.com\"}},\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}"
+  },
+  "000000000000/arn:aws:iam::000000000000:policy/AmazonECSTaskExecutionRolePolicy" : {
+    "policyId" : "ANPAMGJIAF8E3UVSDCQD",
+    "policyName" : "AmazonECSTaskExecutionRolePolicy",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:policy/AmazonECSTaskExecutionRolePolicy",
+    "description" : "",
+    "defaultVersionId" : "v1",
+    "attachmentCount" : 1,
+    "nextVersionNumber" : 2,
+    "createDate" : "2026-10-09T09:35:10.217417751Z",
+    "updateDate" : "2026-10-09T09:35:10.217417751Z",
+    "tags" : { },
+    "versions" : {
+      "v1" : {
+        "versionId" : "v1",
+        "document" : "{\"Statement\":[{\"Action\":[\"ecr:GetAuthorizationToken\",\"ecr:BatchCheckLayerAvailability\",\"ecr:GetDownloadUrlForLayer\",\"ecr:BatchGetImage\",\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+        "defaultVersion" : true,
+        "createDate" : "2026-10-09T09:35:10.217417751Z"
+      }
+    },
+    "defaultDocument" : "{\"Statement\":[{\"Action\":[\"ecr:GetAuthorizationToken\",\"ecr:BatchCheckLayerAvailability\",\"ecr:GetDownloadUrlForLayer\",\"ecr:BatchGetImage\",\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}"
+  }
+}

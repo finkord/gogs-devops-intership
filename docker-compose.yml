@@ -1,0 +1,14 @@
+services:
+  floci:
+    image: floci/floci:latest
+    ports:
+      - "4566:4566"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/app/data
+    environment:
+      USE_SSL: 1
+      FLOCI_TLS_AWS_HTTPS_PORT: 0
+      FLOCI_STORAGE_MODE: hybrid

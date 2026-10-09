@@ -1,0 +1,34 @@
+{
+  "000000000000/us-east-1::/aws/ecr/registry" : {
+    "logGroupName" : "/aws/ecr/registry",
+    "createdTime" : 1791538227085,
+    "retentionInDays" : null,
+    "deletionProtectionEnabled" : false,
+    "kmsKeyId" : null,
+    "tags" : { }
+  },
+  "000000000000/us-east-1::/aws/rds/instance/gogs-rds/error" : {
+    "logGroupName" : "/aws/rds/instance/gogs-rds/error",
+    "createdTime" : 1791538325431,
+    "retentionInDays" : null,
+    "deletionProtectionEnabled" : false,
+    "kmsKeyId" : null,
+    "tags" : { }
+  },
+  "000000000000/us-east-1::/floci/ui" : {
+    "logGroupName" : "/floci/ui",
+    "createdTime" : 1791537905255,
+    "retentionInDays" : null,
+    "deletionProtectionEnabled" : false,
+    "kmsKeyId" : null,
+    "tags" : { }
+  },
+  "000000000000/us-east-1::/ecs/gogs-task" : {
+    "logGroupName" : "/ecs/gogs-task",
+    "createdTime" : 1791538813034,
+    "retentionInDays" : null,
+    "deletionProtectionEnabled" : false,
+    "kmsKeyId" : null,
+    "tags" : { }
+  }
+}

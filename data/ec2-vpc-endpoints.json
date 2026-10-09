@@ -1,0 +1,127 @@
+{
+  "000000000000/us-east-1::vpce-9fac9b760121abe17" : {
+    "vpcEndpointId" : "vpce-9fac9b760121abe17",
+    "vpcId" : "vpc-016449a8",
+    "serviceName" : "com.amazonaws.us-east-1.s3",
+    "vpcEndpointType" : "Gateway",
+    "state" : "available",
+    "creationTimestamp" : "2026-10-09T09:31:18.777057878Z",
+    "region" : "us-east-1",
+    "routeTableIds" : [ "rtb-2d18a8ca" ],
+    "subnetIds" : [ ],
+    "securityGroupIds" : [ ],
+    "privateDnsEnabled" : false,
+    "policyDocument" : null,
+    "subnetConfigurations" : [ ],
+    "tags" : [ {
+      "key" : "Name",
+      "value" : "s3-gogs-vpc-endpoint"
+    }, {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::vpce-bfe3f59cadd250276" : {
+    "vpcEndpointId" : "vpce-bfe3f59cadd250276",
+    "vpcId" : "vpc-016449a8",
+    "serviceName" : "com.amazonaws.us-east-1.ecr.api",
+    "vpcEndpointType" : "Interface",
+    "state" : "available",
+    "creationTimestamp" : "2026-10-09T09:34:07.156975421Z",
+    "region" : "us-east-1",
+    "routeTableIds" : [ ],
+    "subnetIds" : [ "subnet-97ae316f", "subnet-e94d50a1" ],
+    "securityGroupIds" : [ "sg-43f995f343936cead" ],
+    "privateDnsEnabled" : true,
+    "policyDocument" : null,
+    "subnetConfigurations" : [ ],
+    "tags" : [ {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Name",
+      "value" : "ecr-api-gogs-vpc-endpoint"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::vpce-155f5674ab137ec67" : {
+    "vpcEndpointId" : "vpce-155f5674ab137ec67",
+    "vpcId" : "vpc-016449a8",
+    "serviceName" : "com.amazonaws.us-east-1.ssm",
+    "vpcEndpointType" : "Interface",
+    "state" : "available",
+    "creationTimestamp" : "2026-10-09T09:34:07.157061352Z",
+    "region" : "us-east-1",
+    "routeTableIds" : [ ],
+    "subnetIds" : [ "subnet-97ae316f", "subnet-e94d50a1" ],
+    "securityGroupIds" : [ "sg-43f995f343936cead" ],
+    "privateDnsEnabled" : true,
+    "policyDocument" : null,
+    "subnetConfigurations" : [ ],
+    "tags" : [ {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Name",
+      "value" : "ssm-gogs-vpc-endpoint"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::vpce-81e1c252ae2e5f9a3" : {
+    "vpcEndpointId" : "vpce-81e1c252ae2e5f9a3",
+    "vpcId" : "vpc-016449a8",
+    "serviceName" : "com.amazonaws.us-east-1.ecr.dkr",
+    "vpcEndpointType" : "Interface",
+    "state" : "available",
+    "creationTimestamp" : "2026-10-09T09:34:07.157696562Z",
+    "region" : "us-east-1",
+    "routeTableIds" : [ ],
+    "subnetIds" : [ "subnet-97ae316f", "subnet-e94d50a1" ],
+    "securityGroupIds" : [ "sg-43f995f343936cead" ],
+    "privateDnsEnabled" : true,
+    "policyDocument" : null,
+    "subnetConfigurations" : [ ],
+    "tags" : [ {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Name",
+      "value" : "ecr-dkr-gogs-vpc-endpoint"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    } ]
+  },
+  "000000000000/us-east-1::vpce-84faf7d4eb403ef76" : {
+    "vpcEndpointId" : "vpce-84faf7d4eb403ef76",
+    "vpcId" : "vpc-016449a8",
+    "serviceName" : "com.amazonaws.us-east-1.logs",
+    "vpcEndpointType" : "Interface",
+    "state" : "available",
+    "creationTimestamp" : "2026-10-09T09:34:07.156975441Z",
+    "region" : "us-east-1",
+    "routeTableIds" : [ ],
+    "subnetIds" : [ "subnet-97ae316f", "subnet-e94d50a1" ],
+    "securityGroupIds" : [ "sg-43f995f343936cead" ],
+    "privateDnsEnabled" : true,
+    "policyDocument" : null,
+    "subnetConfigurations" : [ ],
+    "tags" : [ {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Name",
+      "value" : "logs-gogs-vpc-endpoint"
+    } ]
+  }
+}

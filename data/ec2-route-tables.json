@@ -1,0 +1,167 @@
+{
+  "000000000000/us-east-1::rtb-2c006c9d03c0412b9" : {
+    "routeTableId" : "rtb-2c006c9d03c0412b9",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "routes" : [ {
+      "destinationCidrBlock" : "10.1.0.0/21",
+      "destinationIpv6CidrBlock" : null,
+      "destinationPrefixListId" : null,
+      "gatewayId" : "local",
+      "natGatewayId" : null,
+      "egressOnlyInternetGatewayId" : null,
+      "vpcPeeringConnectionId" : null,
+      "state" : "active",
+      "origin" : "CreateRouteTable"
+    } ],
+    "associations" : [ {
+      "routeTableAssociationId" : "rtbassoc-7e864fdb735dcf74e",
+      "routeTableId" : "rtb-2c006c9d03c0412b9",
+      "subnetId" : null,
+      "gatewayId" : null,
+      "main" : true,
+      "associationState" : "associated"
+    } ],
+    "tags" : [ {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc-default"
+    } ]
+  },
+  "000000000000/us-east-1::rtb-7505e253" : {
+    "routeTableId" : "rtb-7505e253",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "routes" : [ {
+      "destinationCidrBlock" : "10.1.0.0/21",
+      "destinationIpv6CidrBlock" : null,
+      "destinationPrefixListId" : null,
+      "gatewayId" : "local",
+      "natGatewayId" : null,
+      "egressOnlyInternetGatewayId" : null,
+      "vpcPeeringConnectionId" : null,
+      "state" : "active",
+      "origin" : "CreateRouteTable"
+    }, {
+      "destinationCidrBlock" : "0.0.0.0/0",
+      "destinationIpv6CidrBlock" : null,
+      "destinationPrefixListId" : null,
+      "gatewayId" : "igw-de8bdf4f",
+      "natGatewayId" : null,
+      "egressOnlyInternetGatewayId" : null,
+      "vpcPeeringConnectionId" : null,
+      "state" : "active",
+      "origin" : "CreateRoute"
+    } ],
+    "associations" : [ {
+      "routeTableAssociationId" : "rtbassoc-1d07932a",
+      "routeTableId" : "rtb-7505e253",
+      "subnetId" : "subnet-a4c0c6e2",
+      "gatewayId" : null,
+      "main" : false,
+      "associationState" : "associated"
+    }, {
+      "routeTableAssociationId" : "rtbassoc-c4d8fbd6",
+      "routeTableId" : "rtb-7505e253",
+      "subnetId" : "subnet-45000295",
+      "gatewayId" : null,
+      "main" : false,
+      "associationState" : "associated"
+    } ],
+    "tags" : [ {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc-public"
+    }, {
+      "key" : "Terraform",
+      "value" : "true"
+    } ]
+  },
+  "000000000000/us-east-1::rtb-2d18a8ca" : {
+    "routeTableId" : "rtb-2d18a8ca",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "routes" : [ {
+      "destinationCidrBlock" : "10.1.0.0/21",
+      "destinationIpv6CidrBlock" : null,
+      "destinationPrefixListId" : null,
+      "gatewayId" : "local",
+      "natGatewayId" : null,
+      "egressOnlyInternetGatewayId" : null,
+      "vpcPeeringConnectionId" : null,
+      "state" : "active",
+      "origin" : "CreateRouteTable"
+    } ],
+    "associations" : [ {
+      "routeTableAssociationId" : "rtbassoc-43fc4f7c",
+      "routeTableId" : "rtb-2d18a8ca",
+      "subnetId" : "subnet-e94d50a1",
+      "gatewayId" : null,
+      "main" : false,
+      "associationState" : "associated"
+    }, {
+      "routeTableAssociationId" : "rtbassoc-7281c3e6",
+      "routeTableId" : "rtb-2d18a8ca",
+      "subnetId" : "subnet-97ae316f",
+      "gatewayId" : null,
+      "main" : false,
+      "associationState" : "associated"
+    } ],
+    "tags" : [ {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc-private"
+    }, {
+      "key" : "Terraform",
+      "value" : "true"
+    } ]
+  },
+  "000000000000/us-east-1::rtb-default" : {
+    "routeTableId" : "rtb-default",
+    "vpcId" : "vpc-default-us-east-1",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "routes" : [ {
+      "destinationCidrBlock" : "172.31.0.0/16",
+      "destinationIpv6CidrBlock" : null,
+      "destinationPrefixListId" : null,
+      "gatewayId" : "local",
+      "natGatewayId" : null,
+      "egressOnlyInternetGatewayId" : null,
+      "vpcPeeringConnectionId" : null,
+      "state" : "active",
+      "origin" : "CreateRouteTable"
+    }, {
+      "destinationCidrBlock" : "0.0.0.0/0",
+      "destinationIpv6CidrBlock" : null,
+      "destinationPrefixListId" : null,
+      "gatewayId" : "igw-default",
+      "natGatewayId" : null,
+      "egressOnlyInternetGatewayId" : null,
+      "vpcPeeringConnectionId" : null,
+      "state" : "active",
+      "origin" : "CreateRoute"
+    } ],
+    "associations" : [ {
+      "routeTableAssociationId" : "rtbassoc-default",
+      "routeTableId" : "rtb-default",
+      "subnetId" : null,
+      "gatewayId" : null,
+      "main" : true,
+      "associationState" : "associated"
+    } ],
+    "tags" : [ ]
+  }
+}

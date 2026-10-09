@@ -1,0 +1,35 @@
+{
+  "000000000000/us-east-1::gogs-cluster/gogs-service" : {
+    "serviceArn" : "arn:aws:ecs:us-east-1:000000000000:service/gogs-cluster/gogs-service",
+    "serviceName" : "gogs-service",
+    "clusterArn" : "arn:aws:ecs:us-east-1:000000000000:cluster/gogs-cluster",
+    "taskDefinition" : "arn:aws:ecs:us-east-1:000000000000:task-definition/gogs-task:2",
+    "launchType" : "FARGATE",
+    "desiredCount" : 1,
+    "runningCount" : 1,
+    "pendingCount" : 0,
+    "status" : "ACTIVE",
+    "createdAt" : "2026-10-09T09:40:07.763717535Z",
+    "lastDeploymentAt" : "2026-10-09T09:46:23.681420085Z",
+    "deploymentId" : "ecs-svc/c92f114fd5b94850a9556058f293af4f",
+    "lastCompletedDeploymentId" : "ecs-svc/c92f114fd5b94850a9556058f293af4f",
+    "namespace" : null,
+    "deploymentController" : "ECS",
+    "schedulingStrategy" : "REPLICA",
+    "availabilityZoneRebalancing" : "DISABLED",
+    "tags" : { },
+    "loadBalancers" : [ {
+      "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485",
+      "loadBalancerName" : null,
+      "containerName" : "gogs",
+      "containerPort" : 3000
+    } ],
+    "networkConfiguration" : {
+      "awsvpcConfiguration" : {
+        "subnets" : [ "subnet-97ae316f", "subnet-e94d50a1" ],
+        "securityGroups" : [ "sg-390646ab77eeca3bf" ],
+        "assignPublicIp" : "DISABLED"
+      }
+    }
+  }
+}

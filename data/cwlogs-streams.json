@@ -1,0 +1,82 @@
+{
+  "000000000000/us-east-1::/ecs/gogs-task::2026/10/09/gogs/56edbcff839a41c2b78010f1f8c8a589" : {
+    "logGroupName" : "/ecs/gogs-task",
+    "logStreamName" : "2026/10/09/gogs/56edbcff839a41c2b78010f1f8c8a589",
+    "createdTime" : 1791539188040,
+    "firstEventTimestamp" : 1791539188068,
+    "lastEventTimestamp" : 1791539768021,
+    "lastIngestionTime" : 1791539768021,
+    "uploadSequenceToken" : "9cd5a12e-9b9a-412e-a95d-e23af719be5d",
+    "storedBytes" : 546
+  },
+  "000000000000/us-east-1::/floci/ui::2026/10/09/e246771b" : {
+    "logGroupName" : "/floci/ui",
+    "logStreamName" : "2026/10/09/e246771b",
+    "createdTime" : 1791537905256,
+    "firstEventTimestamp" : 1791537905828,
+    "lastEventTimestamp" : 1791539028759,
+    "lastIngestionTime" : 1791539028759,
+    "uploadSequenceToken" : "20e579b1-e697-4c29-8142-ee4948a35f65",
+    "storedBytes" : 20335
+  },
+  "000000000000/us-east-1::/ecs/gogs-task::2026/10/09/gogs/278cede4cc2c4e40a4e137263b31345a" : {
+    "logGroupName" : "/ecs/gogs-task",
+    "logStreamName" : "2026/10/09/gogs/278cede4cc2c4e40a4e137263b31345a",
+    "createdTime" : 1791539892244,
+    "firstEventTimestamp" : 1791539892279,
+    "lastEventTimestamp" : 1791539892426,
+    "lastIngestionTime" : 1791539892426,
+    "uploadSequenceToken" : "945969be-96ea-4599-ae81-4c26f3f1385f",
+    "storedBytes" : 489
+  },
+  "000000000000/us-east-1::/ecs/gogs-task::2026/10/09/gogs/1fb3e08dd3f046c9b72e6e21cf8b7a72" : {
+    "logGroupName" : "/ecs/gogs-task",
+    "logStreamName" : "2026/10/09/gogs/1fb3e08dd3f046c9b72e6e21cf8b7a72",
+    "createdTime" : 1791538813034,
+    "firstEventTimestamp" : 1791538813070,
+    "lastEventTimestamp" : 1791539192747,
+    "lastIngestionTime" : 1791539192747,
+    "uploadSequenceToken" : "c1d58f5a-1b7f-4500-88da-1f29a7b16d99",
+    "storedBytes" : 630
+  },
+  "000000000000/us-east-1::/aws/rds/instance/gogs-rds/error::2026/10/09/7c9efbf2" : {
+    "logGroupName" : "/aws/rds/instance/gogs-rds/error",
+    "logStreamName" : "2026/10/09/7c9efbf2",
+    "createdTime" : 1791539770613,
+    "firstEventTimestamp" : 1791539770614,
+    "lastEventTimestamp" : 1791540069798,
+    "lastIngestionTime" : 1791540069798,
+    "uploadSequenceToken" : "5367e0ca-7d9c-4f3e-a542-403fc2e8e73f",
+    "storedBytes" : 1239
+  },
+  "000000000000/us-east-1::/floci/ui::2026/10/09/e660dfa1" : {
+    "logGroupName" : "/floci/ui",
+    "logStreamName" : "2026/10/09/e660dfa1",
+    "createdTime" : 1791539797978,
+    "firstEventTimestamp" : 1791539798483,
+    "lastEventTimestamp" : 1791540526368,
+    "lastIngestionTime" : 1791540526368,
+    "uploadSequenceToken" : "35709662-bbbb-445f-8e13-917e4f623c64",
+    "storedBytes" : 24250
+  },
+  "000000000000/us-east-1::/aws/ecr/registry::2026/10/09/99d5d9d1" : {
+    "logGroupName" : "/aws/ecr/registry",
+    "logStreamName" : "2026/10/09/99d5d9d1",
+    "createdTime" : 1791538227085,
+    "firstEventTimestamp" : 1791538227106,
+    "lastEventTimestamp" : 1791539187118,
+    "lastIngestionTime" : 1791539187118,
+    "uploadSequenceToken" : "6aaf4df7-8298-408e-b0c9-ebce3a67d05a",
+    "storedBytes" : 3094
+  },
+  "000000000000/us-east-1::/aws/rds/instance/gogs-rds/error::2026/10/09/a512c92f" : {
+    "logGroupName" : "/aws/rds/instance/gogs-rds/error",
+    "logStreamName" : "2026/10/09/a512c92f",
+    "createdTime" : 1791538325431,
+    "firstEventTimestamp" : 1791538325432,
+    "lastEventTimestamp" : 1791539762505,
+    "lastIngestionTime" : 1791539762505,
+    "uploadSequenceToken" : "cc07531e-f90b-4362-81b0-c81d91c6a364",
+    "storedBytes" : 5689
+  }
+}

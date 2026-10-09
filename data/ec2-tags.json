@@ -1,0 +1,204 @@
+{
+  "000000000000/igw-de8bdf4f" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  } ],
+  "000000000000/rtb-2c006c9d03c0412b9" : [ {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-default"
+  } ],
+  "000000000000/sg-43f995f343936cead" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-endpoints-sg"
+  } ],
+  "000000000000/vpc-016449a8" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc"
+  } ],
+  "000000000000/acl-b07a37bb95432474d" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-default"
+  } ],
+  "000000000000/subnet-e94d50a1" : [ {
+    "key" : "Name",
+    "value" : "gogs-vpc-private-us-east-1a"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  } ],
+  "000000000000/sg-f5f5d3da877967235" : [ {
+    "key" : "Name",
+    "value" : "gogs-vpc-rds-sg"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/sg-b967f50276ad95664" : [ {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-default-sg"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/vpce-84faf7d4eb403ef76" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Name",
+    "value" : "logs-gogs-vpc-endpoint"
+  } ],
+  "000000000000/subnet-45000295" : [ {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-public-us-east-1b"
+  } ],
+  "000000000000/vpce-9fac9b760121abe17" : [ {
+    "key" : "Name",
+    "value" : "s3-gogs-vpc-endpoint"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/vpce-155f5674ab137ec67" : [ {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Name",
+    "value" : "ssm-gogs-vpc-endpoint"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/sg-390646ab77eeca3bf" : [ {
+    "key" : "Name",
+    "value" : "gogs-vpc-ecs-tasks-sg"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/sg-aed5f8b76891d5621" : [ {
+    "key" : "Name",
+    "value" : "gogs-vpc-alb-sg"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/vpce-bfe3f59cadd250276" : [ {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Name",
+    "value" : "ecr-api-gogs-vpc-endpoint"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/sg-210081ea802317e32" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-efs-sg"
+  } ],
+  "000000000000/rtb-2d18a8ca" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-private"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  } ],
+  "000000000000/vpce-81e1c252ae2e5f9a3" : [ {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Name",
+    "value" : "ecr-dkr-gogs-vpc-endpoint"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/subnet-97ae316f" : [ {
+    "key" : "Name",
+    "value" : "gogs-vpc-private-us-east-1b"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/sg-b5a98e7352b52f37e" : [ {
+    "key" : "Name",
+    "value" : "gogs-vpc-jenkins-sg"
+  }, {
+    "key" : "Environment",
+    "value" : "dev"
+  } ],
+  "000000000000/subnet-a4c0c6e2" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-public-us-east-1a"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  } ],
+  "000000000000/rtb-7505e253" : [ {
+    "key" : "Environment",
+    "value" : "dev"
+  }, {
+    "key" : "Name",
+    "value" : "gogs-vpc-public"
+  }, {
+    "key" : "Terraform",
+    "value" : "true"
+  } ]
+}

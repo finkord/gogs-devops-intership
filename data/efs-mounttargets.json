@@ -1,0 +1,32 @@
+{
+  "000000000000/us-east-1::fsmt-32d164649a724232a" : {
+    "AvailabilityZoneId" : "use1-az1",
+    "AvailabilityZoneName" : "us-east-1a",
+    "FileSystemId" : "fs-b42aab4dd9494296b",
+    "IpAddress" : "10.0.0.10",
+    "IpAddressType" : null,
+    "Ipv6Address" : null,
+    "LifeCycleState" : "available",
+    "MountTargetId" : "fsmt-32d164649a724232a",
+    "NetworkInterfaceId" : "eni-4d5ed33d62f14e5fa",
+    "OwnerId" : null,
+    "SecurityGroups" : [ "sg-210081ea802317e32" ],
+    "SubnetId" : "subnet-e94d50a1",
+    "VpcId" : "vpc-12345678"
+  },
+  "000000000000/us-east-1::fsmt-e88f9792c4fb4a5fa" : {
+    "AvailabilityZoneId" : "use1-az1",
+    "AvailabilityZoneName" : "us-east-1a",
+    "FileSystemId" : "fs-b42aab4dd9494296b",
+    "IpAddress" : "10.0.0.10",
+    "IpAddressType" : null,
+    "Ipv6Address" : null,
+    "LifeCycleState" : "available",
+    "MountTargetId" : "fsmt-e88f9792c4fb4a5fa",
+    "NetworkInterfaceId" : "eni-fa3503b8bd7045128",
+    "OwnerId" : null,
+    "SecurityGroups" : [ "sg-210081ea802317e32" ],
+    "SubnetId" : "subnet-97ae316f",
+    "VpcId" : "vpc-12345678"
+  }
+}

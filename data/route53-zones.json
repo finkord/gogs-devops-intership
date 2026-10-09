@@ -1,0 +1,12 @@
+{
+  "000000000000/Z0JQNFM15JY0N58" : {
+    "id" : "Z0JQNFM15JY0N58",
+    "name" : "awsgogs.pp.ua.",
+    "callerReference" : "terraform-20261009093426006500000001",
+    "comment" : "Managed by Terraform",
+    "ownerAccountId" : "000000000000",
+    "privateZone" : false,
+    "resourceRecordSetCount" : 6,
+    "vpcAssociations" : [ ]
+  }
+}

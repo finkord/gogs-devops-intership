@@ -1,0 +1,19 @@
+{
+  "000000000000/ECSTaskExecutionRole" : {
+    "roleId" : "AROAXX6S82SD423P3E4D",
+    "roleName" : "ECSTaskExecutionRole",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:role/ECSTaskExecutionRole",
+    "assumeRolePolicyDocument" : "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ecs-tasks.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2008-10-17\"}",
+    "description" : null,
+    "maxSessionDuration" : 3600,
+    "createDate" : "2026-10-09T09:35:10.217414675Z",
+    "tags" : { },
+    "attachedPolicyArns" : [ "arn:aws:iam::000000000000:policy/CloudWatchLogsFullAccess", "arn:aws:iam::000000000000:policy/AmazonECSTaskExecutionRolePolicy" ],
+    "inlinePolicies" : {
+      "AllowGetSSMParameters" : "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ssm:GetParameters\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_TRACES_TOKEN\",\"arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_METRICS_TOKEN\",\"arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_LOGS_TOKEN\",\"arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_ACCESS_TOKEN\",\"arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_URL\",\"arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_INGEST_URL\",\"arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_API_URL\"]}]}"
+    },
+    "permissionsBoundaryArn" : null,
+    "serviceLinkedRole" : false
+  }
+}

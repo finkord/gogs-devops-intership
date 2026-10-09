@@ -1,0 +1,66 @@
+{
+  "000000000000/us-east-1::ecs::ecs:service:DesiredCount::service/gogs-cluster/gogs-service::cpu-scaling" : {
+    "policyArn" : "arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ae38d51f-ee7b-4b5f-87bd-ba2dd4ab082e:resource/ecs/service/gogs-cluster/gogs-service:policyName/cpu-scaling",
+    "policyName" : "cpu-scaling",
+    "policyType" : "TargetTrackingScaling",
+    "serviceNamespace" : "ecs",
+    "resourceId" : "service/gogs-cluster/gogs-service",
+    "scalableDimension" : "ecs:service:DesiredCount",
+    "creationTime" : 1.79153880781E9,
+    "alarms" : [ {
+      "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0bf3729b-f6c8-45c8-92b6-69a19fa9b806",
+      "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0bf3729b-f6c8-45c8-92b6-69a19fa9b806"
+    }, {
+      "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-b22edf79-9fa1-4eef-8d37-81d8d8dd809b",
+      "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-b22edf79-9fa1-4eef-8d37-81d8d8dd809b"
+    } ],
+    "targetTrackingConfiguration" : {
+      "targetValue" : 60.0,
+      "predefinedMetricSpecification" : {
+        "predefinedMetricType" : "ECSServiceAverageCPUUtilization",
+        "resourceLabel" : null
+      },
+      "customizedMetricSpecification" : null,
+      "disableScaleIn" : false,
+      "scaleInCooldown" : 60,
+      "scaleOutCooldown" : 60
+    },
+    "stepScalingConfiguration" : null,
+    "lastScaleOutTime" : 0.0,
+    "lastScaleInTime" : 0.0,
+    "lastAppliedCapacity" : null,
+    "lastScaleOutCapacity" : null
+  },
+  "000000000000/us-east-1::ecs::ecs:service:DesiredCount::service/gogs-cluster/gogs-service::memory-scaling" : {
+    "policyArn" : "arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:ffe6922a-bc62-44e4-9f48-3e7e33a4dc6e:resource/ecs/service/gogs-cluster/gogs-service:policyName/memory-scaling",
+    "policyName" : "memory-scaling",
+    "policyType" : "TargetTrackingScaling",
+    "serviceNamespace" : "ecs",
+    "resourceId" : "service/gogs-cluster/gogs-service",
+    "scalableDimension" : "ecs:service:DesiredCount",
+    "creationTime" : 1.79153880781E9,
+    "alarms" : [ {
+      "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0aa42f83-4573-4208-8d38-5e35e5b8ee80",
+      "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmHigh-0aa42f83-4573-4208-8d38-5e35e5b8ee80"
+    }, {
+      "alarmName" : "TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-9f8de0fd-368c-4bf6-95ad-e9304957ae23",
+      "alarmArn" : "arn:aws:cloudwatch:us-east-1:000000000000:alarm:TargetTracking-service/gogs-cluster/gogs-service-AlarmLow-9f8de0fd-368c-4bf6-95ad-e9304957ae23"
+    } ],
+    "targetTrackingConfiguration" : {
+      "targetValue" : 70.0,
+      "predefinedMetricSpecification" : {
+        "predefinedMetricType" : "ECSServiceAverageMemoryUtilization",
+        "resourceLabel" : null
+      },
+      "customizedMetricSpecification" : null,
+      "disableScaleIn" : false,
+      "scaleInCooldown" : 60,
+      "scaleOutCooldown" : 60
+    },
+    "stepScalingConfiguration" : null,
+    "lastScaleOutTime" : 0.0,
+    "lastScaleInTime" : 0.0,
+    "lastAppliedCapacity" : null,
+    "lastScaleOutCapacity" : null
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "000000000000/us-east-1::igw-de8bdf4f" : {
+    "internetGatewayId" : "igw-de8bdf4f",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "attachments" : [ {
+      "vpcId" : "vpc-016449a8",
+      "state" : "available"
+    } ],
+    "tags" : [ {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc"
+    }, {
+      "key" : "Terraform",
+      "value" : "true"
+    } ]
+  },
+  "000000000000/us-east-1::igw-default" : {
+    "internetGatewayId" : "igw-default",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "attachments" : [ {
+      "vpcId" : "vpc-default-us-east-1",
+      "state" : "available"
+    } ],
+    "tags" : [ ]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "000000000000/gogs-task:1" : {
+    "taskDefinitionArn" : "arn:aws:ecs:us-east-1:000000000000:task-definition/gogs-task:1",
+    "family" : "gogs-task",
+    "revision" : 1,
+    "status" : "INACTIVE",
+    "networkMode" : "awsvpc",
+    "cpu" : "256",
+    "memory" : "512",
+    "taskRoleArn" : null,
+    "executionRoleArn" : "arn:aws:iam::000000000000:role/ECSTaskExecutionRole",
+    "containerDefinitions" : [ {
+      "name" : "gogs",
+      "image" : "finkord/gogs-dev:latest",
+      "cpu" : 256,
+      "memory" : 512,
+      "memoryReservation" : null,
+      "essential" : true,
+      "portMappings" : [ {
+        "containerPort" : 3000,
+        "hostPort" : 0,
+        "protocol" : "tcp"
+      } ],
+      "environment" : [ {
+        "name" : "GOGS_DB_HOST",
+        "value" : "172.19.0.2"
+      }, {
+        "name" : "GOGS_DB_PORT",
+        "value" : "5432"
+      }, {
+        "name" : "GOGS_DB_USER",
+        "value" : "gogs"
+      }, {
+        "name" : "GOGS_DB_PASSWORD",
+        "value" : "7F_I$:9ip8wx5oZO"
+      }, {
+        "name" : "GOGS_DB_NAME",
+        "value" : "gogs"
+      }, {
+        "name" : "GOGS_DOMAIN",
+        "value" : "awsgogs.pp.ua"
+      }, {
+        "name" : "GOGS_EXTERNAL_URL",
+        "value" : "http://awsgogs.pp.ua/"
+      }, {
+        "name" : "SPLUNK_MEMORY_LIMIT_MIB",
+        "value" : "512"
+      } ],
+      "secrets" : null,
+      "command" : null,
+      "entryPoint" : null,
+      "mountPoints" : [ {
+        "sourceVolume" : "efs-volume",
+        "containerPath" : "/data",
+        "readOnly" : false
+      } ],
+      "logConfiguration" : null,
+      "healthCheck" : null
+    } ],
+    "volumes" : [ {
+      "name" : "efs-volume",
+      "hostSourcePath" : null,
+      "efs" : {
+        "fileSystemId" : "fs-b42aab4dd9494296b",
+        "rootDirectory" : "/",
+        "transitEncryption" : "ENABLED",
+        "transitEncryptionPort" : null,
+        "accessPointId" : null,
+        "iam" : null
+      }
+    } ],
+    "runtimePlatform" : null,
+    "requiresCompatibilities" : [ "FARGATE" ],
+    "compatibilities" : [ "FARGATE" ],
+    "tags" : { }
+  },
+  "000000000000/gogs-task:2" : {
+    "taskDefinitionArn" : "arn:aws:ecs:us-east-1:000000000000:task-definition/gogs-task:2",
+    "family" : "gogs-task",
+    "revision" : 2,
+    "status" : "ACTIVE",
+    "networkMode" : "awsvpc",
+    "cpu" : "256",
+    "memory" : "512",
+    "taskRoleArn" : null,
+    "executionRoleArn" : "arn:aws:iam::000000000000:role/ECSTaskExecutionRole",
+    "containerDefinitions" : [ {
+      "name" : "gogs",
+      "image" : "finkord/gogs-dev:latest",
+      "cpu" : 256,
+      "memory" : 512,
+      "memoryReservation" : null,
+      "essential" : true,
+      "portMappings" : [ {
+        "containerPort" : 3000,
+        "hostPort" : 0,
+        "protocol" : "tcp"
+      } ],
+      "environment" : [ {
+        "name" : "GOGS_DB_HOST",
+        "value" : "172.19.0.2"
+      }, {
+        "name" : "GOGS_DB_PORT",
+        "value" : "5432"
+      }, {
+        "name" : "GOGS_DB_USER",
+        "value" : "gogs"
+      }, {
+        "name" : "GOGS_DB_PASSWORD",
+        "value" : "7F_I$:9ip8wx5oZO"
+      }, {
+        "name" : "GOGS_DB_NAME",
+        "value" : "gogs"
+      }, {
+        "name" : "GOGS_DOMAIN",
+        "value" : "awsgogs.pp.ua"
+      }, {
+        "name" : "GOGS_EXTERNAL_URL",
+        "value" : "https://awsgogs.pp.ua/"
+      }, {
+        "name" : "SPLUNK_MEMORY_LIMIT_MIB",
+        "value" : "512"
+      } ],
+      "secrets" : null,
+      "command" : null,
+      "entryPoint" : null,
+      "mountPoints" : [ {
+        "sourceVolume" : "efs-volume",
+        "containerPath" : "/data",
+        "readOnly" : false
+      } ],
+      "logConfiguration" : null,
+      "healthCheck" : null
+    } ],
+    "volumes" : [ {
+      "name" : "efs-volume",
+      "hostSourcePath" : null,
+      "efs" : {
+        "fileSystemId" : "fs-b42aab4dd9494296b",
+        "rootDirectory" : "/",
+        "transitEncryption" : "ENABLED",
+        "transitEncryptionPort" : null,
+        "accessPointId" : null,
+        "iam" : null
+      }
+    } ],
+    "runtimePlatform" : null,
+    "requiresCompatibilities" : [ "FARGATE" ],
+    "compatibilities" : [ "FARGATE" ],
+    "tags" : { }
+  }
+}

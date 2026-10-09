@@ -1,0 +1,58 @@
+{
+  "000000000000/us-east-1" : {
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae" : {
+      "listenerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae",
+      "loadBalancerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/gogs-alb/fa7567cc2e064392",
+      "port" : 80,
+      "protocol" : "HTTP",
+      "certificates" : [ ],
+      "sslPolicy" : null,
+      "defaultActions" : [ {
+        "type" : "forward",
+        "order" : 1,
+        "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485",
+        "targetGroups" : [ ],
+        "stickinessEnabled" : null,
+        "stickinessDurationSeconds" : null,
+        "redirectProtocol" : null,
+        "redirectPort" : null,
+        "redirectHost" : null,
+        "redirectPath" : null,
+        "redirectQuery" : null,
+        "redirectStatusCode" : null,
+        "fixedResponseStatusCode" : null,
+        "fixedResponseContentType" : null,
+        "fixedResponseMessageBody" : null
+      } ],
+      "alpnPolicy" : [ ],
+      "attributes" : { }
+    },
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66" : {
+      "listenerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66",
+      "loadBalancerArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/gogs-alb/fa7567cc2e064392",
+      "port" : 443,
+      "protocol" : "HTTPS",
+      "certificates" : [ "arn:aws:acm:us-east-1:000000000000:certificate/be05aa8e-420b-4eb4-a63b-c27d35be4e23" ],
+      "sslPolicy" : "ELBSecurityPolicy-2016-08",
+      "defaultActions" : [ {
+        "type" : "forward",
+        "order" : 1,
+        "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485",
+        "targetGroups" : [ ],
+        "stickinessEnabled" : null,
+        "stickinessDurationSeconds" : null,
+        "redirectProtocol" : null,
+        "redirectPort" : null,
+        "redirectHost" : null,
+        "redirectPath" : null,
+        "redirectQuery" : null,
+        "redirectStatusCode" : null,
+        "fixedResponseStatusCode" : null,
+        "fixedResponseContentType" : null,
+        "fixedResponseMessageBody" : null
+      } ],
+      "alpnPolicy" : [ ],
+      "attributes" : { }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "000000000000/C52HHJ5T01EPX4" : {
+    "id" : "C52HHJ5T01EPX4",
+    "status" : "INSYNC",
+    "submittedAt" : "2026-10-09T09:34:41.084461556Z",
+    "comment" : "Managed by Terraform"
+  },
+  "000000000000/CEEWP2UGUC6VP9" : {
+    "id" : "CEEWP2UGUC6VP9",
+    "status" : "INSYNC",
+    "submittedAt" : "2026-10-09T09:38:55.819038923Z",
+    "comment" : "Managed by Terraform"
+  },
+  "000000000000/CGTZ5HM1D8DSPC" : {
+    "id" : "CGTZ5HM1D8DSPC",
+    "status" : "INSYNC",
+    "submittedAt" : "2026-10-09T09:34:41.084562535Z",
+    "comment" : "Managed by Terraform"
+  },
+  "000000000000/CDWOHVU3QZOND8" : {
+    "id" : "CDWOHVU3QZOND8",
+    "status" : "INSYNC",
+    "submittedAt" : "2026-10-09T09:34:26.018925769Z",
+    "comment" : null
+  },
+  "000000000000/CDVH12PW94E5AN" : {
+    "id" : "CDVH12PW94E5AN",
+    "status" : "INSYNC",
+    "submittedAt" : "2026-10-09T09:38:55.819073047Z",
+    "comment" : "Managed by Terraform"
+  }
+}

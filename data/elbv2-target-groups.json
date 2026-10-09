@@ -1,0 +1,65 @@
+{
+  "000000000000/us-east-1" : {
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/jenkins-tg/7552f20cd5e3402b" : {
+      "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/jenkins-tg/7552f20cd5e3402b",
+      "targetGroupName" : "jenkins-tg",
+      "protocol" : "HTTP",
+      "protocolVersion" : "",
+      "port" : 8080,
+      "vpcId" : "vpc-016449a8",
+      "healthCheckProtocol" : "HTTP",
+      "healthCheckPort" : "traffic-port",
+      "healthCheckEnabled" : true,
+      "healthCheckIntervalSeconds" : 30,
+      "healthCheckTimeoutSeconds" : 5,
+      "healthyThresholdCount" : 2,
+      "unhealthyThresholdCount" : 3,
+      "healthCheckPath" : "/login",
+      "matcher" : "200",
+      "loadBalancerArns" : [ "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/gogs-alb/fa7567cc2e064392" ],
+      "targetType" : "instance",
+      "ipAddressType" : "ipv4",
+      "region" : "us-east-1",
+      "attributes" : {
+        "deregistration_delay.timeout_seconds" : "300"
+      },
+      "targets" : [ ]
+    },
+    "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485" : {
+      "targetGroupArn" : "arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485",
+      "targetGroupName" : "gogs-tg",
+      "protocol" : "HTTP",
+      "protocolVersion" : "",
+      "port" : 3000,
+      "vpcId" : "vpc-016449a8",
+      "healthCheckProtocol" : "HTTP",
+      "healthCheckPort" : "traffic-port",
+      "healthCheckEnabled" : true,
+      "healthCheckIntervalSeconds" : 30,
+      "healthCheckTimeoutSeconds" : 5,
+      "healthyThresholdCount" : 2,
+      "unhealthyThresholdCount" : 3,
+      "healthCheckPath" : "/",
+      "matcher" : "200",
+      "loadBalancerArns" : [ "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/gogs-alb/fa7567cc2e064392" ],
+      "targetType" : "ip",
+      "ipAddressType" : "ipv4",
+      "region" : "us-east-1",
+      "attributes" : {
+        "stickiness.enabled" : "true",
+        "stickiness.type" : "lb_cookie",
+        "stickiness.lb_cookie.duration_seconds" : "86400",
+        "deregistration_delay.timeout_seconds" : "300"
+      },
+      "targets" : [ {
+        "id" : "172.19.0.7",
+        "port" : 3000,
+        "availabilityZone" : null
+      }, {
+        "id" : "172.19.0.6",
+        "port" : 3000,
+        "availabilityZone" : null
+      } ]
+    }
+  }
+}

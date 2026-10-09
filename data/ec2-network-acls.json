@@ -1,0 +1,139 @@
+{
+  "000000000000/us-east-1::acl-default" : {
+    "networkAclId" : "acl-default",
+    "vpcId" : "vpc-default-us-east-1",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "entries" : [ {
+      "ruleNumber" : 100,
+      "protocol" : "-1",
+      "ruleAction" : "allow",
+      "egress" : false,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : null,
+      "portRangeTo" : null
+    }, {
+      "ruleNumber" : 32767,
+      "protocol" : "-1",
+      "ruleAction" : "deny",
+      "egress" : false,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : null,
+      "portRangeTo" : null
+    }, {
+      "ruleNumber" : 100,
+      "protocol" : "-1",
+      "ruleAction" : "allow",
+      "egress" : true,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : null,
+      "portRangeTo" : null
+    }, {
+      "ruleNumber" : 32767,
+      "protocol" : "-1",
+      "ruleAction" : "deny",
+      "egress" : true,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : null,
+      "portRangeTo" : null
+    } ],
+    "associations" : [ {
+      "networkAclAssociationId" : "aclassoc-subnet-default-us-east-1-a",
+      "networkAclId" : "acl-default",
+      "subnetId" : "subnet-default-us-east-1-a"
+    }, {
+      "networkAclAssociationId" : "aclassoc-subnet-default-us-east-1-b",
+      "networkAclId" : "acl-default",
+      "subnetId" : "subnet-default-us-east-1-b"
+    }, {
+      "networkAclAssociationId" : "aclassoc-subnet-default-us-east-1-c",
+      "networkAclId" : "acl-default",
+      "subnetId" : "subnet-default-us-east-1-c"
+    } ],
+    "tags" : [ ],
+    "default" : true
+  },
+  "000000000000/us-east-1::acl-b07a37bb95432474d" : {
+    "networkAclId" : "acl-b07a37bb95432474d",
+    "vpcId" : "vpc-016449a8",
+    "ownerId" : "000000000000",
+    "region" : "us-east-1",
+    "entries" : [ {
+      "ruleNumber" : 32767,
+      "protocol" : "-1",
+      "ruleAction" : "deny",
+      "egress" : false,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : null,
+      "portRangeTo" : null
+    }, {
+      "ruleNumber" : 32767,
+      "protocol" : "-1",
+      "ruleAction" : "deny",
+      "egress" : true,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : null,
+      "portRangeTo" : null
+    }, {
+      "ruleNumber" : 100,
+      "protocol" : "-1",
+      "ruleAction" : "allow",
+      "egress" : true,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : 0,
+      "portRangeTo" : 0
+    }, {
+      "ruleNumber" : 101,
+      "protocol" : "-1",
+      "ruleAction" : "allow",
+      "egress" : true,
+      "cidrBlock" : null,
+      "portRangeFrom" : 0,
+      "portRangeTo" : 0
+    }, {
+      "ruleNumber" : 100,
+      "protocol" : "-1",
+      "ruleAction" : "allow",
+      "egress" : false,
+      "cidrBlock" : "0.0.0.0/0",
+      "portRangeFrom" : 0,
+      "portRangeTo" : 0
+    }, {
+      "ruleNumber" : 101,
+      "protocol" : "-1",
+      "ruleAction" : "allow",
+      "egress" : false,
+      "cidrBlock" : null,
+      "portRangeFrom" : 0,
+      "portRangeTo" : 0
+    } ],
+    "associations" : [ {
+      "networkAclAssociationId" : "aclassoc-0e27bdfc9fa0348ab",
+      "networkAclId" : "acl-b07a37bb95432474d",
+      "subnetId" : "subnet-a4c0c6e2"
+    }, {
+      "networkAclAssociationId" : "aclassoc-c72f4f3a9bfc6ac9e",
+      "networkAclId" : "acl-b07a37bb95432474d",
+      "subnetId" : "subnet-45000295"
+    }, {
+      "networkAclAssociationId" : "aclassoc-340d78af72d2f0582",
+      "networkAclId" : "acl-b07a37bb95432474d",
+      "subnetId" : "subnet-e94d50a1"
+    }, {
+      "networkAclAssociationId" : "aclassoc-93d5a4ba4b6d9d417",
+      "networkAclId" : "acl-b07a37bb95432474d",
+      "subnetId" : "subnet-97ae316f"
+    } ],
+    "tags" : [ {
+      "key" : "Environment",
+      "value" : "dev"
+    }, {
+      "key" : "Terraform",
+      "value" : "true"
+    }, {
+      "key" : "Name",
+      "value" : "gogs-vpc-default"
+    } ],
+    "default" : true
+  }
+}

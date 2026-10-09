@@ -1,0 +1,18 @@
+{
+  "000000000000/us-east-1::ecs::ecs:service:DesiredCount::service/gogs-cluster/gogs-service" : {
+    "serviceNamespace" : "ecs",
+    "resourceId" : "service/gogs-cluster/gogs-service",
+    "scalableDimension" : "ecs:service:DesiredCount",
+    "minCapacity" : 1,
+    "maxCapacity" : 3,
+    "roleArn" : "arn:aws:iam::000000000000:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+    "scalableTargetArn" : "arn:aws:application-autoscaling:us-east-1:000000000000:scalable-target/2574c9f565e949669104449e3457e997",
+    "creationTime" : 1.791538807796E9,
+    "suspendedState" : {
+      "dynamicScalingInSuspended" : false,
+      "dynamicScalingOutSuspended" : false,
+      "scheduledScalingSuspended" : false
+    },
+    "tags" : { }
+  }
+}

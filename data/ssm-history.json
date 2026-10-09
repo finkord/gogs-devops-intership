@@ -1,0 +1,47 @@
+{
+  "000000000000/us-east-1::/rds/gogs/db_password" : [ {
+    "Name" : "/rds/gogs/db_password",
+    "Version" : 1,
+    "Value" : "7F_I$:9ip8wx5oZO",
+    "Type" : "SecureString",
+    "LastModifiedDate" : "2026-10-09T09:32:02.883428063Z",
+    "Description" : "RDS database password for project gogs",
+    "Labels" : [ ]
+  } ],
+  "000000000000/us-east-1::/rds/gogs/db_username" : [ {
+    "Name" : "/rds/gogs/db_username",
+    "Version" : 1,
+    "Value" : "gogs",
+    "Type" : "String",
+    "LastModifiedDate" : "2026-10-09T09:32:02.883432081Z",
+    "Description" : "RDS database username",
+    "Labels" : [ ]
+  } ],
+  "000000000000/us-east-1::/rds/gogs/db_port" : [ {
+    "Name" : "/rds/gogs/db_port",
+    "Version" : 1,
+    "Value" : "5432",
+    "Type" : "String",
+    "LastModifiedDate" : "2026-10-09T09:33:25.947000542Z",
+    "Description" : "RDS database port",
+    "Labels" : [ ]
+  } ],
+  "000000000000/us-east-1::/rds/gogs/db_host" : [ {
+    "Name" : "/rds/gogs/db_host",
+    "Version" : 1,
+    "Value" : "172.19.0.2",
+    "Type" : "String",
+    "LastModifiedDate" : "2026-10-09T09:33:25.947054603Z",
+    "Description" : "RDS database endpoint",
+    "Labels" : [ ]
+  } ],
+  "000000000000/us-east-1::/rds/gogs/db_name" : [ {
+    "Name" : "/rds/gogs/db_name",
+    "Version" : 1,
+    "Value" : "gogs",
+    "Type" : "String",
+    "LastModifiedDate" : "2026-10-09T09:32:02.883428073Z",
+    "Description" : "RDS database name",
+    "Labels" : [ ]
+  } ]
+}

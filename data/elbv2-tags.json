@@ -1,0 +1,27 @@
+{
+  "000000000000/arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/gogs-tg/36a23eead8e84485" : {
+    "Environment" : "dev",
+    "Name" : "gogs-tg"
+  },
+  "000000000000/arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66/5918f63103ce4179" : {
+    "Name" : "jenkins-host-header-rule"
+  },
+  "000000000000/arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/8b82a2f27bd24b66" : {
+    "Environment" : "dev",
+    "Name" : "gogs-alb-listener-https"
+  },
+  "000000000000/arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/gogs-alb/fa7567cc2e064392" : {
+    "Environment" : "dev",
+    "Name" : "gogs-alb"
+  },
+  "000000000000/arn:aws:elasticloadbalancing:us-east-1:000000000000:targetgroup/jenkins-tg/7552f20cd5e3402b" : {
+    "Name" : "jenkins-tg"
+  },
+  "000000000000/arn:aws:elasticloadbalancing:us-east-1:000000000000:listener/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae" : {
+    "Environment" : "dev",
+    "Name" : "gogs-alb-listener-http"
+  },
+  "000000000000/arn:aws:elasticloadbalancing:us-east-1:000000000000:listener-rule/app/gogs-alb/fa7567cc2e064392/7a16f6aa7ba04dae/3dcbced690134352" : {
+    "Name" : "jenkins-lb-listener-rule-redirect-http-to-https"
+  }
+}
