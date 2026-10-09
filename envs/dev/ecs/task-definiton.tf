@@ -56,11 +56,11 @@ resource "aws_ecs_task_definition" "gogs_task" {
         },
         {
           name  = "GOGS_DOMAIN"
-          value = "awsgogs.pp.ua"
+          value = "172.17.0.2"
         },
         {
           name  = "GOGS_EXTERNAL_URL"
-          value = "https://awsgogs.pp.ua/"
+          value = "http://172.17.0.2/"
         },
         {
           name  = "SPLUNK_MEMORY_LIMIT_MIB"
