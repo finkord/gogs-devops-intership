@@ -62,23 +62,23 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-# resource "aws_lb_listener" "https" {
-#   load_balancer_arn = aws_lb.this.arn
-#   port              = 443
-#   protocol          = "HTTPS"
-#   ssl_policy        = var.ssl_policy
-#   certificate_arn   = var.certificate_arn
+resource "aws_lb_listener" "https" {
+  load_balancer_arn = aws_lb.this.arn
+  port              = 443
+  protocol          = "HTTPS"
+  ssl_policy        = var.ssl_policy
+  certificate_arn   = var.certificate_arn
 
-#   default_action {
-#     type             = "forward"
-#     target_group_arn = aws_lb_target_group.gogs.arn
-#   }
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.gogs.arn
+  }
 
-#   tags = {
-#     Environment = var.env
-#     Name        = "${var.alb_name}-listener-https"
-#   }
-# }
+  tags = {
+    Environment = var.env
+    Name        = "${var.alb_name}-listener-https"
+  }
+}
 
 # resource "aws_lb_listener_rule" "redirect_http_to_https" {
 #   listener_arn = aws_lb_listener.http.arn
@@ -106,31 +106,31 @@ resource "aws_lb_listener" "http" {
 #   }
 # }
 
-# resource "aws_route53_record" "alb_record" {
-#   zone_id = var.route53_zone_id
-#   name    = var.domain_name
-#   type    = "A"
+resource "aws_route53_record" "alb_record" {
+  zone_id = var.route53_zone_id
+  name    = var.domain_name
+  type    = "A"
 
-#   alias {
-#     name                   = aws_lb.this.dns_name
-#     zone_id                = aws_lb.this.zone_id
-#     evaluate_target_health = true
-#   }
-# }
+  alias {
+    name                   = aws_lb.this.dns_name
+    zone_id                = aws_lb.this.zone_id
+    evaluate_target_health = true
+  }
+}
 
-# resource "aws_route53_record" "jenkins_alb_record" {
-#   count = var.enable_jenkins ? 1 : 0
+resource "aws_route53_record" "jenkins_alb_record" {
+  count = var.enable_jenkins ? 1 : 0
 
-#   zone_id = var.route53_zone_id
-#   name    = var.jenkins_domain_name
-#   type    = "A"
+  zone_id = var.route53_zone_id
+  name    = var.jenkins_domain_name
+  type    = "A"
 
-#   alias {
-#     name                   = aws_lb.this.dns_name
-#     zone_id                = aws_lb.this.zone_id
-#     evaluate_target_health = true
-#   }
-# }
+  alias {
+    name                   = aws_lb.this.dns_name
+    zone_id                = aws_lb.this.zone_id
+    evaluate_target_health = true
+  }
+}
 
 resource "aws_lb_target_group" "jenkins" {
   count = var.enable_jenkins ? 1 : 0
@@ -182,25 +182,25 @@ resource "aws_lb_listener_rule" "jenkins_redirect_http_to_https" {
   }
 }
 
-# resource "aws_lb_listener_rule" "jenkins_host_rule" {
-#   count        = var.enable_jenkins ? 1 : 0
-#   listener_arn = aws_lb_listener.https.arn
-#   priority     = var.jenkins_host_rule_priority
+resource "aws_lb_listener_rule" "jenkins_host_rule" {
+  count        = var.enable_jenkins ? 1 : 0
+  listener_arn = aws_lb_listener.https.arn
+  priority     = var.jenkins_host_rule_priority
 
-#   action {
-#     type             = "forward"
-#     target_group_arn = aws_lb_target_group.jenkins[0].arn
-#   }
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.jenkins[0].arn
+  }
 
-#   condition {
-#     host_header {
-#       values = [var.jenkins_domain_name]
-#     }
-#   }
+  condition {
+    host_header {
+      values = [var.jenkins_domain_name]
+    }
+  }
 
-#   depends_on = [aws_lb_target_group.jenkins]
+  depends_on = [aws_lb_target_group.jenkins]
 
-#   tags = {
-#     Name = "jenkins-host-header-rule"
-#   }
-# }
+  tags = {
+    Name = "jenkins-host-header-rule"
+  }
+}

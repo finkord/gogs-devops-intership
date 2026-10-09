@@ -93,17 +93,17 @@ variable "ssl_policy" {
   default = "ELBSecurityPolicy-2016-08"
 }
 
-# variable "certificate_arn" {
-#   type = string
-# }
+variable "certificate_arn" {
+  type = string
+}
 
-# variable "domain_name" {
-#   type = string
-# }
+variable "domain_name" {
+  type = string
+}
 
-# variable "route53_zone_id" {
-#   type = string
-# }
+variable "route53_zone_id" {
+  type = string
+}
 
 # Jenkins variables
 

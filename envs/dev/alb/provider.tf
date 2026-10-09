@@ -21,5 +21,7 @@ provider "aws" {
     ec2            = "http://localhost:4566"
     elbv2          = "http://localhost:4566"
     elb            = "http://localhost:4566"
+    route53        = "http://localhost:4566"
+    acm            = "http://localhost:4566"
   }
 }
