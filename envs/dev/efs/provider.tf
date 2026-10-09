@@ -19,5 +19,6 @@ provider "aws" {
     ecr            = "http://localhost:4566"
     sts            = "http://localhost:4566"
     ec2            = "http://localhost:4566"
+    efs            = "http://localhost:4566"
   }
 }
