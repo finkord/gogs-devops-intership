@@ -8,10 +8,10 @@ output "alb_dns_name" {
   value       = module.alb.alb_dns_name
 }
 
-output "alb_zone_id" {
-  description = "Route53 zone ID to use in alias"
-  value       = module.alb.alb_zone_id
-}
+# output "alb_zone_id" {
+#   description = "Route53 zone ID to use in alias"
+#   value       = module.alb.alb_zone_id
+# }
 
 output "gogs_target_group_arn" {
   value = module.alb.gogs_target_group_arn

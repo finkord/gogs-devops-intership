@@ -1,5 +1,6 @@
 module "ecr" {
-  source = "terraform-aws-modules/ecr/aws"
+  source  = "terraform-aws-modules/ecr/aws"
+  version = "~> 2.0"
 
   repository_name                 = "gogs/test"
   repository_type                 = "private"

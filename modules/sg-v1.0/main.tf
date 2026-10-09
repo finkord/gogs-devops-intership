@@ -1,5 +1,6 @@
 module "endpoints_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.0"
 
   name   = "${var.vpc_name}-endpoints-sg"
   vpc_id = var.vpc_id
@@ -15,7 +16,8 @@ module "endpoints_sg" {
 }
 
 module "alb_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.0"
 
   name   = "${var.vpc_name}-alb-sg"
   vpc_id = var.vpc_id
@@ -53,7 +55,8 @@ module "alb_sg" {
 }
 
 module "ecs_tasks_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.0"
 
   name   = "${var.vpc_name}-ecs-tasks-sg"
   vpc_id = var.vpc_id
@@ -93,7 +96,8 @@ module "ecs_tasks_sg" {
 }
 
 module "rds_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.0"
 
   name   = "${var.vpc_name}-rds-sg"
   vpc_id = var.vpc_id
@@ -115,7 +119,8 @@ module "rds_sg" {
 }
 
 module "efs_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.0"
 
   name   = "${var.vpc_name}-efs-sg"
   vpc_id = var.vpc_id
@@ -140,7 +145,8 @@ module "efs_sg" {
 #   JENKINS   #
 ###############
 module "jenkins_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.3.0"
 
   name   = "${var.vpc_name}-jenkins-sg"
   vpc_id = var.vpc_id
