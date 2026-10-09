@@ -21,8 +21,9 @@ resource "aws_ecs_task_definition" "gogs_task" {
 
   container_definitions = jsonencode([
     {
-      name      = "gogs"
-      image     = "416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/test:latest"
+      name = "gogs"
+      # image     = "416929699302.dkr.ecr.us-east-1.amazonaws.com/gogs/test:latest"
+      image     = "finkord/gogs-dev:latest"
       cpu       = 256
       memory    = 512
       essential = true
@@ -67,36 +68,36 @@ resource "aws_ecs_task_definition" "gogs_task" {
         }
       ]
 
-      secrets = [
-        {
-          name      = "SPLUNK_HEC_TRACES_TOKEN"
-          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_TRACES_TOKEN"
-        },
-        {
-          name      = "SPLUNK_HEC_METRICS_TOKEN"
-          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_METRICS_TOKEN"
-        },
-        {
-          name      = "SPLUNK_HEC_LOGS_TOKEN"
-          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_LOGS_TOKEN"
-        },
-        {
-          name      = "SPLUNK_ACCESS_TOKEN"
-          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_ACCESS_TOKEN"
-        },
-        {
-          name      = "SPLUNK_HEC_URL"
-          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_URL"
-        },
-        {
-          name      = "SPLUNK_INGEST_URL"
-          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_INGEST_URL"
-        },
-        {
-          name      = "SPLUNK_API_URL"
-          valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_API_URL"
-        }
-      ]
+      # secrets = [
+      #   {
+      #     name      = "SPLUNK_HEC_TRACES_TOKEN"
+      #     valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_TRACES_TOKEN"
+      #   },
+      #   {
+      #     name      = "SPLUNK_HEC_METRICS_TOKEN"
+      #     valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_METRICS_TOKEN"
+      #   },
+      #   {
+      #     name      = "SPLUNK_HEC_LOGS_TOKEN"
+      #     valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_LOGS_TOKEN"
+      #   },
+      #   {
+      #     name      = "SPLUNK_ACCESS_TOKEN"
+      #     valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_ACCESS_TOKEN"
+      #   },
+      #   {
+      #     name      = "SPLUNK_HEC_URL"
+      #     valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_HEC_URL"
+      #   },
+      #   {
+      #     name      = "SPLUNK_INGEST_URL"
+      #     valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_INGEST_URL"
+      #   },
+      #   {
+      #     name      = "SPLUNK_API_URL"
+      #     valueFrom = "arn:aws:ssm:us-east-1:416929699302:parameter/SPLUNK_API_URL"
+      #   }
+      # ]
 
       mountPoints = [
         {
